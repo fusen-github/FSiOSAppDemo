@@ -10,7 +10,8 @@
 #import "FSDetailController01.h"
 #import "FSDetailController02.h"
 #import "FSDetailController03.h"
-#import "FSMasterHeader.h"
+#import "FSMasterSearchResultController.h"
+
 
 
 @interface FSMasterController ()<UITableViewDelegate,UITableViewDataSource>
@@ -30,7 +31,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBarHidden = YES;
+    self.title = @"Master";
+    
+    if (@available(iOS 11.0, *))
+    {
+        self.navigationController.navigationBar.prefersLargeTitles = YES;
+        
+        NSMutableDictionary *largeTitleTextAttributes = [NSMutableDictionary dictionary];
+        
+        [largeTitleTextAttributes setObject:[UIColor redColor] forKey:NSForegroundColorAttributeName];
+        
+        self.navigationController.navigationBar.largeTitleTextAttributes = largeTitleTextAttributes;
+        
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAlways;
+        
+        FSMasterSearchResultController *searchResultController = [[FSMasterSearchResultController alloc] init];
+        
+        UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultController];
+        
+        self.navigationItem.searchController = searchController;
+        
+        self.navigationItem.hidesSearchBarWhenScrolling = NO;
+    }
     
     self.dataArray = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",
                        @"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",
@@ -44,7 +66,7 @@
                        @"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",
                        @"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",];
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    UITableView *tableView = [[UITableView alloc] init];
     
     self.tableView = tableView;
     
@@ -56,6 +78,8 @@
     
     tableView.dataSource = self;
     
+    tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
     [self.view addSubview:tableView];
     
     UIView *rightLine = [[UIView alloc] init];
@@ -64,7 +88,7 @@
     
     rightLine.backgroundColor = UIColorFromRGB(0x8E8E93);
     
-    [self.view addSubview:rightLine];
+    [self.navigationController.view addSubview:rightLine];
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     
@@ -82,6 +106,13 @@
     [self tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    self.navigationItem.hidesSearchBarWhenScrolling = YES;
+}
+
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
@@ -92,10 +123,12 @@
     
     CGFloat lineW = 0.5;
     
-    self.tableView.frame = CGRectMake(0, -20, width - lineW, height + 20);
+    self.tableView.frame = self.view.bounds;
 
     self.rightLine.frame = CGRectMake(width - lineW, 0, lineW, height);
 }
+
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -129,7 +162,7 @@
     {
         cell.textLabel.textColor = [UIColor whiteColor];
         
-        cell.contentView.backgroundColor = [UIColor blueColor];
+        cell.contentView.backgroundColor = [UIColor lightGrayColor];
     }
     
     cell.textLabel.text = [NSString stringWithFormat:@"fs - %ld",(indexPath.row + 1)];
@@ -137,22 +170,14 @@
     return cell;
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 20;
+}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *view = [[UIView alloc] init];
-    
-    // F5F5F7
-    
-    view.backgroundColor = UIColorFromRGB(0xF5F5F7);
-    
-    return view;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 100;
+    return [UIView new];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

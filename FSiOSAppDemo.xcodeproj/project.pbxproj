@@ -13,6 +13,7 @@
 		04050724212A962A009A739C /* FSBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04050723212A962A009A739C /* FSBaseView.m */; };
 		0405072F212AA085009A739C /* FSBaseView+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405072E212AA085009A739C /* FSBaseView+TableView.m */; };
 		04498054215A2BB7005C0D28 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04498053215A2BB7005C0D28 /* Settings.bundle */; };
+		044980F4215B8A34005C0D28 /* FSMasterSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044980F3215B8A34005C0D28 /* FSMasterSearchResultController.m */; };
 		04521C03214A53A0003149A0 /* FSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04521C02214A53A0003149A0 /* FSView.m */; };
 		04521C0A214B53F0003149A0 /* FSController01.m in Sources */ = {isa = PBXBuildFile; fileRef = 04521C09214B53F0003149A0 /* FSController01.m */; };
 		04521C0D214B5791003149A0 /* FSBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04521C0C214B5791003149A0 /* FSBaseViewController.m */; };
@@ -40,7 +41,6 @@
 		04521C5E214E1CA2003149A0 /* FSRoundedCornerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04521C5D214E1CA2003149A0 /* FSRoundedCornerCell.m */; };
 		046FFB232157A9DE00FE81D6 /* FSController09.m in Sources */ = {isa = PBXBuildFile; fileRef = 046FFB222157A9DE00FE81D6 /* FSController09.m */; };
 		047EFC22215697750013297A /* FSController08.m in Sources */ = {isa = PBXBuildFile; fileRef = 047EFC21215697750013297A /* FSController08.m */; };
-		04B70514214E4F1000A77DA7 /* FSMasterHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B70513214E4F1000A77DA7 /* FSMasterHeader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +75,8 @@
 		0405072C212A9F9E009A739C /* FSBaseView+Sen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FSBaseView+Sen.h"; sourceTree = "<group>"; };
 		0405072E212AA085009A739C /* FSBaseView+TableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FSBaseView+TableView.m"; sourceTree = "<group>"; };
 		04498053215A2BB7005C0D28 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		044980F2215B8A34005C0D28 /* FSMasterSearchResultController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSMasterSearchResultController.h; sourceTree = "<group>"; };
+		044980F3215B8A34005C0D28 /* FSMasterSearchResultController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSMasterSearchResultController.m; sourceTree = "<group>"; };
 		04521C01214A53A0003149A0 /* FSView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSView.h; sourceTree = "<group>"; };
 		04521C02214A53A0003149A0 /* FSView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSView.m; sourceTree = "<group>"; };
 		04521C08214B53F0003149A0 /* FSController01.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController01.h; sourceTree = "<group>"; };
@@ -123,8 +125,6 @@
 		047EFC20215697750013297A /* FSController08.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController08.h; sourceTree = "<group>"; };
 		047EFC21215697750013297A /* FSController08.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSController08.m; sourceTree = "<group>"; };
 		04B70511214E4AC300A77DA7 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		04B70512214E4F1000A77DA7 /* FSMasterHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSMasterHeader.h; sourceTree = "<group>"; };
-		04B70513214E4F1000A77DA7 /* FSMasterHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSMasterHeader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,8 +288,8 @@
 				04521C4E214E083D003149A0 /* FSController07.m */,
 				04521C50214E084A003149A0 /* FSMasterController.h */,
 				04521C51214E084A003149A0 /* FSMasterController.m */,
-				04B70512214E4F1000A77DA7 /* FSMasterHeader.h */,
-				04B70513214E4F1000A77DA7 /* FSMasterHeader.m */,
+				044980F2215B8A34005C0D28 /* FSMasterSearchResultController.h */,
+				044980F3215B8A34005C0D28 /* FSMasterSearchResultController.m */,
 				04521C53214E085B003149A0 /* FSDetailController01.h */,
 				04521C54214E085B003149A0 /* FSDetailController01.m */,
 				04521C5C214E1CA2003149A0 /* FSRoundedCornerCell.h */,
@@ -444,6 +444,7 @@
 				04521C5E214E1CA2003149A0 /* FSRoundedCornerCell.m in Sources */,
 				04521C03214A53A0003149A0 /* FSView.m in Sources */,
 				04521C0A214B53F0003149A0 /* FSController01.m in Sources */,
+				044980F4215B8A34005C0D28 /* FSMasterSearchResultController.m in Sources */,
 				0405072F212AA085009A739C /* FSBaseView+TableView.m in Sources */,
 				04521C1D214B7CF3003149A0 /* FSController04.m in Sources */,
 				04521C10214B5875003149A0 /* FSController02.m in Sources */,
@@ -459,7 +460,6 @@
 				04521C45214BA8B6003149A0 /* FSNavigationController.m in Sources */,
 				04521C20214B7D12003149A0 /* FSPopoverContainer.m in Sources */,
 				04521C0D214B5791003149A0 /* FSBaseViewController.m in Sources */,
-				04B70514214E4F1000A77DA7 /* FSMasterHeader.m in Sources */,
 				04521C48214BB147003149A0 /* FSController06.m in Sources */,
 				04521C55214E085B003149A0 /* FSDetailController01.m in Sources */,
 				04521C52214E084A003149A0 /* FSMasterController.m in Sources */,
