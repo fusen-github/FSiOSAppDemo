@@ -32,9 +32,6 @@
     
     [self.window makeKeyAndVisible];
     
-    NSString *tmp = @"abc付森123";
-    
-    
     return YES;
 }
 

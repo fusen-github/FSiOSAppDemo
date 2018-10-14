@@ -129,7 +129,6 @@
 }
 
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.dataArray.count;
@@ -162,7 +161,7 @@
     {
         cell.textLabel.textColor = [UIColor whiteColor];
         
-        cell.contentView.backgroundColor = [UIColor lightGrayColor];
+        cell.contentView.backgroundColor = UIColorFromRGB(0xD7D7D7);
     }
     
     cell.textLabel.text = [NSString stringWithFormat:@"fs - %ld",(indexPath.row + 1)];
@@ -191,8 +190,7 @@
     
     NSDictionary *dict = @{@(1):@"FSDetailController01",
                            @(2):@"FSDetailController02",
-                           @(3):@"FSDetailController03",
-                           };
+                           @(3):@"FSDetailController03",};
     
     NSString *className = [dict objectForKey:@(indexPath.row + 1)];
     

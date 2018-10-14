@@ -35,11 +35,12 @@ static NSString * const kControllerTitleKey = @"kControllerTitleKey";
     @{kControllerNameKey:@"FSController06",kControllerTitleKey:@"UIVisualEffectView"},
     @{kControllerNameKey:@"FSController07",kControllerTitleKey:@"UISplitViewController"},
     @{kControllerNameKey:@"FSController08",kControllerTitleKey:@"UITableView"},
-    @{kControllerNameKey:@"FSController09",kControllerTitleKey:@"UICollectionView"},];
+    @{kControllerNameKey:@"FSController09",kControllerTitleKey:@"UICollectionView"},
+    @{kControllerNameKey:@"FSController10",kControllerTitleKey:@"UserNotifications"},
+    @{kControllerNameKey:@"FSController11",kControllerTitleKey:@"SQLite3"},];
     
     
-    
-    // UISplitViewController
+    // UserNotifications
     UITableView *tableView = [[UITableView alloc] init];
     
     tableView.frame = self.view.bounds;

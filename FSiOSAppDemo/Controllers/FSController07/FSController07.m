@@ -29,8 +29,10 @@
     
     splitViewController.view.backgroundColor = [UIColor whiteColor];
     
-    splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
- 
+//    splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
+    
+    splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAutomatic;
+    
     [self addChildViewController:splitViewController];
     
     [self.view addSubview:splitViewController.view];
@@ -49,28 +51,28 @@
 {
     [super viewDidAppear:animated];
     
-    NSLog(@"%@",self.parentViewController);
-    
-    NSLog(@"%@",self.view.superview);
-    
-    NSLog(@"%@",[self.view.superview superview]);
-    
-    NSLog(@"%@",[UIApplication sharedApplication].keyWindow);
-    
-    NSLog(@"%@",[UIApplication sharedApplication].keyWindow.rootViewController);
-    
-    NSLog(@"%@",self.presentedViewController);
-    
-    NSLog(@"%@",self.presentingViewController);
-    
-    NSLog(@"%@",self.presentationController);
+//    NSLog(@"%@",self.parentViewController);
+//
+//    NSLog(@"%@",self.view.superview);
+//
+//    NSLog(@"%@",[self.view.superview superview]);
+//
+//    NSLog(@"%@",[UIApplication sharedApplication].keyWindow);
+//
+//    NSLog(@"%@",[UIApplication sharedApplication].keyWindow.rootViewController);
+//
+//    NSLog(@"%@",self.presentedViewController);
+//
+//    NSLog(@"%@",self.presentingViewController);
+//
+//    NSLog(@"%@",self.presentationController);
 }
 
 - (void)master:(FSMasterController *)master wantToShowViewController:(UIViewController *)controller
 {
-    [self.splitViewController showDetailViewController:controller sender:nil];
+    [master.splitViewController showDetailViewController:controller sender:nil];
     
-    NSLog(@"付森：%@",self.splitViewController.viewControllers);
+//    NSLog(@"付森：%@",master.splitViewController.viewControllers);
 }
 
 @end

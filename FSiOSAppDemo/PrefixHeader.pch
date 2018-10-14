@@ -15,5 +15,20 @@
 
 #define UIColorFromRGB(value) [UIColor colorWithRed:((float)((value & 0xFF0000) >> 16)) / 255.0 green:((float)((value & 0x00FF00) >> 8)) / 255.0 blue:((float)((value & 0x0000FF) >> 0)) / 255.0 alpha:1]
 
+#import "UIView+Frame.h"
+
+#import "NSString+JSON.h"
+#import "NSDictionary+JSON.h"
+#import "NSArray+JSON.h"
+#import "NSData+JSON.h"
+
+
+
+#define NilString(str) str ?: @""
+
+#define NilArray(arr) arr ?: [NSArray array]
+
+#define NilObject(obj) obj ?: [NSNull null]
+
 
 #endif /* PrefixHeader_pch */

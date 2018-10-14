@@ -14,6 +14,9 @@
 		0405072F212AA085009A739C /* FSBaseView+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405072E212AA085009A739C /* FSBaseView+TableView.m */; };
 		04498054215A2BB7005C0D28 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04498053215A2BB7005C0D28 /* Settings.bundle */; };
 		044980F4215B8A34005C0D28 /* FSMasterSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044980F3215B8A34005C0D28 /* FSMasterSearchResultController.m */; };
+		04498139215CC1AC005C0D28 /* FSController10.m in Sources */ = {isa = PBXBuildFile; fileRef = 04498138215CC1AC005C0D28 /* FSController10.m */; };
+		0449813C215CC1D4005C0D28 /* FS10CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0449813B215CC1D4005C0D28 /* FS10CollectionViewCell.m */; };
+		0449813F215CD1BE005C0D28 /* FS10ColletionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0449813E215CD1BE005C0D28 /* FS10ColletionItem.m */; };
 		04521C03214A53A0003149A0 /* FSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04521C02214A53A0003149A0 /* FSView.m */; };
 		04521C0A214B53F0003149A0 /* FSController01.m in Sources */ = {isa = PBXBuildFile; fileRef = 04521C09214B53F0003149A0 /* FSController01.m */; };
 		04521C0D214B5791003149A0 /* FSBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04521C0C214B5791003149A0 /* FSBaseViewController.m */; };
@@ -41,6 +44,25 @@
 		04521C5E214E1CA2003149A0 /* FSRoundedCornerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04521C5D214E1CA2003149A0 /* FSRoundedCornerCell.m */; };
 		046FFB232157A9DE00FE81D6 /* FSController09.m in Sources */ = {isa = PBXBuildFile; fileRef = 046FFB222157A9DE00FE81D6 /* FSController09.m */; };
 		047EFC22215697750013297A /* FSController08.m in Sources */ = {isa = PBXBuildFile; fileRef = 047EFC21215697750013297A /* FSController08.m */; };
+		04AC7AD2215E26B40018B29D /* FSController11.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AC7AD1215E26B40018B29D /* FSController11.m */; };
+		04EC2D9221707C4300CFE828 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2D8721707C4300CFE828 /* FMDatabaseQueue.m */; };
+		04EC2D9321707C4300CFE828 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2D8A21707C4300CFE828 /* FMDatabaseAdditions.m */; };
+		04EC2D9421707C4300CFE828 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2D8B21707C4300CFE828 /* FMDatabase.m */; };
+		04EC2D9521707C4300CFE828 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2D8F21707C4300CFE828 /* FMDatabasePool.m */; };
+		04EC2D9621707C4300CFE828 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2D9021707C4300CFE828 /* FMResultSet.m */; };
+		04EC2D9721707C4300CFE828 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04EC2D9121707C4300CFE828 /* Info.plist */; };
+		04EC2DAA2170813A00CFE828 /* FSRoleDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2DA92170813A00CFE828 /* FSRoleDBManager.m */; };
+		04EC2DB5217085E200CFE828 /* FSPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2DAD217085E200CFE828 /* FSPerson.m */; };
+		04EC2DB6217085E200CFE828 /* FSCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2DB1217085E200CFE828 /* FSCar.m */; };
+		04EC2DB7217085E200CFE828 /* FSDog.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2DB2217085E200CFE828 /* FSDog.m */; };
+		04EC2DB8217085E200CFE828 /* FSBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2DB4217085E200CFE828 /* FSBook.m */; };
+		04EC2DBB21708CE600CFE828 /* FS11PersonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2DBA21708CE600CFE828 /* FS11PersonController.m */; };
+		04EC2DBF21708F0700CFE828 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2DBE21708F0700CFE828 /* UIView+Frame.m */; };
+		04EC2DC22170A4BC00CFE828 /* FSBaseData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2DC12170A4BC00CFE828 /* FSBaseData.m */; };
+		04EC2DC5217325B100CFE828 /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2DC4217325B100CFE828 /* NSDictionary+JSON.m */; };
+		04EC2DC8217326D900CFE828 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2DC7217326D900CFE828 /* NSString+JSON.m */; };
+		04EC2DCB217340B200CFE828 /* NSArray+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2DCA217340B200CFE828 /* NSArray+JSON.m */; };
+		04EC2DCE2173496900CFE828 /* NSData+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2DCD2173496900CFE828 /* NSData+JSON.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +99,12 @@
 		04498053215A2BB7005C0D28 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		044980F2215B8A34005C0D28 /* FSMasterSearchResultController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSMasterSearchResultController.h; sourceTree = "<group>"; };
 		044980F3215B8A34005C0D28 /* FSMasterSearchResultController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSMasterSearchResultController.m; sourceTree = "<group>"; };
+		04498137215CC1AC005C0D28 /* FSController10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSController10.h; sourceTree = "<group>"; };
+		04498138215CC1AC005C0D28 /* FSController10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSController10.m; sourceTree = "<group>"; };
+		0449813A215CC1D4005C0D28 /* FS10CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FS10CollectionViewCell.h; sourceTree = "<group>"; };
+		0449813B215CC1D4005C0D28 /* FS10CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FS10CollectionViewCell.m; sourceTree = "<group>"; };
+		0449813D215CD1BE005C0D28 /* FS10ColletionItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FS10ColletionItem.h; sourceTree = "<group>"; };
+		0449813E215CD1BE005C0D28 /* FS10ColletionItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FS10ColletionItem.m; sourceTree = "<group>"; };
 		04521C01214A53A0003149A0 /* FSView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSView.h; sourceTree = "<group>"; };
 		04521C02214A53A0003149A0 /* FSView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSView.m; sourceTree = "<group>"; };
 		04521C08214B53F0003149A0 /* FSController01.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController01.h; sourceTree = "<group>"; };
@@ -124,7 +152,45 @@
 		046FFB222157A9DE00FE81D6 /* FSController09.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSController09.m; sourceTree = "<group>"; };
 		047EFC20215697750013297A /* FSController08.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController08.h; sourceTree = "<group>"; };
 		047EFC21215697750013297A /* FSController08.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSController08.m; sourceTree = "<group>"; };
+		04AC7AD0215E26B40018B29D /* FSController11.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController11.h; sourceTree = "<group>"; };
+		04AC7AD1215E26B40018B29D /* FSController11.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSController11.m; sourceTree = "<group>"; };
 		04B70511214E4AC300A77DA7 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		04EC2D8621707C4300CFE828 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		04EC2D8721707C4300CFE828 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		04EC2D8821707C4300CFE828 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		04EC2D8921707C4300CFE828 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		04EC2D8A21707C4300CFE828 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		04EC2D8B21707C4300CFE828 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		04EC2D8C21707C4300CFE828 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		04EC2D8D21707C4300CFE828 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		04EC2D8E21707C4300CFE828 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		04EC2D8F21707C4300CFE828 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		04EC2D9021707C4300CFE828 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		04EC2D9121707C4300CFE828 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04EC2DA82170813A00CFE828 /* FSRoleDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSRoleDBManager.h; sourceTree = "<group>"; };
+		04EC2DA92170813A00CFE828 /* FSRoleDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSRoleDBManager.m; sourceTree = "<group>"; };
+		04EC2DAD217085E200CFE828 /* FSPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPerson.m; sourceTree = "<group>"; };
+		04EC2DAE217085E200CFE828 /* FSDog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSDog.h; sourceTree = "<group>"; };
+		04EC2DAF217085E200CFE828 /* FSCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCar.h; sourceTree = "<group>"; };
+		04EC2DB0217085E200CFE828 /* FSBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBook.h; sourceTree = "<group>"; };
+		04EC2DB1217085E200CFE828 /* FSCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCar.m; sourceTree = "<group>"; };
+		04EC2DB2217085E200CFE828 /* FSDog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSDog.m; sourceTree = "<group>"; };
+		04EC2DB3217085E200CFE828 /* FSPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPerson.h; sourceTree = "<group>"; };
+		04EC2DB4217085E200CFE828 /* FSBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBook.m; sourceTree = "<group>"; };
+		04EC2DB921708CE600CFE828 /* FS11PersonController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FS11PersonController.h; sourceTree = "<group>"; };
+		04EC2DBA21708CE600CFE828 /* FS11PersonController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FS11PersonController.m; sourceTree = "<group>"; };
+		04EC2DBD21708F0700CFE828 /* UIView+Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		04EC2DBE21708F0700CFE828 /* UIView+Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		04EC2DC02170A4BC00CFE828 /* FSBaseData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSBaseData.h; sourceTree = "<group>"; };
+		04EC2DC12170A4BC00CFE828 /* FSBaseData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSBaseData.m; sourceTree = "<group>"; };
+		04EC2DC3217325B100CFE828 /* NSDictionary+JSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSON.h"; sourceTree = "<group>"; };
+		04EC2DC4217325B100CFE828 /* NSDictionary+JSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
+		04EC2DC6217326D900CFE828 /* NSString+JSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = "<group>"; };
+		04EC2DC7217326D900CFE828 /* NSString+JSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
+		04EC2DC9217340B200CFE828 /* NSArray+JSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+JSON.h"; sourceTree = "<group>"; };
+		04EC2DCA217340B200CFE828 /* NSArray+JSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JSON.m"; sourceTree = "<group>"; };
+		04EC2DCC2173496900CFE828 /* NSData+JSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+JSON.h"; sourceTree = "<group>"; };
+		04EC2DCD2173496900CFE828 /* NSData+JSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+JSON.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +243,8 @@
 			children = (
 				040506F0212A9608009A739C /* AppDelegate.h */,
 				040506F1212A9608009A739C /* AppDelegate.m */,
+				04EC2DBC21708EF000CFE828 /* Categary */,
+				04EC2D8421707C1600CFE828 /* Library */,
 				04521C04214B538A003149A0 /* Controllers */,
 				04050722212A962A009A739C /* FSBaseView.h */,
 				04050723212A962A009A739C /* FSBaseView.m */,
@@ -209,6 +277,19 @@
 			path = FSiOSAppDemoUITests;
 			sourceTree = "<group>";
 		};
+		04498136215CC1AC005C0D28 /* FSController10 */ = {
+			isa = PBXGroup;
+			children = (
+				04498137215CC1AC005C0D28 /* FSController10.h */,
+				04498138215CC1AC005C0D28 /* FSController10.m */,
+				0449813A215CC1D4005C0D28 /* FS10CollectionViewCell.h */,
+				0449813B215CC1D4005C0D28 /* FS10CollectionViewCell.m */,
+				0449813D215CD1BE005C0D28 /* FS10ColletionItem.h */,
+				0449813E215CD1BE005C0D28 /* FS10ColletionItem.m */,
+			);
+			path = FSController10;
+			sourceTree = "<group>";
+		};
 		04521C04214B538A003149A0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +311,8 @@
 				047EFC21215697750013297A /* FSController08.m */,
 				046FFB212157A9DE00FE81D6 /* FSController09.h */,
 				046FFB222157A9DE00FE81D6 /* FSController09.m */,
+				04498136215CC1AC005C0D28 /* FSController10 */,
+				04AC7ACF215E26980018B29D /* FSController11 */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -300,6 +383,97 @@
 				04521C5A214E0875003149A0 /* FSDetailController03.m */,
 			);
 			path = FSController07;
+			sourceTree = "<group>";
+		};
+		04AC7ACF215E26980018B29D /* FSController11 */ = {
+			isa = PBXGroup;
+			children = (
+				04AC7AD0215E26B40018B29D /* FSController11.h */,
+				04AC7AD1215E26B40018B29D /* FSController11.m */,
+				04EC2DB921708CE600CFE828 /* FS11PersonController.h */,
+				04EC2DBA21708CE600CFE828 /* FS11PersonController.m */,
+				04EC2DA82170813A00CFE828 /* FSRoleDBManager.h */,
+				04EC2DA92170813A00CFE828 /* FSRoleDBManager.m */,
+				04EC2D9821707CF400CFE828 /* Model */,
+			);
+			path = FSController11;
+			sourceTree = "<group>";
+		};
+		04EC2D8421707C1600CFE828 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				04EC2D8521707C4300CFE828 /* fmdb */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		04EC2D8521707C4300CFE828 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				04EC2D8621707C4300CFE828 /* FMDatabase.h */,
+				04EC2D8B21707C4300CFE828 /* FMDatabase.m */,
+				04EC2D8E21707C4300CFE828 /* FMDatabaseAdditions.h */,
+				04EC2D8A21707C4300CFE828 /* FMDatabaseAdditions.m */,
+				04EC2D8921707C4300CFE828 /* FMDatabasePool.h */,
+				04EC2D8F21707C4300CFE828 /* FMDatabasePool.m */,
+				04EC2D8C21707C4300CFE828 /* FMDatabaseQueue.h */,
+				04EC2D8721707C4300CFE828 /* FMDatabaseQueue.m */,
+				04EC2D8D21707C4300CFE828 /* FMDB.h */,
+				04EC2D8821707C4300CFE828 /* FMResultSet.h */,
+				04EC2D9021707C4300CFE828 /* FMResultSet.m */,
+				04EC2D9121707C4300CFE828 /* Info.plist */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		04EC2D9821707CF400CFE828 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04EC2DAB217085E200CFE828 /* Company */,
+				04EC2DC02170A4BC00CFE828 /* FSBaseData.h */,
+				04EC2DC12170A4BC00CFE828 /* FSBaseData.m */,
+				04EC2DAC217085E200CFE828 /* Person */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04EC2DAB217085E200CFE828 /* Company */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Company;
+			sourceTree = "<group>";
+		};
+		04EC2DAC217085E200CFE828 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				04EC2DB0217085E200CFE828 /* FSBook.h */,
+				04EC2DB4217085E200CFE828 /* FSBook.m */,
+				04EC2DAF217085E200CFE828 /* FSCar.h */,
+				04EC2DB1217085E200CFE828 /* FSCar.m */,
+				04EC2DAE217085E200CFE828 /* FSDog.h */,
+				04EC2DB2217085E200CFE828 /* FSDog.m */,
+				04EC2DB3217085E200CFE828 /* FSPerson.h */,
+				04EC2DAD217085E200CFE828 /* FSPerson.m */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
+		04EC2DBC21708EF000CFE828 /* Categary */ = {
+			isa = PBXGroup;
+			children = (
+				04EC2DBD21708F0700CFE828 /* UIView+Frame.h */,
+				04EC2DBE21708F0700CFE828 /* UIView+Frame.m */,
+				04EC2DC3217325B100CFE828 /* NSDictionary+JSON.h */,
+				04EC2DC4217325B100CFE828 /* NSDictionary+JSON.m */,
+				04EC2DC6217326D900CFE828 /* NSString+JSON.h */,
+				04EC2DC7217326D900CFE828 /* NSString+JSON.m */,
+				04EC2DC9217340B200CFE828 /* NSArray+JSON.h */,
+				04EC2DCA217340B200CFE828 /* NSArray+JSON.m */,
+				04EC2DCC2173496900CFE828 /* NSData+JSON.h */,
+				04EC2DCD2173496900CFE828 /* NSData+JSON.m */,
+			);
+			path = Categary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,6 +582,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04EC2D9721707C4300CFE828 /* Info.plist in Resources */,
 				04521C34214BA761003149A0 /* Main.storyboard in Resources */,
 				04521C38214BA761003149A0 /* File.strings in Resources */,
 				04521C33214BA761003149A0 /* LaunchScreen.storyboard in Resources */,
@@ -442,28 +617,49 @@
 				047EFC22215697750013297A /* FSController08.m in Sources */,
 				04521C27214BA6FF003149A0 /* ViewController.m in Sources */,
 				04521C5E214E1CA2003149A0 /* FSRoundedCornerCell.m in Sources */,
+				04EC2DC8217326D900CFE828 /* NSString+JSON.m in Sources */,
 				04521C03214A53A0003149A0 /* FSView.m in Sources */,
 				04521C0A214B53F0003149A0 /* FSController01.m in Sources */,
+				04EC2D9321707C4300CFE828 /* FMDatabaseAdditions.m in Sources */,
+				04EC2D9221707C4300CFE828 /* FMDatabaseQueue.m in Sources */,
+				04498139215CC1AC005C0D28 /* FSController10.m in Sources */,
 				044980F4215B8A34005C0D28 /* FSMasterSearchResultController.m in Sources */,
+				04EC2DC22170A4BC00CFE828 /* FSBaseData.m in Sources */,
 				0405072F212AA085009A739C /* FSBaseView+TableView.m in Sources */,
+				04EC2DB6217085E200CFE828 /* FSCar.m in Sources */,
 				04521C1D214B7CF3003149A0 /* FSController04.m in Sources */,
 				04521C10214B5875003149A0 /* FSController02.m in Sources */,
 				04050724212A962A009A739C /* FSBaseView.m in Sources */,
 				04521C23214B7D95003149A0 /* FSPresentationController.m in Sources */,
+				04AC7AD2215E26B40018B29D /* FSController11.m in Sources */,
+				04EC2D9421707C4300CFE828 /* FMDatabase.m in Sources */,
+				04EC2D9521707C4300CFE828 /* FMDatabasePool.m in Sources */,
 				04521C4F214E083D003149A0 /* FSController07.m in Sources */,
 				04521C13214B5945003149A0 /* FSController03.m in Sources */,
 				04521C42214BA84C003149A0 /* main.m in Sources */,
 				04521C5B214E0875003149A0 /* FSDetailController03.m in Sources */,
+				04EC2DC5217325B100CFE828 /* NSDictionary+JSON.m in Sources */,
+				04EC2DB5217085E200CFE828 /* FSPerson.m in Sources */,
 				04521C58214E0868003149A0 /* FSDetailController02.m in Sources */,
 				046FFB232157A9DE00FE81D6 /* FSController09.m in Sources */,
 				04521C19214B5FD1003149A0 /* FSController05.m in Sources */,
 				04521C45214BA8B6003149A0 /* FSNavigationController.m in Sources */,
+				04EC2DCE2173496900CFE828 /* NSData+JSON.m in Sources */,
 				04521C20214B7D12003149A0 /* FSPopoverContainer.m in Sources */,
+				04EC2DCB217340B200CFE828 /* NSArray+JSON.m in Sources */,
+				04EC2DAA2170813A00CFE828 /* FSRoleDBManager.m in Sources */,
 				04521C0D214B5791003149A0 /* FSBaseViewController.m in Sources */,
+				04EC2DB8217085E200CFE828 /* FSBook.m in Sources */,
+				04EC2DBB21708CE600CFE828 /* FS11PersonController.m in Sources */,
 				04521C48214BB147003149A0 /* FSController06.m in Sources */,
 				04521C55214E085B003149A0 /* FSDetailController01.m in Sources */,
+				0449813F215CD1BE005C0D28 /* FS10ColletionItem.m in Sources */,
+				04EC2DBF21708F0700CFE828 /* UIView+Frame.m in Sources */,
+				04EC2D9621707C4300CFE828 /* FMResultSet.m in Sources */,
 				04521C52214E084A003149A0 /* FSMasterController.m in Sources */,
 				040506F2212A9608009A739C /* AppDelegate.m in Sources */,
+				0449813C215CC1D4005C0D28 /* FS10CollectionViewCell.m in Sources */,
+				04EC2DB7217085E200CFE828 /* FSDog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

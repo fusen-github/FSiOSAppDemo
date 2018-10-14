@@ -38,16 +38,23 @@
     
     tableView.dataSource = self;
     
+    tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
     [self.view addSubview:tableView];
     
     tableView.tableHeaderView = [UIView new];
+    
+    self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeStatusBarOrientation:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
+
 }
 
-- (void)viewWillLayoutSubviews
+- (void)didChangeStatusBarOrientation:(NSNotification *)notification
 {
-    [super viewWillLayoutSubviews];
+    NSLog(@"laile");
     
-    self.tableView.frame = self.view.bounds;
+    [self.tableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
