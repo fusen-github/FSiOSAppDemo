@@ -17,7 +17,15 @@
 
 @implementation AppDelegate
 
-
+/*
+ app状态总结：
+ 1、未运行(not running)
+ 2、活跃(Active)
+ 3、后台(Background)
+ 4、挂起(suspended)
+ 5、不活跃(Inactive)
+ 
+ */
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
