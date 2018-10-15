@@ -37,7 +37,8 @@ static NSString * const kControllerTitleKey = @"kControllerTitleKey";
     @{kControllerNameKey:@"FSController08",kControllerTitleKey:@"UITableView"},
     @{kControllerNameKey:@"FSController09",kControllerTitleKey:@"UICollectionView"},
     @{kControllerNameKey:@"FSController10",kControllerTitleKey:@"UserNotifications"},
-    @{kControllerNameKey:@"FSController11",kControllerTitleKey:@"SQLite3"},];
+    @{kControllerNameKey:@"FSController11",kControllerTitleKey:@"SQLite3"},
+    @{kControllerNameKey:@"FSController12",kControllerTitleKey:@"GCD"},];
     
     
     // UserNotifications

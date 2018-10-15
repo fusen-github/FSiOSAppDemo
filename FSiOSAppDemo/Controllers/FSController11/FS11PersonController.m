@@ -116,7 +116,7 @@
         
         char ch = 'a' + tmp2;
         
-        char ch_arr[] = {ch};
+        char ch_arr[] = {ch,'\0'};
 
         NSString *chStr = [NSString stringWithUTF8String:ch_arr];
         
@@ -127,9 +127,15 @@
     
     person.age = 20;
     
-    person.height = 1.75;
+    float baseHeight = 1.50;
     
-    person.car = [[FSCar alloc] init];
+    NSInteger dyH = arc4random() % 40 + 10;
+    
+    person.height = baseHeight + dyH * 0.01;
+    
+//    person.car = [[FSCar alloc] init];
+    
+    person.car = nil;
     
     FSDog *dog = [[FSDog alloc] init];
     
@@ -161,13 +167,14 @@
     
     NSArray *array = [[FSRoleDBManager shareManager] queryPersonBySql:sql];
     
-    NSLog(@"%@",array);
+    self.dataArray = array;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.dataArray.count;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

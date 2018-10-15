@@ -63,6 +63,7 @@
 		04EC2DC8217326D900CFE828 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2DC7217326D900CFE828 /* NSString+JSON.m */; };
 		04EC2DCB217340B200CFE828 /* NSArray+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2DCA217340B200CFE828 /* NSArray+JSON.m */; };
 		04EC2DCE2173496900CFE828 /* NSData+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2DCD2173496900CFE828 /* NSData+JSON.m */; };
+		04EC2DD221743A7000CFE828 /* FSController12.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2DD121743A7000CFE828 /* FSController12.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,9 @@
 		04EC2DCA217340B200CFE828 /* NSArray+JSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JSON.m"; sourceTree = "<group>"; };
 		04EC2DCC2173496900CFE828 /* NSData+JSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+JSON.h"; sourceTree = "<group>"; };
 		04EC2DCD2173496900CFE828 /* NSData+JSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+JSON.m"; sourceTree = "<group>"; };
+		04EC2DCF2174315D00CFE828 /* FSiOSAppDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FSiOSAppDemo.entitlements; sourceTree = "<group>"; };
+		04EC2DD021743A7000CFE828 /* FSController12.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController12.h; sourceTree = "<group>"; };
+		04EC2DD121743A7000CFE828 /* FSController12.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSController12.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +245,7 @@
 		040506EF212A9608009A739C /* FSiOSAppDemo */ = {
 			isa = PBXGroup;
 			children = (
+				04EC2DCF2174315D00CFE828 /* FSiOSAppDemo.entitlements */,
 				040506F0212A9608009A739C /* AppDelegate.h */,
 				040506F1212A9608009A739C /* AppDelegate.m */,
 				04EC2DBC21708EF000CFE828 /* Categary */,
@@ -313,6 +318,8 @@
 				046FFB222157A9DE00FE81D6 /* FSController09.m */,
 				04498136215CC1AC005C0D28 /* FSController10 */,
 				04AC7ACF215E26980018B29D /* FSController11 */,
+				04EC2DD021743A7000CFE828 /* FSController12.h */,
+				04EC2DD121743A7000CFE828 /* FSController12.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -544,6 +551,14 @@
 					040506EC212A9608009A739C = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					04050704212A9609009A739C = {
 						CreatedOnToolsVersion = 9.2;
@@ -642,6 +657,7 @@
 				04EC2DB5217085E200CFE828 /* FSPerson.m in Sources */,
 				04521C58214E0868003149A0 /* FSDetailController02.m in Sources */,
 				046FFB232157A9DE00FE81D6 /* FSController09.m in Sources */,
+				04EC2DD221743A7000CFE828 /* FSController12.m in Sources */,
 				04521C19214B5FD1003149A0 /* FSController05.m in Sources */,
 				04521C45214BA8B6003149A0 /* FSNavigationController.m in Sources */,
 				04EC2DCE2173496900CFE828 /* NSData+JSON.m in Sources */,
