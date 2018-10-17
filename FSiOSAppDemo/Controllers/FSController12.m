@@ -24,9 +24,197 @@
 
 - (void)doRightAction
 {
-    [self demo07];
+    [self demo13];
 }
 
+
+/**
+ dispatch_semaphore_t
+ */
+- (void)demo13
+{
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(2);
+    
+    NSMutableArray *tmpArray = [NSMutableArray array];
+    
+    for (int i = 0; i < 10000; i++)
+    {
+        dispatch_async(queue, ^{
+           
+            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+            
+            [tmpArray addObject:@(i)];
+            
+            dispatch_semaphore_signal(semaphore);
+        });
+    }
+    
+    NSLog(@"end");
+}
+
+
+/**
+ dispatch_semaphore_t
+ */
+- (void)demo12
+{
+    /*
+     dispatch_semaphore_t: 持有计数的信号
+     
+     */
+    
+    /// 创建信号量变量(计数的初始值设置为1)
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+    
+    dispatch_time_t timeout = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
+    
+    /*
+     当信号量(semaphore)的值 >= 1时，做减法并将结果从dispatch_semaphore_wait函数返回，此时不等待
+     当信号量(semaphore)的值 == 0时，等待
+     */
+    long rst = dispatch_semaphore_wait(semaphore, timeout);
+    
+    if (rst == 0)
+    {
+        
+    }
+    else
+    {
+        //
+    }
+    
+    
+    
+}
+
+
+/**
+ dispatch_semaphore_t
+ */
+- (void)demo11
+{
+    /*
+     在for 循环中使用dispatch_queue_t，由于内存错误导致程序崩溃，使用dispatch_semaphore_t解决
+     */
+    
+    
+    /**
+     该程序会崩溃
+     */
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    NSMutableArray *tmpArray = [NSMutableArray array];
+    
+    for (int i = 0; i < 10000; i++)
+    {
+        dispatch_async(queue, ^{
+
+            [tmpArray addObject:@(i)];
+        });
+    }
+    
+    NSLog(@"end");
+}
+
+/**
+ 队列挂起：dispatch_suspend
+ 队列恢复：dispatch_resume
+ */
+- (void)demo10
+{
+    /*
+     在一个队列中有时需要暂停队列的执行，在某个时刻恢复队列的执行
+     */
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_async(queue, ^{
+       
+        /// 任务1
+    });
+    
+    dispatch_async(queue, ^{
+        
+        /// 任务2
+        
+        BOOL condition1 = YES;
+        
+        if (condition1)
+        {
+            dispatch_suspend(queue);
+        }
+        
+        BOOL condition2 = YES;
+        
+        if (condition2)
+        {
+            dispatch_resume(queue);
+        }
+        
+    });
+    
+//    dispatch_suspend(<#dispatch_object_t  _Nonnull object#>)
+    
+//    dispatch_resume(<#dispatch_object_t  _Nonnull object#>)
+    
+}
+
+
+/**
+ dispatch_apply
+ */
+- (void)demo09
+{
+    /*
+     dispatch_apply函数按指定的次数将block里的任务追加到指定的队列(queue)中，并等待全部处理执行结束
+     */
+    
+    NSArray *array = @[@"张三",@"李四",@"王五",@"赵六",@"刘七",@"宋八"];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_async(queue, ^{
+       
+        dispatch_apply(array.count, queue, ^(size_t index) {
+            
+            NSInteger tmp = arc4random() % 5;
+            
+            [NSThread sleepForTimeInterval:tmp * 0.01];
+            
+            NSLog(@"index = %ld, %@",index, [NSThread currentThread]);
+        });
+        
+        NSLog(@"end-------");
+    });
+    
+    NSLog(@"end");
+    
+}
+
+
+/**
+ dispatch_apply
+ */
+- (void)demo08
+{
+    NSArray *array = @[@"张三",@"李四",@"王五",@"赵六",@"刘七",@"宋八"];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_apply(10, queue, ^(size_t index) {
+       
+        NSInteger tmp = arc4random() % 5;
+        
+        [NSThread sleepForTimeInterval:tmp * 0.01];
+        
+        NSLog(@"index = %ld, %@",index, [NSThread currentThread]);
+        
+    });
+    
+    NSLog(@"end");
+}
 
 /**
  dispatch_barrier_async 处理数据竞争问题

@@ -42,6 +42,10 @@
 		04521C58214E0868003149A0 /* FSDetailController02.m in Sources */ = {isa = PBXBuildFile; fileRef = 04521C57214E0868003149A0 /* FSDetailController02.m */; };
 		04521C5B214E0875003149A0 /* FSDetailController03.m in Sources */ = {isa = PBXBuildFile; fileRef = 04521C5A214E0875003149A0 /* FSDetailController03.m */; };
 		04521C5E214E1CA2003149A0 /* FSRoundedCornerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04521C5D214E1CA2003149A0 /* FSRoundedCornerCell.m */; };
+		046BC5F62175ACAF00C8D84A /* NotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = 046BC5F52175ACAF00C8D84A /* NotificationPayload.apns */; };
+		046BC5F82175AD7100C8D84A /* Directions.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 046BC5F72175AD7100C8D84A /* Directions.geojson */; };
+		046BC6082176F2C300C8D84A /* FSBitImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 046BC6072176F2C300C8D84A /* FSBitImage.m */; };
+		046BC60B2176FDAE00C8D84A /* FSPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = 046BC60A2176FDAE00C8D84A /* FSPixel.m */; };
 		046FFB232157A9DE00FE81D6 /* FSController09.m in Sources */ = {isa = PBXBuildFile; fileRef = 046FFB222157A9DE00FE81D6 /* FSController09.m */; };
 		047EFC22215697750013297A /* FSController08.m in Sources */ = {isa = PBXBuildFile; fileRef = 047EFC21215697750013297A /* FSController08.m */; };
 		04AC7AD2215E26B40018B29D /* FSController11.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AC7AD1215E26B40018B29D /* FSController11.m */; };
@@ -149,6 +153,12 @@
 		04521C5A214E0875003149A0 /* FSDetailController03.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSDetailController03.m; sourceTree = "<group>"; };
 		04521C5C214E1CA2003149A0 /* FSRoundedCornerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSRoundedCornerCell.h; sourceTree = "<group>"; };
 		04521C5D214E1CA2003149A0 /* FSRoundedCornerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSRoundedCornerCell.m; sourceTree = "<group>"; };
+		046BC5F52175ACAF00C8D84A /* NotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = NotificationPayload.apns; sourceTree = "<group>"; };
+		046BC5F72175AD7100C8D84A /* Directions.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Directions.geojson; sourceTree = "<group>"; };
+		046BC6062176F2C300C8D84A /* FSBitImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSBitImage.h; sourceTree = "<group>"; };
+		046BC6072176F2C300C8D84A /* FSBitImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSBitImage.m; sourceTree = "<group>"; };
+		046BC6092176FDAE00C8D84A /* FSPixel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSPixel.h; sourceTree = "<group>"; };
+		046BC60A2176FDAE00C8D84A /* FSPixel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSPixel.m; sourceTree = "<group>"; };
 		046FFB212157A9DE00FE81D6 /* FSController09.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController09.h; sourceTree = "<group>"; };
 		046FFB222157A9DE00FE81D6 /* FSController09.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSController09.m; sourceTree = "<group>"; };
 		047EFC20215697750013297A /* FSController08.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController08.h; sourceTree = "<group>"; };
@@ -245,21 +255,23 @@
 		040506EF212A9608009A739C /* FSiOSAppDemo */ = {
 			isa = PBXGroup;
 			children = (
-				04EC2DCF2174315D00CFE828 /* FSiOSAppDemo.entitlements */,
 				040506F0212A9608009A739C /* AppDelegate.h */,
 				040506F1212A9608009A739C /* AppDelegate.m */,
+				046BC5F42175AC3D00C8D84A /* Blog */,
 				04EC2DBC21708EF000CFE828 /* Categary */,
-				04EC2D8421707C1600CFE828 /* Library */,
 				04521C04214B538A003149A0 /* Controllers */,
 				04050722212A962A009A739C /* FSBaseView.h */,
 				04050723212A962A009A739C /* FSBaseView.m */,
 				0405072C212A9F9E009A739C /* FSBaseView+Sen.h */,
 				0405072E212AA085009A739C /* FSBaseView+TableView.m */,
+				04EC2DCF2174315D00CFE828 /* FSiOSAppDemo.entitlements */,
 				04521C01214A53A0003149A0 /* FSView.h */,
 				04521C02214A53A0003149A0 /* FSView.m */,
+				04EC2D8421707C1600CFE828 /* Library */,
 				04521C28214BA761003149A0 /* Other */,
 				04521C24214BA6FF003149A0 /* Root */,
 				04521C3E214BA817003149A0 /* SupportFiles */,
+				046BC6052176F2A300C8D84A /* Test */,
 			);
 			path = FSiOSAppDemo;
 			sourceTree = "<group>";
@@ -390,6 +402,26 @@
 				04521C5A214E0875003149A0 /* FSDetailController03.m */,
 			);
 			path = FSController07;
+			sourceTree = "<group>";
+		};
+		046BC5F42175AC3D00C8D84A /* Blog */ = {
+			isa = PBXGroup;
+			children = (
+				046BC5F52175ACAF00C8D84A /* NotificationPayload.apns */,
+				046BC5F72175AD7100C8D84A /* Directions.geojson */,
+			);
+			path = Blog;
+			sourceTree = "<group>";
+		};
+		046BC6052176F2A300C8D84A /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				046BC6062176F2C300C8D84A /* FSBitImage.h */,
+				046BC6072176F2C300C8D84A /* FSBitImage.m */,
+				046BC6092176FDAE00C8D84A /* FSPixel.h */,
+				046BC60A2176FDAE00C8D84A /* FSPixel.m */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		04AC7ACF215E26980018B29D /* FSController11 */ = {
@@ -598,12 +630,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				04EC2D9721707C4300CFE828 /* Info.plist in Resources */,
+				046BC5F82175AD7100C8D84A /* Directions.geojson in Resources */,
 				04521C34214BA761003149A0 /* Main.storyboard in Resources */,
 				04521C38214BA761003149A0 /* File.strings in Resources */,
 				04521C33214BA761003149A0 /* LaunchScreen.storyboard in Resources */,
 				04521C32214BA761003149A0 /* Assets.xcassets in Resources */,
 				04521C35214BA761003149A0 /* InfoPlist.strings in Resources */,
 				04521C41214BA84C003149A0 /* Info.plist in Resources */,
+				046BC5F62175ACAF00C8D84A /* NotificationPayload.apns in Resources */,
 				04498054215A2BB7005C0D28 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -645,6 +679,7 @@
 				04521C1D214B7CF3003149A0 /* FSController04.m in Sources */,
 				04521C10214B5875003149A0 /* FSController02.m in Sources */,
 				04050724212A962A009A739C /* FSBaseView.m in Sources */,
+				046BC6082176F2C300C8D84A /* FSBitImage.m in Sources */,
 				04521C23214B7D95003149A0 /* FSPresentationController.m in Sources */,
 				04AC7AD2215E26B40018B29D /* FSController11.m in Sources */,
 				04EC2D9421707C4300CFE828 /* FMDatabase.m in Sources */,
@@ -661,6 +696,7 @@
 				04521C19214B5FD1003149A0 /* FSController05.m in Sources */,
 				04521C45214BA8B6003149A0 /* FSNavigationController.m in Sources */,
 				04EC2DCE2173496900CFE828 /* NSData+JSON.m in Sources */,
+				046BC60B2176FDAE00C8D84A /* FSPixel.m in Sources */,
 				04521C20214B7D12003149A0 /* FSPopoverContainer.m in Sources */,
 				04EC2DCB217340B200CFE828 /* NSArray+JSON.m in Sources */,
 				04EC2DAA2170813A00CFE828 /* FSRoleDBManager.m in Sources */,
