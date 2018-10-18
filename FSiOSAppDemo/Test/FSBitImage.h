@@ -40,7 +40,8 @@ typedef struct FSPixelSize{
 
 /*
  图片物理尺寸拉伸：在位图像素总数不变的前提下，拉伸图片会使得每一个像素格子被拉大，每英寸上的像素量变少。图片变得模糊不清，有颗粒感
- 图片物理尺寸压缩：1、减少总像素量，打印尺寸变小。2、增大每英寸内的像素总量，打印尺寸变小
+ 图片物理尺寸缩小：1、减少总像素量，打印尺寸变小。2、增大每英寸内的像素总量，打印尺寸变小
+ 用compressionQuality属性压缩图片，会减少整个图片的分辨率
  */
 
 /**
@@ -59,5 +60,13 @@ typedef struct FSPixelSize{
  压缩质量 0.0 ~ 1.0
  */
 @property (nonatomic, assign) CGFloat compressionQuality;
+
+
+/**
+ 亮度
+ */
+@property (nonatomic, assign) NSUInteger brightness;
+
+
 
 @end

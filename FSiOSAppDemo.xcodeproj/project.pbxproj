@@ -42,10 +42,18 @@
 		04521C58214E0868003149A0 /* FSDetailController02.m in Sources */ = {isa = PBXBuildFile; fileRef = 04521C57214E0868003149A0 /* FSDetailController02.m */; };
 		04521C5B214E0875003149A0 /* FSDetailController03.m in Sources */ = {isa = PBXBuildFile; fileRef = 04521C5A214E0875003149A0 /* FSDetailController03.m */; };
 		04521C5E214E1CA2003149A0 /* FSRoundedCornerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04521C5D214E1CA2003149A0 /* FSRoundedCornerCell.m */; };
+		046080B8217870F4003453ED /* NSStream+SKPSMTPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 046080AF217870F4003453ED /* NSStream+SKPSMTPExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		046080B9217870F4003453ED /* SKPSMTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 046080B3217870F4003453ED /* SKPSMTPMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		046080BA217870F4003453ED /* NSData+Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 046080B5217870F4003453ED /* NSData+Base64Additions.m */; };
+		046080BB217870F4003453ED /* Base64Transcoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 046080B6217870F4003453ED /* Base64Transcoder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		046080BC217870F4003453ED /* HSK_CFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 046080B7217870F4003453ED /* HSK_CFUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		046080BF217875DA003453ED /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046080BE217875DA003453ED /* CFNetwork.framework */; };
+		046080EE21788E0D003453ED /* SMTPLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046080ED21788E0D003453ED /* SMTPLibrary.framework */; };
 		046BC5F62175ACAF00C8D84A /* NotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = 046BC5F52175ACAF00C8D84A /* NotificationPayload.apns */; };
 		046BC5F82175AD7100C8D84A /* Directions.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 046BC5F72175AD7100C8D84A /* Directions.geojson */; };
 		046BC6082176F2C300C8D84A /* FSBitImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 046BC6072176F2C300C8D84A /* FSBitImage.m */; };
 		046BC60B2176FDAE00C8D84A /* FSPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = 046BC60A2176FDAE00C8D84A /* FSPixel.m */; };
+		046BD046217833DC00C8D84A /* FSController13.m in Sources */ = {isa = PBXBuildFile; fileRef = 046BD045217833DC00C8D84A /* FSController13.m */; };
 		046FFB232157A9DE00FE81D6 /* FSController09.m in Sources */ = {isa = PBXBuildFile; fileRef = 046FFB222157A9DE00FE81D6 /* FSController09.m */; };
 		047EFC22215697750013297A /* FSController08.m in Sources */ = {isa = PBXBuildFile; fileRef = 047EFC21215697750013297A /* FSController08.m */; };
 		04AC7AD2215E26B40018B29D /* FSController11.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AC7AD1215E26B40018B29D /* FSController11.m */; };
@@ -153,12 +161,26 @@
 		04521C5A214E0875003149A0 /* FSDetailController03.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSDetailController03.m; sourceTree = "<group>"; };
 		04521C5C214E1CA2003149A0 /* FSRoundedCornerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSRoundedCornerCell.h; sourceTree = "<group>"; };
 		04521C5D214E1CA2003149A0 /* FSRoundedCornerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSRoundedCornerCell.m; sourceTree = "<group>"; };
+		046080AE217870F4003453ED /* NSData+Base64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64Additions.h"; sourceTree = "<group>"; };
+		046080AF217870F4003453ED /* NSStream+SKPSMTPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSStream+SKPSMTPExtensions.m"; sourceTree = "<group>"; };
+		046080B0217870F4003453ED /* SKPSMTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPSMTPMessage.h; sourceTree = "<group>"; };
+		046080B1217870F4003453ED /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		046080B2217870F4003453ED /* HSK_CFUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSK_CFUtilities.h; sourceTree = "<group>"; };
+		046080B3217870F4003453ED /* SKPSMTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPSMTPMessage.m; sourceTree = "<group>"; };
+		046080B4217870F4003453ED /* NSStream+SKPSMTPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSStream+SKPSMTPExtensions.h"; sourceTree = "<group>"; };
+		046080B5217870F4003453ED /* NSData+Base64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64Additions.m"; sourceTree = "<group>"; };
+		046080B6217870F4003453ED /* Base64Transcoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Transcoder.m; sourceTree = "<group>"; };
+		046080B7217870F4003453ED /* HSK_CFUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSK_CFUtilities.m; sourceTree = "<group>"; };
+		046080BE217875DA003453ED /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		046080ED21788E0D003453ED /* SMTPLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMTPLibrary.framework; sourceTree = "<group>"; };
 		046BC5F52175ACAF00C8D84A /* NotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = NotificationPayload.apns; sourceTree = "<group>"; };
 		046BC5F72175AD7100C8D84A /* Directions.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Directions.geojson; sourceTree = "<group>"; };
 		046BC6062176F2C300C8D84A /* FSBitImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSBitImage.h; sourceTree = "<group>"; };
 		046BC6072176F2C300C8D84A /* FSBitImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSBitImage.m; sourceTree = "<group>"; };
 		046BC6092176FDAE00C8D84A /* FSPixel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSPixel.h; sourceTree = "<group>"; };
 		046BC60A2176FDAE00C8D84A /* FSPixel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSPixel.m; sourceTree = "<group>"; };
+		046BD044217833DC00C8D84A /* FSController13.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController13.h; sourceTree = "<group>"; };
+		046BD045217833DC00C8D84A /* FSController13.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSController13.m; sourceTree = "<group>"; };
 		046FFB212157A9DE00FE81D6 /* FSController09.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController09.h; sourceTree = "<group>"; };
 		046FFB222157A9DE00FE81D6 /* FSController09.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSController09.m; sourceTree = "<group>"; };
 		047EFC20215697750013297A /* FSController08.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController08.h; sourceTree = "<group>"; };
@@ -212,6 +234,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046080EE21788E0D003453ED /* SMTPLibrary.framework in Frameworks */,
+				046080BF217875DA003453ED /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +263,7 @@
 				04050708212A9609009A739C /* FSiOSAppDemoTests */,
 				04050713212A9609009A739C /* FSiOSAppDemoUITests */,
 				040506EE212A9608009A739C /* Products */,
+				046080BD217875D9003453ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -332,6 +357,8 @@
 				04AC7ACF215E26980018B29D /* FSController11 */,
 				04EC2DD021743A7000CFE828 /* FSController12.h */,
 				04EC2DD121743A7000CFE828 /* FSController12.m */,
+				046BD044217833DC00C8D84A /* FSController13.h */,
+				046BD045217833DC00C8D84A /* FSController13.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -404,6 +431,31 @@
 			path = FSController07;
 			sourceTree = "<group>";
 		};
+		046080AD217870F4003453ED /* SMTPLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				046080B1217870F4003453ED /* Base64Transcoder.h */,
+				046080B6217870F4003453ED /* Base64Transcoder.m */,
+				046080B2217870F4003453ED /* HSK_CFUtilities.h */,
+				046080B7217870F4003453ED /* HSK_CFUtilities.m */,
+				046080AE217870F4003453ED /* NSData+Base64Additions.h */,
+				046080B5217870F4003453ED /* NSData+Base64Additions.m */,
+				046080B4217870F4003453ED /* NSStream+SKPSMTPExtensions.h */,
+				046080AF217870F4003453ED /* NSStream+SKPSMTPExtensions.m */,
+				046080B0217870F4003453ED /* SKPSMTPMessage.h */,
+				046080B3217870F4003453ED /* SKPSMTPMessage.m */,
+			);
+			path = SMTPLibrary;
+			sourceTree = "<group>";
+		};
+		046080BD217875D9003453ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				046080BE217875DA003453ED /* CFNetwork.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		046BC5F42175AC3D00C8D84A /* Blog */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +493,8 @@
 		04EC2D8421707C1600CFE828 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				046080ED21788E0D003453ED /* SMTPLibrary.framework */,
+				046080AD217870F4003453ED /* SMTPLibrary */,
 				04EC2D8521707C4300CFE828 /* fmdb */,
 			);
 			path = Library;
@@ -663,6 +717,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046080BC217870F4003453ED /* HSK_CFUtilities.m in Sources */,
 				047EFC22215697750013297A /* FSController08.m in Sources */,
 				04521C27214BA6FF003149A0 /* ViewController.m in Sources */,
 				04521C5E214E1CA2003149A0 /* FSRoundedCornerCell.m in Sources */,
@@ -672,6 +727,7 @@
 				04EC2D9321707C4300CFE828 /* FMDatabaseAdditions.m in Sources */,
 				04EC2D9221707C4300CFE828 /* FMDatabaseQueue.m in Sources */,
 				04498139215CC1AC005C0D28 /* FSController10.m in Sources */,
+				046080BA217870F4003453ED /* NSData+Base64Additions.m in Sources */,
 				044980F4215B8A34005C0D28 /* FSMasterSearchResultController.m in Sources */,
 				04EC2DC22170A4BC00CFE828 /* FSBaseData.m in Sources */,
 				0405072F212AA085009A739C /* FSBaseView+TableView.m in Sources */,
@@ -689,8 +745,11 @@
 				04521C42214BA84C003149A0 /* main.m in Sources */,
 				04521C5B214E0875003149A0 /* FSDetailController03.m in Sources */,
 				04EC2DC5217325B100CFE828 /* NSDictionary+JSON.m in Sources */,
+				046080BB217870F4003453ED /* Base64Transcoder.m in Sources */,
+				046080B9217870F4003453ED /* SKPSMTPMessage.m in Sources */,
 				04EC2DB5217085E200CFE828 /* FSPerson.m in Sources */,
 				04521C58214E0868003149A0 /* FSDetailController02.m in Sources */,
+				046BD046217833DC00C8D84A /* FSController13.m in Sources */,
 				046FFB232157A9DE00FE81D6 /* FSController09.m in Sources */,
 				04EC2DD221743A7000CFE828 /* FSController12.m in Sources */,
 				04521C19214B5FD1003149A0 /* FSController05.m in Sources */,
@@ -710,6 +769,7 @@
 				04EC2D9621707C4300CFE828 /* FMResultSet.m in Sources */,
 				04521C52214E084A003149A0 /* FSMasterController.m in Sources */,
 				040506F2212A9608009A739C /* AppDelegate.m in Sources */,
+				046080B8217870F4003453ED /* NSStream+SKPSMTPExtensions.m in Sources */,
 				0449813C215CC1D4005C0D28 /* FS10CollectionViewCell.m in Sources */,
 				04EC2DB7217085E200CFE828 /* FSDog.m in Sources */,
 			);
@@ -873,13 +933,23 @@
 		0405071A212A9609009A739C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = U72R3QQ45L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FSiOSAppDemo/Library",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FSiOSAppDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = FSiOSAppDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FSiOSAppDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "05e4eb12-d57a-4830-9259-37b5dce1d277";
@@ -891,13 +961,23 @@
 		0405071B212A9609009A739C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FSiOSAppDemo/Library",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FSiOSAppDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = FSiOSAppDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FSiOSAppDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
