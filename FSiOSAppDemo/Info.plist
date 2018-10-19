@@ -4,6 +4,7 @@
 <dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>wechat</string>
 		<string>avfoundation</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>

@@ -236,25 +236,45 @@ static NSString * const kSelectorKey = @"selector";
 
 @implementation FSController13 (JumpSetting)
 
+/*
+ URL Scheme
+ 
+ 参考地址:https://sspai.com/post/31500#04
+ 
+ 什么是URL Scheme ？？
+ url scheme是app之间通信的链接方式
+ 在iOS系统中，苹果公司为了保证用户信息的隐私和安全而使用沙盒机制。
+ 每个app的信息都被放在一个单独的空间内，默认情况下app之间是不能进行通信的
+ 这样在一定程度上确实保证了数据的安全，可是也限制了app之间通信的灵活性。
+ 还好Apple提供了url scheme机制实现iOS系统上的app之间的通信
+ 
+ 什么是Scheme ？
+ Scheme就类似URL的协议头。eg:一个URL(http://www.baidu.com), Scheme就相当于一个链接的协议头(http)一样，
+ 在一个iOS系统中安装的每一个app都可以定义自己的协议头(Scheme)。定义方式是在xcode工程文件->TARGET->Info->URL Types.(可以定义多组)
+ 比如短信app(sms://)、设置app(App-Prefs://)
+ 
+ */
+
 /**
  在应用2中通过openURL方法打开应用1
  一、配置应用1的URL Scheme
     1、依次选中应用1的工程文件->TARGET->Info->URL Types
     2、添加一组Identifier(字符串eg:com.companyName.appName)和URL Schemes(字符串eg:FSDemoApp01)。(可以添加多组)
-    3、在应用2的info.plist中添加LSApplicationQueriesSchemes(Array)键，
-    4、再在应用2的LSApplicationQueriesSchemes键下添加应用1的URL Schemes(eg:FSDemoApp01)。(可以添加多组)
-    5、在应用2中调用openURL方法。其中url = [NSURL URLWithString:@"FSDemoApp01://"]
-    6、此时应用1的application:openURL:options:方法会被执行
+ 二、配置应用2的info.plist和代码
+    1、在应用2的info.plist中添加LSApplicationQueriesSchemes(Array)键，
+    2、再在应用2的LSApplicationQueriesSchemes键下添加应用1的URL Schemes(eg:FSDemoApp01)。(可以添加多组)
+    3、在应用2中调用openURL方法。其中url = [NSURL URLWithString:@"FSDemoApp01://"]
+    4、此时应用1的application:openURL:options:方法会被执行
  */
 - (void)jumpSetting
 {
     /*
      系统设置app:App-Prefs:root=WIFI
-     微信:weixin://
+     微信:weichat://
      蓝牙:App-Prefs:root=Bluetooth
      */
     
-    NSURL *url = [NSURL URLWithString:@"avfoundation://"];
+    NSURL *url = [NSURL URLWithString:@"App-Prefs://wifi"];
     
     UIApplication *app = [UIApplication sharedApplication];
     
