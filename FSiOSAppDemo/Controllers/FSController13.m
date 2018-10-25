@@ -270,11 +270,11 @@ static NSString * const kSelectorKey = @"selector";
 {
     /*
      系统设置app:App-Prefs:root=WIFI
-     微信:weichat://
+     微信:wechat://
      蓝牙:App-Prefs:root=Bluetooth
      */
     
-    NSURL *url = [NSURL URLWithString:@"App-Prefs://wifi"];
+    NSURL *url = [NSURL URLWithString:@"wechat:"];
     
     UIApplication *app = [UIApplication sharedApplication];
     
@@ -286,10 +286,12 @@ static NSString * const kSelectorKey = @"selector";
             
             [dict setObject:@(NO) forKey:UIApplicationOpenURLOptionUniversalLinksOnly];
             
-            [app openURL:url options:dict completionHandler:^(BOOL success) {
-               
-                NSLog(@"打开结果: %d",success);
-            }];
+//            [app openURL:url options:dict completionHandler:^(BOOL success) {
+//
+//                NSLog(@"打开结果: %d",success);
+//            }];
+            
+            [app openURL:url];
         }
         else
         {

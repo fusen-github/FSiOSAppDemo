@@ -57,6 +57,8 @@
 		046FFB232157A9DE00FE81D6 /* FSController09.m in Sources */ = {isa = PBXBuildFile; fileRef = 046FFB222157A9DE00FE81D6 /* FSController09.m */; };
 		047EFC22215697750013297A /* FSController08.m in Sources */ = {isa = PBXBuildFile; fileRef = 047EFC21215697750013297A /* FSController08.m */; };
 		04AC7AD2215E26B40018B29D /* FSController11.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AC7AD1215E26B40018B29D /* FSController11.m */; };
+		04B97C5D2181A61900AD7C42 /* FSController14.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B97C5C2181A61900AD7C42 /* FSController14.m */; };
+		04B97C602181A82100AD7C42 /* FSOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B97C5F2181A82100AD7C42 /* FSOperation.m */; };
 		04EC2D9221707C4300CFE828 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2D8721707C4300CFE828 /* FMDatabaseQueue.m */; };
 		04EC2D9321707C4300CFE828 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2D8A21707C4300CFE828 /* FMDatabaseAdditions.m */; };
 		04EC2D9421707C4300CFE828 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2D8B21707C4300CFE828 /* FMDatabase.m */; };
@@ -188,6 +190,10 @@
 		04AC7AD0215E26B40018B29D /* FSController11.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController11.h; sourceTree = "<group>"; };
 		04AC7AD1215E26B40018B29D /* FSController11.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSController11.m; sourceTree = "<group>"; };
 		04B70511214E4AC300A77DA7 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		04B97C5B2181A61900AD7C42 /* FSController14.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController14.h; sourceTree = "<group>"; };
+		04B97C5C2181A61900AD7C42 /* FSController14.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSController14.m; sourceTree = "<group>"; };
+		04B97C5E2181A82100AD7C42 /* FSOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSOperation.h; sourceTree = "<group>"; };
+		04B97C5F2181A82100AD7C42 /* FSOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSOperation.m; sourceTree = "<group>"; };
 		04EC2D8621707C4300CFE828 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		04EC2D8721707C4300CFE828 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
 		04EC2D8821707C4300CFE828 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
@@ -359,6 +365,7 @@
 				04EC2DD121743A7000CFE828 /* FSController12.m */,
 				046BD044217833DC00C8D84A /* FSController13.h */,
 				046BD045217833DC00C8D84A /* FSController13.m */,
+				04B97C5A2181A5F100AD7C42 /* FSController14 */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -488,6 +495,17 @@
 				04EC2D9821707CF400CFE828 /* Model */,
 			);
 			path = FSController11;
+			sourceTree = "<group>";
+		};
+		04B97C5A2181A5F100AD7C42 /* FSController14 */ = {
+			isa = PBXGroup;
+			children = (
+				04B97C5B2181A61900AD7C42 /* FSController14.h */,
+				04B97C5C2181A61900AD7C42 /* FSController14.m */,
+				04B97C5E2181A82100AD7C42 /* FSOperation.h */,
+				04B97C5F2181A82100AD7C42 /* FSOperation.m */,
+			);
+			path = FSController14;
 			sourceTree = "<group>";
 		};
 		04EC2D8421707C1600CFE828 /* Library */ = {
@@ -765,11 +783,13 @@
 				04521C48214BB147003149A0 /* FSController06.m in Sources */,
 				04521C55214E085B003149A0 /* FSDetailController01.m in Sources */,
 				0449813F215CD1BE005C0D28 /* FS10ColletionItem.m in Sources */,
+				04B97C602181A82100AD7C42 /* FSOperation.m in Sources */,
 				04EC2DBF21708F0700CFE828 /* UIView+Frame.m in Sources */,
 				04EC2D9621707C4300CFE828 /* FMResultSet.m in Sources */,
 				04521C52214E084A003149A0 /* FSMasterController.m in Sources */,
 				040506F2212A9608009A739C /* AppDelegate.m in Sources */,
 				046080B8217870F4003453ED /* NSStream+SKPSMTPExtensions.m in Sources */,
+				04B97C5D2181A61900AD7C42 /* FSController14.m in Sources */,
 				0449813C215CC1D4005C0D28 /* FS10CollectionViewCell.m in Sources */,
 				04EC2DB7217085E200CFE828 /* FSDog.m in Sources */,
 			);
@@ -947,7 +967,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FSiOSAppDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = FSiOSAppDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = "";
@@ -977,7 +997,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FSiOSAppDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = FSiOSAppDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = "";

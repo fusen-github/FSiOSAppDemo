@@ -1,0 +1,211 @@
+//
+//  FSController14.m
+//  FSiOSAppDemo
+//
+//  Created by 付森 on 2018/10/25.
+//  Copyright © 2018年 付森. All rights reserved.
+//
+
+#import "FSController14.h"
+#import "FSOperation.h"
+
+/*
+ queue:队列，可以理解成是车间里的一条生产线
+ 
+ operate:操作，可以理解成是一条生产线上的一个员工
+ 
+ */
+
+@interface FSController14 ()<UITableViewDataSource>
+
+@property (nonatomic, weak) NSOperationQueue *queue;
+
+@property (nonatomic, strong) NSTimer *timer;
+
+@end
+
+@implementation FSController14
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"right" style:UIBarButtonItemStylePlain target:self action:@selector(doRightAction)];
+    
+    UITableView *tableView = [[UITableView alloc] init];
+    
+    tableView.cellLayoutMarginsFollowReadableWidth = NO;
+    
+    tableView.frame = self.view.bounds;
+    
+    tableView.dataSource = self;
+    
+    [self.view addSubview:tableView];
+    
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.5 repeats:YES block:^(NSTimer *timer) {
+        
+        NSLog(@"op_count = %ld, %@",self.queue.operationCount, self.queue);
+    }];
+    
+    self.timer = timer;
+    
+    [timer fire];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.timer invalidate];
+    
+    self.timer = nil;
+}
+
+- (void)doRightAction
+{
+    [self demo02];
+}
+
+/*
+ NSOperation 和 NSOperationQueue中对
+ 进程、队列、操作、任务、线程、的理解：
+ 
+ Tips: (队列严格按照先进先出的原则，FIFO)
+ 如果把进程看做一个集团公司的运作过程，那么队列、线程、操作、任务可以理解成以下情况
+ 1、启动app，就是开启一个进程。【相当于创办一家集团公司】
+ 2、进程启动后就会开启一个主队列，主队列里有且只能有一条线程叫做主线程。【相当于该公司有一条主产品线，维持着集团公司的正常运作】
+ 3、主队列中的任务只能在主线程中串行执行。因为主队列中只能有一条线程，叫主线程。
+    3.1、主队列: [NSOperationQueue mainQueue]
+ 4、当需要的时候进程开启一个新的队列，叫子队列。【相当于公司开了一家子公司】
+    4.1、子队列: [[NSOperationQueue alloc] init]
+ 5、子队列(子公司)中可以开启一条或多条线程，这些线程都是子线程。【相当于子公司可以开启多条生产线】
+    5.1、通过[[NSOperationQueue alloc] init]. 创建的子队列中可以开启一条线程、也可以开启多条线程
+ 
+ 
+ 一、进程:
+ 一个程序(app)的运行过程就是一个进程。iOS系统中一个app只能开启一个进程。
+ 当一个进程开启后，会开启一个主运行循环和一个主线程。主运行循环保证主线程不会被杀死，同时接收用户的交互事件。
+ 
+ 二、线程:
+ app处理可以利用主线程干活，同时也可以开启多个子线程，子线程在后台干活。
+ 
+ 
+ */
+
+- (void)demo04
+{
+    
+}
+
+- (void)demo03
+{
+    /* 队列和操作的理解 */
+    
+    /*
+     队列, NSOperationQueue
+     1、队列可以理解成是工厂里的一条生产线
+     2、分为主队列([NSOperationQueue mainQueue])和自定义队列([[NSOperationQueue alloc] init])
+     3、主队列对应操作系统的主线程、自定义队列对应操作系统的子线程
+     */
+    
+    /*
+     操作, NSOperation、NSInvocationOperation、NSBlockOperation
+     1、操作可以理解成生产线上的工人。
+     2、操作有2种方式可以执行
+        2.1、操作对象显示调用- (void)start方法，那么操作会执行
+        2.2、将操作添加到一个队列中，操作会自动执行
+     3、创建一个操作后如果不显式的添加到任何队列中，直接调用- (void)start方法，系统会隐式的将该操作添加到创建该操作的线程中执行
+     
+     */
+    
+    
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    
+    queue = dispatch_queue_create("queue_id", DISPATCH_QUEUE_SERIAL);
+    
+//    dispatch_async(<#dispatch_queue_t  _Nonnull queue#>, <#^(void)block#>)
+    
+}
+
+- (void)demo02
+{
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    self.queue = queue;
+    
+    for (int i = 0; i < 5; i++)
+    {
+        NSString *idx = [NSString stringWithFormat:@"%02d",i + 1];
+        
+        FSOperation *op = [[FSOperation alloc] initWithIdentifier:idx];
+        
+        [queue addOperation:op];
+        
+        [NSThread sleepForTimeInterval:0.5];
+    }
+    
+    NSLog(@"end");
+}
+
+- (void)demo01
+{
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    self.queue = queue;
+    
+    NSMutableArray *opArray = [NSMutableArray array];
+    
+    for (int i = 0; i < 5; i++)
+    {
+        NSString *idx = [NSString stringWithFormat:@"%02d",i + 1];
+        
+        FSOperation *op = [[FSOperation alloc] initWithIdentifier:idx];
+        
+        [opArray addObject:op];
+    }
+    
+    /*
+     waitUntilFinished: NO不会阻塞主线程。YES会阻塞主线程，卡死UI
+     */
+    [queue addOperations:opArray waitUntilFinished:YES];
+    
+    NSLog(@"end");
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 30;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString * const kCellId = @"controller14_cell_id";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
+    
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellId];
+        
+        cell.textLabel.textColor = [UIColor darkTextColor];
+        
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
+    }
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"fs-%ld",indexPath.row + 1];
+    
+    return cell;
+}
+
+- (void)dealloc
+{
+    NSLog(@"FSController14 - dealloc");
+}
+
+@end

@@ -22,6 +22,14 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"rigth" style:UIBarButtonItemStylePlain target:self action:@selector(doRightAction)];
 }
 
+/*
+ 4.2、用GCD创建子队列
+ 4.2.1、 主队列: dispatch_get_main_queue()
+ 4.2.2、 全局队列: dispatch_get_global_queue(0, 0)
+ 4.2.3、 串行队列: dispatch_queue_create("queue_id", DISPATCH_QUEUE_SERIAL)
+ 4.2.3、 并发队列: dispatch_queue_create("queue_id", DISPATCH_QUEUE_CONCURRENT)
+ */
+
 - (void)doRightAction
 {
     [self demo13];
