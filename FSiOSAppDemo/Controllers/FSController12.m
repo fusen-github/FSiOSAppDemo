@@ -25,16 +25,54 @@
 /*
  4.2、用GCD创建子队列
  4.2.1、 主队列: dispatch_get_main_queue()
- 4.2.2、 全局队列: dispatch_get_global_queue(0, 0)
+ 4.2.2、 全局队列: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
  4.2.3、 串行队列: dispatch_queue_create("queue_id", DISPATCH_QUEUE_SERIAL)
  4.2.3、 并发队列: dispatch_queue_create("queue_id", DISPATCH_QUEUE_CONCURRENT)
  */
 
 - (void)doRightAction
 {
-    [self demo13];
+    [self demo14];
 }
 
+
+- (void)demo14
+{
+    /*
+     全局并发队列
+     */
+    dispatch_queue_t global_concurrent_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_async(global_concurrent_queue, ^{
+        
+        for (int i = 0; i < 3; i++)
+        {
+            [NSThread sleepForTimeInterval:0.2];
+            
+            NSLog(@"a、i = %d, %@",i, [NSThread currentThread]);
+        }
+    });
+    
+    dispatch_async(global_concurrent_queue, ^{
+        
+        for (int i = 0; i < 3; i++)
+        {
+            [NSThread sleepForTimeInterval:0.05];
+            
+            NSLog(@"b、i = %d, %@",i, [NSThread currentThread]);
+        }
+    });
+    
+    dispatch_async(global_concurrent_queue, ^{
+        
+        for (int i = 0; i < 3; i++)
+        {
+            [NSThread sleepForTimeInterval:0.1];
+            
+            NSLog(@"c、i = %d, %@",i, [NSThread currentThread]);
+        }
+    });
+}
 
 /**
  dispatch_semaphore_t

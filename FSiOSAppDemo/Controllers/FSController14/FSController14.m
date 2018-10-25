@@ -40,22 +40,20 @@
     tableView.dataSource = self;
     
     [self.view addSubview:tableView];
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.5 repeats:YES block:^(NSTimer *timer) {
-        
-        NSLog(@"op_count = %ld, %@",self.queue.operationCount, self.queue);
-    }];
+//    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.5 repeats:YES block:^(NSTimer *timer) {
+//
+//        NSLog(@"op_count = %ld, %@",self.queue.operationCount, self.queue);
+//    }];
     
-    self.timer = timer;
-    
-    [timer fire];
+//    self.timer = timer;
+//
+//    [timer fire];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -69,7 +67,7 @@
 
 - (void)doRightAction
 {
-    [self demo02];
+    [self demo07];
 }
 
 /*
@@ -84,8 +82,14 @@
     3.1、主队列: [NSOperationQueue mainQueue]
  4、当需要的时候进程开启一个新的队列，叫子队列。【相当于公司开了一家子公司】
     4.1、子队列: [[NSOperationQueue alloc] init]
- 5、子队列(子公司)中可以开启一条或多条线程，这些线程都是子线程。【相当于子公司可以开启多条生产线】
+ 5、子队列(子公司)中可以开启一条或多条线程，这些线程都是子线程(ps:子线程只能在子队列中执行)。【相当于子公司可以开启多条生产线】
     5.1、通过[[NSOperationQueue alloc] init]. 创建的子队列中可以开启一条线程、也可以开启多条线程
+    5.2、设置 NSOperationQueue.maxConcurrentOperationCount = 1，只开启一个子线程
+    5.3、设置 NSOperationQueue.maxConcurrentOperationCount = n(n > 1)，最多开启n条子线程。具体根据操作系统来分配
+    5.3、NSOperationQueue.maxConcurrentOperationCount 默认值-1，意味着开几条子线程交给操作系统来分配
+ 6、操作，iOS SDK给了NSOperation、NSInvocationOperation、NSBlockOperation三种操作类
+    NSOperation、NSInvocationOperation、操作可以直接调用-(void)start方法去执行任务，如果直接调用相当于在当前队列的当前线程执行
+ 7、每一个NSBlockOperation操作可以添加多个任务，如果添加了子块，会并发执行主块和子块
  
  
  一、进程:
@@ -98,9 +102,190 @@
  
  */
 
+- (void)demo07
+{
+    NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
+       
+        for (int i = 0; i < 3; i++)
+        {
+            [NSThread sleepForTimeInterval:1];
+            
+            NSLog(@"a、i = %d, %@",i, [NSThread currentThread]);
+        }
+    }];
+    
+    NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
+        
+        for (int i = 0; i < 3; i++)
+        {
+            [NSThread sleepForTimeInterval:0.1];
+            
+            NSLog(@"b、i = %d, %@",i, [NSThread currentThread]);
+        }
+    }];
+    
+    NSBlockOperation *op3 = [NSBlockOperation blockOperationWithBlock:^{
+        
+        for (int i = 0; i < 3; i++)
+        {
+            [NSThread sleepForTimeInterval:0.2];
+            
+            NSLog(@"c、i = %d, %@",i, [NSThread currentThread]);
+        }
+    }];
+    
+    NSBlockOperation *op4 = [NSBlockOperation blockOperationWithBlock:^{
+        
+        for (int i = 0; i < 3; i++)
+        {
+            [NSThread sleepForTimeInterval:0.3];
+            
+            NSLog(@"d、i = %d, %@",i, [NSThread currentThread]);
+        }
+    }];
+    
+    /*
+     每个操作都会开启一个单独的线程，在每个操作内部都是顺序执行的
+     */
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    /*
+     maxConcurrentOperationCount = 1是，相当于串行队列
+     */
+    queue.maxConcurrentOperationCount = 1;
+    
+    [queue addOperations:@[op1, op2, op3, op4] waitUntilFinished:NO];
+}
+
+- (void)demo06
+{
+    /*
+     会开启2条线程
+     */
+    NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
+        
+        for (int i = 0; i < 3; i++)
+        {
+            [NSThread sleepForTimeInterval:0.1];
+            
+            NSLog(@"a、i = %d, %@",i, [NSThread currentThread]);
+        }
+    }];
+    
+    [op addExecutionBlock:^{
+        
+        for (int i = 0; i < 3; i++)
+        {
+            [NSThread sleepForTimeInterval:0.2];
+            
+            NSLog(@"b、i = %d, %@",i, [NSThread currentThread]);
+        }
+    }];
+    
+    [op addExecutionBlock:^{
+        
+        for (int i = 0; i < 3; i++)
+        {
+            [NSThread sleepForTimeInterval:0.3];
+            
+            NSLog(@"c、i = %d, %@",i, [NSThread currentThread]);
+        }
+    }];
+    
+    [op addExecutionBlock:^{
+        
+        for (int i = 0; i < 3; i++)
+        {
+            [NSThread sleepForTimeInterval:0.1];
+            
+            NSLog(@"d、i = %d, %@",i, [NSThread currentThread]);
+        }
+    }];
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    [queue addOperation:op];
+}
+
+- (void)demo05
+{
+    /*
+     NSBlockOperation，此类型的操作可以创建只一个对象，在该操作对象上添加多个多个执行块。
+     直接调用-(void)start方法，主块会在当前线程执行。追加的子执行块会开启一条线程，顺序执行
+     */
+    NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
+        
+        for (int i = 0; i < 3; i++)
+        {
+            [NSThread sleepForTimeInterval:1];
+            
+            NSLog(@"a、i = %d, %@",i, [NSThread currentThread]);
+        }
+    }];
+    
+    [op addExecutionBlock:^{
+        
+        for (int i = 0; i < 3; i++)
+        {
+            [NSThread sleepForTimeInterval:0.2];
+            
+            NSLog(@"b、i = %d, %@",i, [NSThread currentThread]);
+        }
+    }];
+    
+    [op addExecutionBlock:^{
+        
+        for (int i = 0; i < 3; i++)
+        {
+            [NSThread sleepForTimeInterval:0.3];
+            
+            NSLog(@"c、i = %d, %@",i, [NSThread currentThread]);
+        }
+    }];
+    
+    [op addExecutionBlock:^{
+        
+        for (int i = 0; i < 3; i++)
+        {
+            [NSThread sleepForTimeInterval:0.1];
+            
+            NSLog(@"d、i = %d, %@",i, [NSThread currentThread]);
+        }
+    }];
+    
+    [op start];
+}
+
 - (void)demo04
 {
+    NSInvocationOperation *op1 = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(demo04_NSInvocationOperation:) object:@"sen_01"];
     
+    NSInvocationOperation *op2 = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(demo04_NSInvocationOperation:) object:@"sen_02"];
+    
+    NSInvocationOperation *op3 = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(demo04_NSInvocationOperation:) object:@"sen_03"];
+    
+    NSInvocationOperation *op4 = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(demo04_NSInvocationOperation:) object:@"sen_04"];
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    /*
+     将操作添加到队列就会开启子线程。开启几条子线程是由maxConcurrentOperationCount的值和操作系统共同决定的
+     */
+    queue.maxConcurrentOperationCount = 1;
+    
+    [queue addOperations:@[op1,op2,op3,op4] waitUntilFinished:NO];
+    
+}
+
+- (void)demo04_NSInvocationOperation:(id)param
+{
+    for (int i = 0; i < 5; i++)
+    {
+        [NSThread sleepForTimeInterval:0.2];
+        
+        NSLog(@"i = %d,%@, %@",i, param, [NSThread currentThread]);
+    }
 }
 
 - (void)demo03
@@ -120,7 +305,7 @@
      2、操作有2种方式可以执行
         2.1、操作对象显示调用- (void)start方法，那么操作会执行
         2.2、将操作添加到一个队列中，操作会自动执行
-     3、创建一个操作后如果不显式的添加到任何队列中，直接调用- (void)start方法，系统会隐式的将该操作添加到创建该操作的线程中执行
+     3、创建一个操作后如果不显式的添加到任何队列中，直接调用-(void)start方法，系统会隐式的将该操作添加到创建该操作的线程中执行
      
      */
     
