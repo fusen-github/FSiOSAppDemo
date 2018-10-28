@@ -59,6 +59,7 @@
 		04AC7AD2215E26B40018B29D /* FSController11.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AC7AD1215E26B40018B29D /* FSController11.m */; };
 		04B97C5D2181A61900AD7C42 /* FSController14.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B97C5C2181A61900AD7C42 /* FSController14.m */; };
 		04B97C602181A82100AD7C42 /* FSOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B97C5F2181A82100AD7C42 /* FSOperation.m */; };
+		04B97C662182F70C00AD7C42 /* FSController15.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B97C652182F70C00AD7C42 /* FSController15.m */; };
 		04EC2D9221707C4300CFE828 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2D8721707C4300CFE828 /* FMDatabaseQueue.m */; };
 		04EC2D9321707C4300CFE828 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2D8A21707C4300CFE828 /* FMDatabaseAdditions.m */; };
 		04EC2D9421707C4300CFE828 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2D8B21707C4300CFE828 /* FMDatabase.m */; };
@@ -194,6 +195,8 @@
 		04B97C5C2181A61900AD7C42 /* FSController14.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSController14.m; sourceTree = "<group>"; };
 		04B97C5E2181A82100AD7C42 /* FSOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSOperation.h; sourceTree = "<group>"; };
 		04B97C5F2181A82100AD7C42 /* FSOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSOperation.m; sourceTree = "<group>"; };
+		04B97C642182F70C00AD7C42 /* FSController15.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController15.h; sourceTree = "<group>"; };
+		04B97C652182F70C00AD7C42 /* FSController15.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSController15.m; sourceTree = "<group>"; };
 		04EC2D8621707C4300CFE828 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		04EC2D8721707C4300CFE828 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
 		04EC2D8821707C4300CFE828 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
@@ -366,6 +369,8 @@
 				046BD044217833DC00C8D84A /* FSController13.h */,
 				046BD045217833DC00C8D84A /* FSController13.m */,
 				04B97C5A2181A5F100AD7C42 /* FSController14 */,
+				04B97C642182F70C00AD7C42 /* FSController15.h */,
+				04B97C652182F70C00AD7C42 /* FSController15.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -787,6 +792,7 @@
 				04EC2DBF21708F0700CFE828 /* UIView+Frame.m in Sources */,
 				04EC2D9621707C4300CFE828 /* FMResultSet.m in Sources */,
 				04521C52214E084A003149A0 /* FSMasterController.m in Sources */,
+				04B97C662182F70C00AD7C42 /* FSController15.m in Sources */,
 				040506F2212A9608009A739C /* AppDelegate.m in Sources */,
 				046080B8217870F4003453ED /* NSStream+SKPSMTPExtensions.m in Sources */,
 				04B97C5D2181A61900AD7C42 /* FSController14.m in Sources */,

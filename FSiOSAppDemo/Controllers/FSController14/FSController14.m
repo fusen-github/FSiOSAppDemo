@@ -40,6 +40,8 @@
     tableView.dataSource = self;
     
     [self.view addSubview:tableView];
+    
+    NSLog(@"viewDidLoad:%@",[NSOperationQueue currentQueue]);
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -70,6 +72,25 @@
     [self demo07];
 }
 
+- (void)demo08
+{
+    NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(demo08_NSThread:) object:@"sen"];
+    
+    [thread start];
+}
+
+- (void)demo08_NSThread:(id)obj
+{
+    NSLog(@"obj = %@",obj);
+    
+    NSLog(@"%@",[NSOperationQueue currentQueue]);
+    
+    for (int i = 0; i < 5; i++)
+    {
+        NSLog(@"i = %d, %@", i, [NSThread currentThread]);
+    }
+}
+
 /*
  NSOperation 和 NSOperationQueue中对
  进程、队列、操作、任务、线程、的理解：
@@ -77,8 +98,8 @@
  Tips: (队列严格按照先进先出的原则，FIFO)
  如果把进程看做一个集团公司的运作过程，那么队列、线程、操作、任务可以理解成以下情况
  1、启动app，就是开启一个进程。【相当于创办一家集团公司】
- 2、进程启动后就会开启一个主队列，主队列里有且只能有一条线程叫做主线程。【相当于该公司有一条主产品线，维持着集团公司的正常运作】
- 3、主队列中的任务只能在主线程中串行执行。因为主队列中只能有一条线程，叫主线程。
+ 2、进程启动后就会开启一个主队列，此时主队列里有有一条线程叫做主线程。【相当于该公司有一条主产品线，维持着集团公司的正常运作】
+ 3、主队列中可以运行主线程，也可以运行子线程。除了主线程，新开启的线程都是子线程。
     3.1、主队列: [NSOperationQueue mainQueue]
  4、当需要的时候进程开启一个新的队列，叫子队列。【相当于公司开了一家子公司】
     4.1、子队列: [[NSOperationQueue alloc] init]
@@ -106,15 +127,19 @@
 {
     NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
        
+        NSLog(@"1、%@",[NSOperationQueue currentQueue]);
+        
         for (int i = 0; i < 3; i++)
         {
-            [NSThread sleepForTimeInterval:1];
+            [NSThread sleepForTimeInterval:2];
             
             NSLog(@"a、i = %d, %@",i, [NSThread currentThread]);
         }
     }];
     
     NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
+        
+        NSLog(@"2、%@",[NSOperationQueue currentQueue]);
         
         for (int i = 0; i < 3; i++)
         {
@@ -126,6 +151,8 @@
     
     NSBlockOperation *op3 = [NSBlockOperation blockOperationWithBlock:^{
         
+        NSLog(@"3、%@",[NSOperationQueue currentQueue]);
+        
         for (int i = 0; i < 3; i++)
         {
             [NSThread sleepForTimeInterval:0.2];
@@ -135,6 +162,8 @@
     }];
     
     NSBlockOperation *op4 = [NSBlockOperation blockOperationWithBlock:^{
+        
+        NSLog(@"4、%@",[NSOperationQueue currentQueue]);
         
         for (int i = 0; i < 3; i++)
         {
@@ -151,11 +180,16 @@
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     
     /*
-     maxConcurrentOperationCount = 1是，相当于串行队列
+     maxConcurrentOperationCount = 1时，相当于串行队列
+     maxConcurrentOperationCount > 1时，相当于并发队列
      */
     queue.maxConcurrentOperationCount = 1;
     
+    NSLog(@"start、%@",[NSOperationQueue currentQueue]);
+    
     [queue addOperations:@[op1, op2, op3, op4] waitUntilFinished:NO];
+    
+    NSLog(@"end、%@",[NSOperationQueue currentQueue]);
 }
 
 - (void)demo06
@@ -216,6 +250,8 @@
      */
     NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
         
+        NSLog(@"1、%@",[NSOperationQueue currentQueue]);
+        
         for (int i = 0; i < 3; i++)
         {
             [NSThread sleepForTimeInterval:1];
@@ -226,6 +262,8 @@
     
     [op addExecutionBlock:^{
         
+        NSLog(@"2、%@",[NSOperationQueue currentQueue]);
+        
         for (int i = 0; i < 3; i++)
         {
             [NSThread sleepForTimeInterval:0.2];
@@ -234,25 +272,25 @@
         }
     }];
     
-    [op addExecutionBlock:^{
-        
-        for (int i = 0; i < 3; i++)
-        {
-            [NSThread sleepForTimeInterval:0.3];
-            
-            NSLog(@"c、i = %d, %@",i, [NSThread currentThread]);
-        }
-    }];
-    
-    [op addExecutionBlock:^{
-        
-        for (int i = 0; i < 3; i++)
-        {
-            [NSThread sleepForTimeInterval:0.1];
-            
-            NSLog(@"d、i = %d, %@",i, [NSThread currentThread]);
-        }
-    }];
+//    [op addExecutionBlock:^{
+//
+//        for (int i = 0; i < 3; i++)
+//        {
+//            [NSThread sleepForTimeInterval:0.3];
+//
+//            NSLog(@"c、i = %d, %@",i, [NSThread currentThread]);
+//        }
+//    }];
+//
+//    [op addExecutionBlock:^{
+//
+//        for (int i = 0; i < 3; i++)
+//        {
+//            [NSThread sleepForTimeInterval:0.1];
+//
+//            NSLog(@"d、i = %d, %@",i, [NSThread currentThread]);
+//        }
+//    }];
     
     [op start];
 }

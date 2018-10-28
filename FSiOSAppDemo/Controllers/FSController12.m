@@ -23,18 +23,52 @@
 }
 
 /*
- 4.2、用GCD创建子队列
- 4.2.1、 主队列: dispatch_get_main_queue()
- 4.2.2、 全局队列: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
- 4.2.3、 串行队列: dispatch_queue_create("queue_id", DISPATCH_QUEUE_SERIAL)
- 4.2.3、 并发队列: dispatch_queue_create("queue_id", DISPATCH_QUEUE_CONCURRENT)
+ GCD理解:
+ GCD = 队列 + 任务 + 任务的执行方式(同步 or 异步)
+ 1、将一个或多个任务添加到一个队列中，由队列统一管理
+ 2、针对每个任务都指定了该任务的执行方式(同步:dispatch_sync, 异步:dispatch_async)
+ 3、同步(dispatch_sync)指在当前线程执行该任务。
+ 4、异步(dispatch_async)指不在当前线程执行任务，而是在另一个线程执行该任务。
+ 5、线程:GCD底层维护了一个可调度线程池，需要使用线程时，直接从线程池拿一个线程来用。用完后再把线程还给线程池。在GCD中线程不会销毁，而是被缓存到线程池里，需要用的时候直接获取。区别于NSThread每次创建一个线程，用完后该线程就销毁。再需要用时再创建。
+ */
+
+/*
+ GCD队列
+ 1、 主队列: dispatch_get_main_queue(),专门调度任务到主线程去执行
+ 2、 全局队列: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+ 3、 串行队列: dispatch_queue_create("queue_id", DISPATCH_QUEUE_SERIAL)
+ 3、 并发队列: dispatch_queue_create("queue_id", DISPATCH_QUEUE_CONCURRENT)
  */
 
 - (void)doRightAction
 {
-    [self demo14];
+    [self demo15];
 }
 
+- (void)demo15
+{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+       
+        NSLog(@"1: %@",[NSThread currentThread]);
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+           
+            NSLog(@"2: %@",[NSThread currentThread]);
+            
+        });
+        
+        NSLog(@"3: %@",[NSThread currentThread]);
+    });
+    
+    NSLog(@"start: %@",[NSThread currentThread]);
+    
+    /*
+     dispatch_main方法会唤醒主线程，但是在Runloop中主线程一直都是唤醒状态。所以调用该方法不会返回。
+     */
+//    dispatch_main();
+    
+    NSLog(@"end: %@",[NSThread currentThread]);
+}
 
 - (void)demo14
 {

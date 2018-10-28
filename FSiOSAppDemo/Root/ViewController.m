@@ -40,8 +40,9 @@ static NSString * const kControllerTitleKey = @"kControllerTitleKey";
     @{kControllerNameKey:@"FSController11",kControllerTitleKey:@"SQLite3"},
     @{kControllerNameKey:@"FSController12",kControllerTitleKey:@"GCD"},
     @{kControllerNameKey:@"FSController13",kControllerTitleKey:@"多功能"},
-    @{kControllerNameKey:@"FSController14",kControllerTitleKey:@"NSOperation & NSOperationQueue"},];
-    
+    @{kControllerNameKey:@"FSController14",kControllerTitleKey:@"NSOperation & NSOperationQueue"},
+    @{kControllerNameKey:@"FSController15",kControllerTitleKey:@"NSThread"},
+];
     
     // UserNotifications
     UITableView *tableView = [[UITableView alloc] init];
