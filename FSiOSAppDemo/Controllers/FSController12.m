@@ -28,7 +28,7 @@
  1、将一个或多个任务添加到一个队列中，由队列统一管理
  2、针对每个任务都指定了该任务的执行方式(同步:dispatch_sync, 异步:dispatch_async)
  3、同步(dispatch_sync)指在当前线程执行该任务。
- 4、异步(dispatch_async)指不在当前线程执行任务，而是在另一个线程执行该任务。
+ 4、异步(dispatch_async)指不在当前线程执行任务，而是在另一个线程(可以是一个子线程、也可以是主线程)执行该任务。
  5、线程:GCD底层维护了一个可调度线程池，需要使用线程时，直接从线程池拿一个线程来用。用完后再把线程还给线程池。在GCD中线程不会销毁，而是被缓存到线程池里，需要用的时候直接获取。区别于NSThread每次创建一个线程，用完后该线程就销毁。再需要用时再创建。
  */
 
@@ -43,6 +43,34 @@
 - (void)doRightAction
 {
     [self demo15];
+}
+
+- (void)demo16
+{
+    dispatch_queue_t queue = dispatch_queue_create("fusen", DISPATCH_QUEUE_CONCURRENT);
+    
+    NSLog(@"begin");
+    
+    dispatch_sync(queue, ^{
+        
+        [NSThread sleepForTimeInterval:5];
+        
+        NSLog(@"111, %@",[NSThread currentThread]);
+        
+    });
+    
+    dispatch_async(queue, ^{
+        
+        NSLog(@"222, %@",[NSThread currentThread]);
+        
+    });
+    
+    dispatch_async(queue, ^{
+        
+        NSLog(@"333, %@",[NSThread currentThread]);
+    });
+    
+    NSLog(@"end");
 }
 
 - (void)demo15
@@ -115,14 +143,19 @@
 {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(2);
+    dispatch_group_t group = dispatch_group_create();
+    
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
     
     NSMutableArray *tmpArray = [NSMutableArray array];
     
     for (int i = 0; i < 10000; i++)
     {
-        dispatch_async(queue, ^{
-           
+        /**
+         并发执行，无序的
+         */
+        dispatch_group_async(group, queue, ^{
+            
             dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
             
             [tmpArray addObject:@(i)];
@@ -130,6 +163,11 @@
             dispatch_semaphore_signal(semaphore);
         });
     }
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+       
+        NSLog(@"结束了, %@",@(tmpArray.count));
+    });
     
     NSLog(@"end");
 }
@@ -273,6 +311,50 @@
     
 }
 
+- (void)demo08_02
+{
+    NSArray *array = @[@"张三",@"李四",@"王五",@"赵六",@"刘七",@"宋八"];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_async(queue, ^{
+        
+//        for (int i = 0; i < array.count; i++)
+//        {
+//            NSLog(@"index = %@, obj = %@, thread = %@",@(i), array[i], [NSThread currentThread]);
+//        }
+        
+        dispatch_apply(array.count, queue, ^(size_t index) {
+            
+            [NSThread sleepForTimeInterval:0.1 * (arc4random() % array.count)];
+            
+            NSLog(@"index = %@, obj = %@, thread = %@",@(index), array[index], [NSThread currentThread]);
+        });
+        
+        NSLog(@"done");
+    });
+    
+    NSLog(@"end");
+}
+
+- (void)demo08_01
+{
+    NSArray *array = @[@"张三",@"李四",@"王五",@"赵六",@"刘七",@"宋八"];
+
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_async(queue, ^{
+       
+        for (int i = 0; i < array.count; i++)
+        {
+            NSLog(@"index = %@, obj = %@, thread = %@",@(i), array[i], [NSThread currentThread]);
+        }
+        
+        NSLog(@"done");
+    });
+    
+    NSLog(@"end");
+}
 
 /**
  dispatch_apply
@@ -321,39 +403,49 @@
     
     dispatch_async(queue, ^{
        
-        NSLog(@"data1: %@",data);
+        [NSThread sleepForTimeInterval:0.2];
         
-        NSLog(@"操作1---读取");
+        NSLog(@"操作1---读取, data1: %@, %@",data, [NSThread currentThread]);
     });
     
     dispatch_async(queue, ^{
         
-        NSLog(@"data2: %@",data);
+        [NSThread sleepForTimeInterval:3];
         
-        NSLog(@"操作2---读取");
+        NSLog(@"操作2---读取, data1: %@, %@",data, [NSThread currentThread]);
+
     });
     
-    dispatch_barrier_async(queue, ^{
+//    dispatch_barrier_async(<#dispatch_queue_t  _Nonnull queue#>, <#^(void)block#>)
+
+//    dispatch_barrier_sync(<#dispatch_queue_t  _Nonnull queue#>, <#^(void)block#>)
+
+    /* 同步任务:在当前线程。 异步任务:在一个新线程 */
+    dispatch_barrier_sync(queue, ^{
        
-        [NSThread sleepForTimeInterval:1];
+        NSLog(@"dispatch_barrier_async start");
+        
+        [NSThread sleepForTimeInterval:3];
         
         data = @"456789";
         
-        NSLog(@"操作3---修改操作");
+        NSLog(@"操作3---修改操作, data1: %@, %@",data, [NSThread currentThread]);
+
     });
     
     dispatch_async(queue, ^{
         
-        NSLog(@"data4: %@",data);
+        [NSThread sleepForTimeInterval:0.5];
         
-        NSLog(@"操作4---读取");
+        NSLog(@"操作4---读取, data1: %@, %@",data, [NSThread currentThread]);
     });
     
     dispatch_async(queue, ^{
         
-        NSLog(@"data5: %@",data);
+        [NSThread sleepForTimeInterval:0.4];
         
-        NSLog(@"操作5---读取");
+        NSLog(@"操作5---读取, data1: %@, %@",data, [NSThread currentThread]);
+
     });
     
     

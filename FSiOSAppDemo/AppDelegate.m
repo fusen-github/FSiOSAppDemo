@@ -10,6 +10,10 @@
 #import "ViewController.h"
 #import "FSNavigationController.h"
 
+/*
+ 格式化NSInteger用 %tu
+ 格式化NSUInteger  %zd
+ */
 
 @interface AppDelegate ()
 
@@ -69,6 +73,8 @@
         [application endBackgroundTask:identifier];
     }];
     
+    NSLog(@"后台identifier = %tu",identifier);
+    
     if (identifier == UIBackgroundTaskInvalid)
     {
         NSLog(@"UIBackgroundTaskInvalid");
@@ -80,6 +86,9 @@
        
         NSLog(@"开始执行后台任务");
         
+        [NSThread sleepForTimeInterval:60];
+        
+        NSLog(@"后台任务执行结束");
         
         [application endBackgroundTask:identifier];
         

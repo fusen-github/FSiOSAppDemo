@@ -227,7 +227,7 @@ static NSString * const kSelectorKey = @"selector";
 
 -(void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error
 {
-    NSLog(@"错误码：%ld",error.code);
+    NSLog(@"错误码：%tu",error.code);
     
     NSLog(@"错误描述：%@",error.localizedDescription);
 }
