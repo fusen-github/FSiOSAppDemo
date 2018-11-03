@@ -22,7 +22,7 @@
 #import "NSArray+JSON.h"
 #import "NSData+JSON.h"
 
-
+#define kMainBlueColor UIColorFromRGB(0x1abbfe)
 
 #define NilString(str) str ?: @""
 

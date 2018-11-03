@@ -34,7 +34,8 @@
     [self.view addSubview:tableView];
     
     self.dataArray = @[@{@"title":@"Socket体验1",@"className":@"FSSocket1"},
-                       @{@"title":@"Socket体验2",@"className":@"FSSocket2"},];
+                       @{@"title":@"Socket体验2",@"className":@"FSSocket2"},
+                       @{@"title":@"Socket实践",@"className":@"FSSocket3"},];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
