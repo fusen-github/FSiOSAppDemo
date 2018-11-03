@@ -68,6 +68,9 @@
 		04C7E01C2187059800009F87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C7E01B2187059800009F87 /* Assets.xcassets */; };
 		04C7E01F2187059800009F87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C7E01D2187059800009F87 /* LaunchScreen.storyboard */; };
 		04C7E0222187059800009F87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C7E0212187059800009F87 /* main.m */; };
+		04C7E048218D4C9A00009F87 /* FSController17.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C7E047218D4C9A00009F87 /* FSController17.m */; };
+		04E60BEF218D8ACA00FF1DED /* FSSocket1.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E60BEE218D8ACA00FF1DED /* FSSocket1.m */; };
+		04E60BF2218D8C6200FF1DED /* FSSocket2.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E60BF1218D8C6200FF1DED /* FSSocket2.m */; };
 		04EC2D9221707C4300CFE828 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2D8721707C4300CFE828 /* FMDatabaseQueue.m */; };
 		04EC2D9321707C4300CFE828 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2D8A21707C4300CFE828 /* FMDatabaseAdditions.m */; };
 		04EC2D9421707C4300CFE828 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC2D8B21707C4300CFE828 /* FMDatabase.m */; };
@@ -228,6 +231,12 @@
 		04C7E01E2187059800009F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04C7E0202187059800009F87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C7E0212187059800009F87 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04C7E046218D4C9A00009F87 /* FSController17.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController17.h; sourceTree = "<group>"; };
+		04C7E047218D4C9A00009F87 /* FSController17.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSController17.m; sourceTree = "<group>"; };
+		04E60BED218D8ACA00FF1DED /* FSSocket1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSSocket1.h; sourceTree = "<group>"; };
+		04E60BEE218D8ACA00FF1DED /* FSSocket1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSSocket1.m; sourceTree = "<group>"; };
+		04E60BF0218D8C6200FF1DED /* FSSocket2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSSocket2.h; sourceTree = "<group>"; };
+		04E60BF1218D8C6200FF1DED /* FSSocket2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSSocket2.m; sourceTree = "<group>"; };
 		04EC2D8621707C4300CFE828 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		04EC2D8721707C4300CFE828 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
 		04EC2D8821707C4300CFE828 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
@@ -405,6 +414,7 @@
 				04B97C642182F70C00AD7C42 /* FSController15.h */,
 				04B97C652182F70C00AD7C42 /* FSController15.m */,
 				04C7DFF42186DC9E00009F87 /* FSController16 */,
+				04C7E045218D4C7B00009F87 /* FSController17 */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -582,6 +592,19 @@
 				04C7E0212187059800009F87 /* main.m */,
 			);
 			path = FSSecondApp;
+			sourceTree = "<group>";
+		};
+		04C7E045218D4C7B00009F87 /* FSController17 */ = {
+			isa = PBXGroup;
+			children = (
+				04C7E046218D4C9A00009F87 /* FSController17.h */,
+				04C7E047218D4C9A00009F87 /* FSController17.m */,
+				04E60BED218D8ACA00FF1DED /* FSSocket1.h */,
+				04E60BEE218D8ACA00FF1DED /* FSSocket1.m */,
+				04E60BF0218D8C6200FF1DED /* FSSocket2.h */,
+				04E60BF1218D8C6200FF1DED /* FSSocket2.m */,
+			);
+			path = FSController17;
 			sourceTree = "<group>";
 		};
 		04EC2D8421707C1600CFE828 /* Library */ = {
@@ -821,6 +844,7 @@
 				04521C0A214B53F0003149A0 /* FSController01.m in Sources */,
 				04C7DFF32186DC5000009F87 /* FSController16.m in Sources */,
 				04EC2D9321707C4300CFE828 /* FMDatabaseAdditions.m in Sources */,
+				04E60BF2218D8C6200FF1DED /* FSSocket2.m in Sources */,
 				04EC2D9221707C4300CFE828 /* FMDatabaseQueue.m in Sources */,
 				04498139215CC1AC005C0D28 /* FSController10.m in Sources */,
 				046080BA217870F4003453ED /* NSData+Base64Additions.m in Sources */,
@@ -861,7 +885,9 @@
 				04521C48214BB147003149A0 /* FSController06.m in Sources */,
 				04521C55214E085B003149A0 /* FSDetailController01.m in Sources */,
 				04C7DFFA2186E71300009F87 /* FSQuartzView.m in Sources */,
+				04C7E048218D4C9A00009F87 /* FSController17.m in Sources */,
 				0449813F215CD1BE005C0D28 /* FS10ColletionItem.m in Sources */,
+				04E60BEF218D8ACA00FF1DED /* FSSocket1.m in Sources */,
 				04B97C602181A82100AD7C42 /* FSOperation.m in Sources */,
 				04EC2DBF21708F0700CFE828 /* UIView+Frame.m in Sources */,
 				04EC2D9621707C4300CFE828 /* FMResultSet.m in Sources */,

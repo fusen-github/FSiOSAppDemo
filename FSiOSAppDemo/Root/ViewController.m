@@ -43,7 +43,10 @@ static NSString * const kControllerTitleKey = @"kControllerTitleKey";
     @{kControllerNameKey:@"FSController14",kControllerTitleKey:@"NSOperation & NSOperationQueue"},
     @{kControllerNameKey:@"FSController15",kControllerTitleKey:@"NSThread"},
     @{kControllerNameKey:@"FSController16",kControllerTitleKey:@"CoreGraphics"},
+    @{kControllerNameKey:@"FSController17",kControllerTitleKey:@"Socket"},
 ];
+    
+    
     
     // UserNotifications
     UITableView *tableView = [[UITableView alloc] init];

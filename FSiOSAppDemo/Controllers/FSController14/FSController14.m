@@ -18,13 +18,22 @@
 
 @interface FSController14 ()<UITableViewDataSource>
 
-@property (nonatomic, weak) NSOperationQueue *queue;
+@property (nonatomic, strong) NSOperationQueue *queue;
 
 @property (nonatomic, strong) NSTimer *timer;
 
 @end
 
 @implementation FSController14
+
+- (NSOperationQueue *)queue
+{
+    if (_queue == nil)
+    {
+        _queue = [[NSOperationQueue alloc] init];
+    }
+    return _queue;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -69,7 +78,20 @@
 
 - (void)doRightAction
 {
-    [self demo07];
+    [self demo09];
+}
+
+- (void)demo09
+{
+    FSOperation *op = [[FSOperation alloc] initWithIdentifier:@"demo09"];
+    
+    [op setCompletionBlock:^{
+       
+        NSLog(@"completion %@",[NSThread currentThread]);
+        
+    }];
+    
+    [self.queue addOperation:op];
 }
 
 - (void)demo08
@@ -421,7 +443,7 @@
         cell.textLabel.font = [UIFont systemFontOfSize:14];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"fs-%ld",indexPath.row + 1];
+    cell.textLabel.text = [NSString stringWithFormat:@"fs-%ld",(long)(indexPath.row + 1)];
     
     return cell;
 }

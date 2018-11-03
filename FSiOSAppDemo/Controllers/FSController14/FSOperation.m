@@ -25,7 +25,7 @@
     return self;
 }
 
-- (void)main
+- (void)main1
 {
     NSLog(@"begin_op, id = %@",self.identifier);
     
@@ -43,6 +43,11 @@
     NSLog(@"sum = %llu",sum);
     
     NSLog(@"end_op, id = %@",self.identifier);
+}
+
+- (void)main
+{
+    NSLog(@"id = %@, %@", self.identifier, [NSThread currentThread]);
 }
 
 @end
