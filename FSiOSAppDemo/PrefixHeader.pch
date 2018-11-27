@@ -30,5 +30,8 @@
 
 #define NilObject(obj) obj ?: [NSNull null]
 
+#import "UIImage+Extention.h"
+
+#import "UIView+Extention.h"
 
 #endif /* PrefixHeader_pch */
