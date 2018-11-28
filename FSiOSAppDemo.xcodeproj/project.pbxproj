@@ -111,10 +111,15 @@
 		04521C41214BA84C003149A0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04521C3F214BA84C003149A0 /* Info.plist */; };
 		04521C42214BA84C003149A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04521C40214BA84C003149A0 /* main.m */; };
 		046080BF217875DA003453ED /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046080BE217875DA003453ED /* CFNetwork.framework */; };
+		0468542B21AE39B700BBACC5 /* FSController21.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468542A21AE39B700BBACC5 /* FSController21.m */; };
+		0468542F21AE3BD700BBACC5 /* FSCAController01.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468542E21AE3BD700BBACC5 /* FSCAController01.m */; };
+		0468543421AE40E500BBACC5 /* pan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0468543321AE40E500BBACC5 /* pan@2x.png */; };
+		0468543721AE568400BBACC5 /* FSCAController02.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468543621AE568400BBACC5 /* FSCAController02.m */; };
+		0468543A21AE660500BBACC5 /* FSCAView01.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468543921AE660500BBACC5 /* FSCAView01.m */; };
 		04BCF33121ABD28700C223FF /* 002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04BCF32621ABD28700C223FF /* 002.jpg */; };
 		04BCF33221ABD28700C223FF /* 003.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04BCF32721ABD28700C223FF /* 003.jpg */; };
 		04BCF33321ABD28700C223FF /* 001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04BCF32821ABD28700C223FF /* 001.jpg */; };
-		04BCF33421ABD28700C223FF /* 004.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BCF32921ABD28700C223FF /* 004.png */; };
+		04BCF33421ABD28700C223FF /* 004@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BCF32921ABD28700C223FF /* 004@2x.png */; };
 		04BCF33521ABD28700C223FF /* 010.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04BCF32A21ABD28700C223FF /* 010.jpg */; };
 		04BCF33621ABD28700C223FF /* 011.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04BCF32B21ABD28700C223FF /* 011.jpg */; };
 		04BCF33721ABD28700C223FF /* 005.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04BCF32C21ABD28700C223FF /* 005.jpg */; };
@@ -360,12 +365,21 @@
 		04521C3F214BA84C003149A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04521C40214BA84C003149A0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		046080BE217875DA003453ED /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		0468542921AE39B700BBACC5 /* FSController21.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController21.h; sourceTree = "<group>"; };
+		0468542A21AE39B700BBACC5 /* FSController21.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSController21.m; sourceTree = "<group>"; };
+		0468542D21AE3BD700BBACC5 /* FSCAController01.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCAController01.h; sourceTree = "<group>"; };
+		0468542E21AE3BD700BBACC5 /* FSCAController01.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCAController01.m; sourceTree = "<group>"; };
+		0468543321AE40E500BBACC5 /* pan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pan@2x.png"; sourceTree = "<group>"; };
+		0468543521AE568400BBACC5 /* FSCAController02.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCAController02.h; sourceTree = "<group>"; };
+		0468543621AE568400BBACC5 /* FSCAController02.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCAController02.m; sourceTree = "<group>"; };
+		0468543821AE660400BBACC5 /* FSCAView01.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCAView01.h; sourceTree = "<group>"; };
+		0468543921AE660500BBACC5 /* FSCAView01.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCAView01.m; sourceTree = "<group>"; };
 		04B70511214E4AC300A77DA7 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		04BCF32421ABAFDE00C223FF /* FSPageViewControllerPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSPageViewControllerPrivate.h; sourceTree = "<group>"; };
 		04BCF32621ABD28700C223FF /* 002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 002.jpg; sourceTree = "<group>"; };
 		04BCF32721ABD28700C223FF /* 003.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 003.jpg; sourceTree = "<group>"; };
 		04BCF32821ABD28700C223FF /* 001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 001.jpg; sourceTree = "<group>"; };
-		04BCF32921ABD28700C223FF /* 004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 004.png; sourceTree = "<group>"; };
+		04BCF32921ABD28700C223FF /* 004@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "004@2x.png"; sourceTree = "<group>"; };
 		04BCF32A21ABD28700C223FF /* 010.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 010.jpg; sourceTree = "<group>"; };
 		04BCF32B21ABD28700C223FF /* 011.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 011.jpg; sourceTree = "<group>"; };
 		04BCF32C21ABD28700C223FF /* 005.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 005.jpg; sourceTree = "<group>"; };
@@ -711,6 +725,7 @@
 				043B920121AA562700E79635 /* FSController19.h */,
 				043B922321AA562700E79635 /* FSController19.m */,
 				043B924C21AA562700E79635 /* FSController20 */,
+				0468542821AE399300BBACC5 /* FSController21 */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -880,6 +895,7 @@
 			children = (
 				043B92C921AA579700E79635 /* aaa@2x.png */,
 				043B92CA21AA579700E79635 /* bbb@2x.png */,
+				0468543021AE3FF400BBACC5 /* pngs */,
 				04BCF32521ABD28700C223FF /* images */,
 			);
 			path = Resourse;
@@ -918,13 +934,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0468542821AE399300BBACC5 /* FSController21 */ = {
+			isa = PBXGroup;
+			children = (
+				0468542921AE39B700BBACC5 /* FSController21.h */,
+				0468542A21AE39B700BBACC5 /* FSController21.m */,
+				0468542C21AE3BA700BBACC5 /* CoreAnimations */,
+			);
+			path = FSController21;
+			sourceTree = "<group>";
+		};
+		0468542C21AE3BA700BBACC5 /* CoreAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				0468542D21AE3BD700BBACC5 /* FSCAController01.h */,
+				0468542E21AE3BD700BBACC5 /* FSCAController01.m */,
+				0468543521AE568400BBACC5 /* FSCAController02.h */,
+				0468543621AE568400BBACC5 /* FSCAController02.m */,
+				0468543821AE660400BBACC5 /* FSCAView01.h */,
+				0468543921AE660500BBACC5 /* FSCAView01.m */,
+			);
+			path = CoreAnimations;
+			sourceTree = "<group>";
+		};
+		0468543021AE3FF400BBACC5 /* pngs */ = {
+			isa = PBXGroup;
+			children = (
+				0468543321AE40E500BBACC5 /* pan@2x.png */,
+			);
+			path = pngs;
+			sourceTree = "<group>";
+		};
 		04BCF32521ABD28700C223FF /* images */ = {
 			isa = PBXGroup;
 			children = (
 				04BCF32821ABD28700C223FF /* 001.jpg */,
 				04BCF32621ABD28700C223FF /* 002.jpg */,
 				04BCF32721ABD28700C223FF /* 003.jpg */,
-				04BCF32921ABD28700C223FF /* 004.png */,
+				04BCF32921ABD28700C223FF /* 004@2x.png */,
 				04BCF32C21ABD28700C223FF /* 005.jpg */,
 				04BCF32E21ABD28700C223FF /* 006.jpg */,
 				04BCF32D21ABD28700C223FF /* 007.jpg */,
@@ -1076,7 +1123,7 @@
 			files = (
 				043B927121AA562700E79635 /* Settings.bundle in Resources */,
 				043B929121AA562700E79635 /* NotificationPayload.apns in Resources */,
-				04BCF33421ABD28700C223FF /* 004.png in Resources */,
+				04BCF33421ABD28700C223FF /* 004@2x.png in Resources */,
 				04BCF33121ABD28700C223FF /* 002.jpg in Resources */,
 				043B927621AA562700E79635 /* File.strings in Resources */,
 				043B929221AA562700E79635 /* Directions.geojson in Resources */,
@@ -1084,6 +1131,7 @@
 				043B927521AA562700E79635 /* InfoPlist.strings in Resources */,
 				04BCF33321ABD28700C223FF /* 001.jpg in Resources */,
 				043B92CB21AA579700E79635 /* aaa@2x.png in Resources */,
+				0468543421AE40E500BBACC5 /* pan@2x.png in Resources */,
 				043B927421AA562700E79635 /* Main.storyboard in Resources */,
 				043B927321AA562700E79635 /* LaunchScreen.storyboard in Resources */,
 				043B927221AA562700E79635 /* Assets.xcassets in Resources */,
@@ -1128,6 +1176,7 @@
 				043B92BF21AA562700E79635 /* FSQuartzView.m in Sources */,
 				043B929521AA562700E79635 /* ViewController.m in Sources */,
 				043B92BB21AA562700E79635 /* FSController18.m in Sources */,
+				0468542B21AE39B700BBACC5 /* FSController21.m in Sources */,
 				043B92C621AA562700E79635 /* FSBaseData.m in Sources */,
 				043B927F21AA562700E79635 /* IQKeyboardManager.m in Sources */,
 				043B928521AA562700E79635 /* IQKeyboardReturnKeyHandler.m in Sources */,
@@ -1172,6 +1221,7 @@
 				043B929E21AA562700E79635 /* FSDetailController03.m in Sources */,
 				043B927921AA562700E79635 /* IQToolbar.m in Sources */,
 				043B92B321AA562700E79635 /* FS10ColletionItem.m in Sources */,
+				0468543A21AE660500BBACC5 /* FSCAView01.m in Sources */,
 				043B92A321AA562700E79635 /* FSController01.m in Sources */,
 				043B92A521AA562700E79635 /* FSController06.m in Sources */,
 				04BCF33E21ABD62300C223FF /* FSImageCollectionViewCell.m in Sources */,
@@ -1193,12 +1243,14 @@
 				043B92B821AA562700E79635 /* FSController17.m in Sources */,
 				043B927821AA562700E79635 /* IQTextView.m in Sources */,
 				043B929A21AA562700E79635 /* FSDetailController01.m in Sources */,
+				0468542F21AE3BD700BBACC5 /* FSCAController01.m in Sources */,
 				043B928D21AA562700E79635 /* SKPSMTPMessage.m in Sources */,
 				043B927A21AA562700E79635 /* IQTitleBarButtonItem.m in Sources */,
 				043B929421AA562700E79635 /* FSNavigationController.m in Sources */,
 				043B92AF21AA562700E79635 /* FSController03.m in Sources */,
 				043B929B21AA562700E79635 /* FSMasterController.m in Sources */,
 				043B927C21AA562700E79635 /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				0468543721AE568400BBACC5 /* FSCAController02.m in Sources */,
 				043B929021AA562700E79635 /* HSK_CFUtilities.m in Sources */,
 				043B92A721AA562700E79635 /* FSController14.m in Sources */,
 				043B928E21AA562700E79635 /* NSData+Base64Additions.m in Sources */,

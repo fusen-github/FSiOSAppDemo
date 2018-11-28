@@ -11,6 +11,7 @@
 #import "FSFSTransitionControler.h"
 #import "FSImageCollectionViewCell.h"
 #import "FSImageItem.h"
+#import <Photos/Photos.h>
 
 
 @interface FSController20 ()<FSPageViewControllerDataSource, FSPageViewControllerDelegate, UICollectionViewDelegate,UICollectionViewDataSource>
@@ -66,24 +67,37 @@ static NSString * const kCellId = @"controller20_cell_id";
         
         if (image == nil)
         {
-            path = [[NSBundle mainBundle] pathForResource:imageName ofType:@"png"];
+            imageName = [imageName stringByAppendingString:@"@2x.png"];
+            
+            path = [[NSBundle mainBundle] pathForResource:imageName ofType:nil];
             
             image = [UIImage imageWithContentsOfFile:path];
         }
         
         if (image)
         {
-//            image = [image resizeImageWithSize:CGSizeMake(100, 100)];
-            
-//            NSData *data = UIImageJPEGRepresentation(image, 0.6);
-//
-//            image = [UIImage imageWithData:data];
-            
             CGFloat min = MIN(image.size.width, image.size.height);
             
-            CGFloat scale = 100 / min;
+            CGFloat base = 100 * image.scale;
+            
+            base = 100;
+            
+            CGFloat scale = base / min;
             
             image = [self scaleImage:image forScale:scale];
+            
+            if (image.size.height > 300)
+            {
+                CGFloat needWH = image.size.width * image.scale;
+                
+                CGRect needRect = CGRectMake(0, 0, needWH, needWH);
+                
+                CGImageRef cgImageRef = CGImageCreateWithImageInRect(image.CGImage,needRect);
+                
+                image = [UIImage imageWithCGImage:cgImageRef];
+                
+                CGImageRelease(cgImageRef);
+            }
             
             FSImageItem *item = [[FSImageItem alloc] initWithThumb:image path:path];
             
@@ -190,13 +204,15 @@ static NSString * const kCellId = @"controller20_cell_id";
         /// B
         unsigned long long size = image.size.width * image.size.height * 4;
         
-        unsigned long long max = 5 * 1024 * 1024;
+        unsigned long long max = 2 * 1024 * 1024;
         
         if (size > max)
         {
             CGFloat ratio = (max * 1.0) / (size * 1.0);
             
             NSData *data = UIImageJPEGRepresentation(image, ratio);
+            
+            NSLog(@"ratio = %lf, len = %tu",ratio, data.length);
             
             image = [UIImage imageWithData:data];
         }
@@ -215,7 +231,80 @@ static NSString * const kCellId = @"controller20_cell_id";
 }
 
 #pragma mark <FSPageViewControllerDelegate>
+- (void)viewController:(FSPageViewController *)controller singleTapAtIndex:(NSUInteger)index presentedImage:(UIImage *)image
+{
+    
+    
+    [controller dismissViewControllerAnimated:YES completion:nil];
+}
 
+- (void)viewController:(FSPageViewController *)controller longPressAtIndex:(NSUInteger)index presentedImage:(UIImage *)image
+{
+    NSString *title = @"Title";
+    
+    NSString *message = @"Message";
+    
+    UIAlertController *sheet = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *save = [UIAlertAction actionWithTitle:@"save" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [self saveImageToSystemPhotoApp:image];
+    }];
+    
+    [sheet addAction:save];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+       
+        NSLog(@"cancel");
+    }];
+    
+    [sheet addAction:cancel];
+    
+    [controller presentViewController:sheet animated:YES completion:nil];
+}
+
+- (void)saveImageToSystemPhotoApp:(UIImage *)image
+{
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    
+    if (status == PHAuthorizationStatusAuthorized)
+    {
+        [self authorizedOperatePhotoApp];
+    }
+    else if (status == PHAuthorizationStatusDenied || status == PHAuthorizationStatusRestricted)
+    {
+        [self deniedOperatePhototApp];
+    }
+    else if (status == PHAuthorizationStatusNotDetermined)
+    {
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+           
+            dispatch_async(dispatch_get_main_queue(), ^{
+               
+                if (status == PHAuthorizationStatusAuthorized)
+                {
+                    [self authorizedOperatePhotoApp];
+                }
+                else if (status == PHAuthorizationStatusDenied)
+                {
+                    [self deniedOperatePhototApp];
+                }
+            });
+        }];
+    }
+}
+
+- (void)authorizedOperatePhotoApp
+{
+    PHPhotoLibrary *library = [PHPhotoLibrary sharedPhotoLibrary];
+    
+    
+}
+
+- (void)deniedOperatePhototApp
+{
+    NSLog(@"%s",__func__);
+}
 
 @end
 

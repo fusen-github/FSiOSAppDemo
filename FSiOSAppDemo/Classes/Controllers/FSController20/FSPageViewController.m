@@ -315,16 +315,33 @@
 
 - (void)handleDoubleTap:(UITapGestureRecognizer *)tapGesture
 {
-    
+    if (tapGesture.state == UIGestureRecognizerStateEnded)
+    {
+        CGFloat maxScale = self.currentContainer.scrollView.maximumZoomScale;
+        
+        if (self.currentContainer.scrollView.zoomScale < maxScale)
+        {
+            [self.currentContainer.scrollView setZoomScale:maxScale animated:YES];
+        }
+        else
+        {
+            CGFloat minScale = self.currentContainer.scrollView.minimumZoomScale;
+            
+            [self.currentContainer.scrollView setZoomScale:minScale animated:YES];
+        }
+    }
 }
 
 - (void)handelLongPress:(UILongPressGestureRecognizer *)longPresss
 {
-    if ([self.delegate respondsToSelector:@selector(viewController:longPressAtIndex:presentedImage:)])
+    if (longPresss.state == UIGestureRecognizerStateBegan)
     {
-        UIImage *image = self.currentContainer.scrollView.imageView.image;
-        
-        [self.delegate viewController:self longPressAtIndex:self.currentIndex presentedImage:image];
+        if ([self.delegate respondsToSelector:@selector(viewController:longPressAtIndex:presentedImage:)])
+        {
+            UIImage *image = self.currentContainer.scrollView.imageView.image;
+    
+            [self.delegate viewController:self longPressAtIndex:self.currentIndex presentedImage:image];
+        }
     }
 }
 

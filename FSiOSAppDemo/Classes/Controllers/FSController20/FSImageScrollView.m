@@ -41,8 +41,8 @@ static NSString * const kImagekey = @"image";
     self.showsHorizontalScrollIndicator = YES;
     self.alwaysBounceVertical = YES;
     self.alwaysBounceHorizontal = NO;
-    self.minimumZoomScale = 1.0f;
-    self.maximumZoomScale = 1.0f;
+    self.minimumZoomScale = 1;
+    self.maximumZoomScale = 1.5f;
     self.delegate = self;
     
     [self _addObserver];
@@ -111,7 +111,9 @@ static NSString * const kImagekey = @"image";
     
     CGSize newSize = CGSizeMake(needImageW, ceilf(image.size.height * ratio));
     
-    self.imageView.frame = CGRectMake(0, 0, newSize.width, newSize.height);
+    [UIView animateWithDuration:0.1 animations:^{
+        self.imageView.frame = CGRectMake(0, 0, newSize.width, newSize.height);
+    }];
     
     self.contentSize = newSize;
 }
@@ -124,14 +126,17 @@ static NSString * const kImagekey = @"image";
     
     hDiff = hDiff > 0 ? hDiff : 0;
     
-    
     CGFloat contentH = self.contentSize.height;
     
     CGFloat vDiff = self.bounds.size.height - contentH;
     
     vDiff = vDiff > 0 ? vDiff : 0;
     
-    self.imageView.center = CGPointMake((contentW + hDiff) * 0.5, (contentH + vDiff) * 0.5);
+    [UIView animateWithDuration:0.1 animations:^{
+        
+        self.imageView.center = CGPointMake((contentW + hDiff) * 0.5, (contentH + vDiff) * 0.5);
+    }];
+    
 }
 
 - (void)_setMaximumZoomScale
@@ -144,11 +149,13 @@ static NSString * const kImagekey = @"image";
     
     if (imageSize.width <= selfWidth && imageSize.height <= selfHeight)
     {
-        self.maximumZoomScale = 1.0f;
+        self.maximumZoomScale = 1.5f;
     }
     else
     {
-        self.maximumZoomScale = MAX(MIN(imageSize.width / selfWidth, imageSize.height / selfHeight), 3.0f);
+        CGFloat max = MAX(MIN(imageSize.width / selfWidth, imageSize.height / selfHeight), 3.0f);
+        
+        self.maximumZoomScale = max;
     }
 }
 
@@ -182,6 +189,11 @@ static NSString * const kImagekey = @"image";
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    [self _recenterImage];
+}
+
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view atScale:(CGFloat)scale // scale between minimum and maximum. called after any 'bounce' animations
 {
     [self _recenterImage];
 }

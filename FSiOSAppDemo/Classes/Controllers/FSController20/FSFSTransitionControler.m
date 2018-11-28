@@ -68,7 +68,6 @@
 }
 
 
-
 #pragma mark UIViewControllerAnimatedTransitioning
 - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext
 {
@@ -117,7 +116,7 @@
         NSTimeInterval duration = [self transitionDuration:transitionContext];
         
         [UIView animateWithDuration:duration
-                              delay:0.1
+                              delay:0
                             options:[self _animationOptions]
                          animations:^{
                              
@@ -169,8 +168,11 @@
     
 }
 
-- (UIViewAnimationOptions)_animationOptions {
-    return 7 << 16;
+- (UIViewAnimationOptions)_animationOptions
+{
+//    return 7 << 16;
+    
+    return UIViewAnimationOptionTransitionNone;
 }
 
 - (void)dealloc
