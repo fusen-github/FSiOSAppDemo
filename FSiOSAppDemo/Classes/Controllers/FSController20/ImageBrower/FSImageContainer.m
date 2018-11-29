@@ -9,30 +9,31 @@
 #import "FSImageContainer.h"
 #import "FSImageScrollView.h"
 
-@interface FSImageScrollView (Private)
-
-- (void)setupScrollImage:(UIImage *)image;
-
-@end
+typedef void(^ProgressBlock)(NSInteger receivedSize, NSInteger expectedSize);
 
 @interface FSImageContainer ()<UIScrollViewDelegate>
 {
     NSInteger _index;
 }
 
-@property (nonatomic, strong) UIImage *hdImage;
+/**
+ 占位图片
+ */
+@property (nonatomic, strong) UIImage *phImage;
 
 @property (nonatomic, weak) FSImageScrollView *scrollView;
+
+@property (nonatomic, copy) void(^progressBlock)(UIImageView *imageView, ProgressBlock progress);
 
 @end
 
 @implementation FSImageContainer
 
-- (instancetype)initWithHDImage:(UIImage *)hdImage
+- (instancetype)initWithPlaceholdImage:(UIImage *)phImage
 {
     if (self = [super init])
     {
-        self.hdImage = hdImage;
+        self.phImage = phImage;
     }
     return self;
 }
@@ -48,7 +49,20 @@
     
     [self.view addSubview:scrollView];
     
-    self.scrollView.imageView.image = self.hdImage;
+    self.scrollView.imageView.image = self.phImage;
+    
+    if (self.progressBlock)
+    {
+        UIImageView *imageView = self.scrollView.imageView;
+        
+        self.progressBlock(imageView, ^(NSInteger receivedSize, NSInteger expectedSize) {
+            
+            CGFloat value = (receivedSize * 1.0) / (expectedSize * 1.0);
+            
+            NSLog(@"progress = %.2f", value);
+            
+        });
+    }
 }
 
 - (void)viewWillLayoutSubviews
@@ -56,6 +70,11 @@
     [super viewWillLayoutSubviews];
     
     self.scrollView.frame = self.view.bounds;
+}
+
+- (void)setupLoadImageHandle:(void (^)(UIImageView *imageView, void (^progressBlock)(NSInteger receivedSize, NSInteger expectedSize) ))handle
+{
+    self.progressBlock = handle;
 }
 
 - (void)dealloc

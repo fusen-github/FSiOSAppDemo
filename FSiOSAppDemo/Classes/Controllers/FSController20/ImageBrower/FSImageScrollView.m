@@ -42,30 +42,10 @@ static NSString * const kImagekey = @"image";
     self.alwaysBounceVertical = YES;
     self.alwaysBounceHorizontal = NO;
     self.minimumZoomScale = 1;
-    self.maximumZoomScale = 1.5f;
+    self.maximumZoomScale = 5;
     self.delegate = self;
     
-    [self _addObserver];
-}
-
-/**
- 在present过程中会自动调用该方法，在该方法内更新frame
- */
-- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
-{
-    [super traitCollectionDidChange:previousTraitCollection];
-    
-    [self _updateUserInterfaces];
-}
-
-- (void)_addObserver
-{
     [self.imageView addObserver:self forKeyPath:kImagekey options:NSKeyValueObservingOptionNew context:nil];
-}
-
-- (void)_removeObserver
-{
-    [self.imageView removeObserver:self forKeyPath:kImagekey];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
@@ -76,21 +56,17 @@ static NSString * const kImagekey = @"image";
     }
     
     if (self.imageView.image == nil) {
+        
+        self.imageView.hidden = YES;
+        
         return;
     }
     
-    [self _updateUserInterfaces];
-}
-
-- (void)_updateUserInterfaces
-{
+    self.imageView.hidden = NO;
+    
     [self setZoomScale:1.0 animated:YES];
     
     [self _updateFrame];
-    
-    [self _recenterImage];
-    
-    [self _setMaximumZoomScale];
 }
 
 - (void)_updateFrame
@@ -103,7 +79,9 @@ static NSString * const kImagekey = @"image";
     
     CGFloat selfW = CGRectGetWidth(self.frame);
     
-    CGFloat needImageW = image.size.width / image.scale;
+    CGFloat selfH = CGRectGetHeight(self.frame);
+    
+    CGFloat needImageW = image.size.width;
     
     needImageW = MIN(selfW, needImageW);
     
@@ -111,52 +89,18 @@ static NSString * const kImagekey = @"image";
     
     CGSize newSize = CGSizeMake(needImageW, ceilf(image.size.height * ratio));
     
-    [UIView animateWithDuration:0.1 animations:^{
-        self.imageView.frame = CGRectMake(0, 0, newSize.width, newSize.height);
-    }];
+    CGFloat x = (selfW - newSize.width) * 0.5;
+    
+    CGFloat y = 0;
+    
+    if (newSize.height < selfH)
+    {
+        y = (selfH - newSize.height) * 0.5;
+    }
+    
+    self.imageView.frame = CGRectMake(x, y, newSize.width, newSize.height);
     
     self.contentSize = newSize;
-}
-
-- (void)_recenterImage
-{
-    CGFloat contentW = self.contentSize.width;
-    
-    CGFloat hDiff = self.bounds.size.width - contentW;
-    
-    hDiff = hDiff > 0 ? hDiff : 0;
-    
-    CGFloat contentH = self.contentSize.height;
-    
-    CGFloat vDiff = self.bounds.size.height - contentH;
-    
-    vDiff = vDiff > 0 ? vDiff : 0;
-    
-    [UIView animateWithDuration:0.1 animations:^{
-        
-        self.imageView.center = CGPointMake((contentW + hDiff) * 0.5, (contentH + vDiff) * 0.5);
-    }];
-    
-}
-
-- (void)_setMaximumZoomScale
-{
-    CGSize imageSize = self.imageView.image.size;
-    
-    CGFloat selfWidth = CGRectGetWidth(self.bounds);
-    
-    CGFloat selfHeight = CGRectGetHeight(self.bounds);
-    
-    if (imageSize.width <= selfWidth && imageSize.height <= selfHeight)
-    {
-        self.maximumZoomScale = 1.5f;
-    }
-    else
-    {
-        CGFloat max = MAX(MIN(imageSize.width / selfWidth, imageSize.height / selfHeight), 3.0f);
-        
-        self.maximumZoomScale = max;
-    }
 }
 
 - (UIImageView *)imageView
@@ -178,7 +122,7 @@ static NSString * const kImagekey = @"image";
 
 - (void)dealloc
 {
-    [self _removeObserver];
+    [self.imageView removeObserver:self forKeyPath:kImagekey];
 }
 
 #pragma mark UIScrollViewDelegate
@@ -188,14 +132,55 @@ static NSString * const kImagekey = @"image";
     return self.imageView;
 }
 
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view atScale:(CGFloat)scale
 {
-    [self _recenterImage];
+    CGRect rect = [self _resizeImageViewWithScrollView:scrollView];
+    
+    view.frame = rect;
+    
+    scrollView.contentSize = rect.size;
 }
 
-- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view atScale:(CGFloat)scale // scale between minimum and maximum. called after any 'bounce' animations
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
 {
-    [self _recenterImage];
+    [self _recenterImageWithScrollView:scrollView];
+}
+
+- (void)_recenterImageWithScrollView:(UIScrollView *)scrollView
+{
+    CGFloat contentWidth = scrollView.contentSize.width;
+    CGFloat horizontalDiff = CGRectGetWidth(scrollView.bounds) - contentWidth;
+    CGFloat horizontalAddition = horizontalDiff > 0.f ? horizontalDiff : 0.f;
+    
+    
+    CGFloat contentHeight = scrollView.contentSize.height;
+    CGFloat verticalDiff = CGRectGetHeight(scrollView.bounds) - contentHeight;
+    CGFloat verticalAdditon = verticalDiff > 0 ? verticalDiff : 0.f;
+    
+    self.imageView.center = CGPointMake((contentWidth + horizontalAddition) / 2.0f, (contentHeight + verticalAdditon) / 2.0f);
+}
+
+- (CGRect)_resizeImageViewWithScrollView:(UIScrollView *)scrollView
+{
+    CGFloat scrollW = scrollView.frame.size.width;
+    
+    CGFloat x = 0;
+    
+    CGFloat y = 0;
+    
+    if (scrollView.contentSize.width < scrollW)
+    {
+        x = (scrollW - scrollView.contentSize.width) * 0.5;
+    }
+    
+    if (scrollView.contentSize.height < scrollView.frame.size.height)
+    {
+        y = (scrollView.frame.size.height - scrollView.contentSize.height) * 0.5;
+    }
+    
+    CGRect rect = CGRectMake(x, y, scrollView.contentSize.width, scrollView.contentSize.height);
+    
+    return rect;
 }
 
 @end

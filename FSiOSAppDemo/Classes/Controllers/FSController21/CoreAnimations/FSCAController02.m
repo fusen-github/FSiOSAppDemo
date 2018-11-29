@@ -14,6 +14,8 @@
 
 @property (nonatomic, weak) FSCAView01 *blueView;
 
+@property (nonatomic, weak) UIView *redView;
+
 @end
 
 @implementation FSCAController02
@@ -43,6 +45,8 @@
     CGFloat y = (self.view.bounds.size.height - height) * 0.5;
     
     UIView *redView = [[UIView alloc] init];
+    
+    self.redView = redView;
     
     redView.frame = CGRectMake(x, y, width, height);
     
@@ -80,7 +84,45 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [self demo06];
+    [self demo08];
+    
+//    [self.view convertPoint:CGPointZero toView:nil];
+}
+
+
+/**
+ layer.zPosition
+ */
+- (void)demo08
+{
+    self.redView.layer.zPosition = 1.0;
+    
+    NSLog(@"%@",self.view.subviews);
+    /*
+     layer.zPosition属性可以改变兄弟图层之间的显示顺序，默认是0。值越来显示越靠上层(离眼睛越近)
+     但是该属性只影响了界面图层的显示效果，并不会改变父图层中所有子图层数组的顺序
+     */
+}
+
+/**
+ layer.position
+ */
+- (void)demo07
+{
+    NSLog(@"position: %@", NSStringFromCGPoint(self.blueView.layer.position));
+    
+    NSLog(@"center: %@", NSStringFromCGPoint(self.blueView.center));
+    
+    self.blueView.layer.anchorPoint = CGPointMake(-0.5, -0.5);
+    
+    // {512, 384}
+    NSLog(@"position: %@", NSStringFromCGPoint(self.blueView.layer.position));
+    
+    NSLog(@"center: %@", NSStringFromCGPoint(self.blueView.center));
+    
+    /*
+     默认情况下layer.position就是指图层的锚点(layer.anchorPoint)在父图层坐标系中的位置
+     */
 }
 
 /**

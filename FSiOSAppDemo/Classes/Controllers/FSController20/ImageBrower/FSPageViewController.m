@@ -231,18 +231,12 @@
         [NSException raise:@"Must implement `FSPageViewControllerDataSource` protocol." format:@""];
     }
     
-    FSImageContainer *container = nil;
+    UIImage *image = [self.dataSource viewController:self imageForPageAtIndex:index];
     
-    if ([self.dataSource respondsToSelector:@selector(viewController:imageForPageAtIndex:)])
+    FSImageContainer *container = [[FSImageContainer alloc] initWithPlaceholdImage:image];
+    
+    if ([self.dataSource respondsToSelector:@selector(viewController:presentImageView:forPageAtIndex:progressHandler:)])
     {
-        UIImage *image = [self.dataSource viewController:self imageForPageAtIndex:index];
-
-        container = [[FSImageContainer alloc] initWithHDImage:image];
-    }
-    else if ([self.dataSource respondsToSelector:@selector(viewController:presentImageView:forPageAtIndex:progressHandler:)])
-    {
-        container = [[FSImageContainer alloc] initWithHDImage:nil];
-        
         __weak typeof(self) weak_self = self;
         
         [container setupLoadImageHandle:^(UIImageView *imageView, void (^progressBlock)(NSInteger receivedSize, NSInteger expectedSize)) {
@@ -307,6 +301,8 @@
 {
     if ([self.delegate respondsToSelector:@selector(viewController:singleTapAtIndex:presentedImage:)])
     {
+        [self.currentContainer.scrollView setZoomScale:1 animated:NO];
+        
         UIImage *image = self.currentContainer.scrollView.imageView.image;
         
         [self.delegate viewController:self singleTapAtIndex:self.currentIndex presentedImage:image];

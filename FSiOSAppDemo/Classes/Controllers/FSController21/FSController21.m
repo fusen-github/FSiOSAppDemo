@@ -35,7 +35,8 @@
     
     self.dataArray =
   @[@{@"title":@"认识图层CALayer", @"className":@"FSCAController01"},
-    @{@"title":@"图层几何学", @"className":@"FSCAController02"},];
+    @{@"title":@"图层几何学", @"className":@"FSCAController02"},
+    @{@"title":@"视觉效果", @"className":@"FSCAController03"},];
 }
 
 - (void)viewWillLayoutSubviews

@@ -12,6 +12,7 @@
 #import "FSImageCollectionViewCell.h"
 #import "FSImageItem.h"
 #import <Photos/Photos.h>
+#import "UIImageView+WebCache.h"
 
 
 @interface FSController20 ()<FSPageViewControllerDataSource, FSPageViewControllerDelegate, UICollectionViewDelegate,UICollectionViewDataSource>
@@ -221,6 +222,7 @@ static NSString * const kCellId = @"controller20_cell_id";
     }
 }
 
+
 - (UIView *)thumbViewForPageAtIndex:(NSInteger)index
 {
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
@@ -230,11 +232,25 @@ static NSString * const kCellId = @"controller20_cell_id";
     return cell.imageView;
 }
 
+//- (void)viewController:(FSPageViewController *)controller presentImageView:(UIImageView *)imageView forPageAtIndex:(NSInteger)index progressHandler:(void (^)(NSInteger, NSInteger))progressHandler
+//{
+//    [imageView sd_setImageWithURL:nil
+//                 placeholderImage:nil
+//                          options:0
+//                         progress:^(NSInteger received, NSInteger expected, NSURL *targetURL) {
+//                             
+//                             
+//                             
+//                         } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL * imageURL) {
+//                             
+//                             
+//                         }];
+//}
+
+
 #pragma mark <FSPageViewControllerDelegate>
 - (void)viewController:(FSPageViewController *)controller singleTapAtIndex:(NSUInteger)index presentedImage:(UIImage *)image
 {
-    
-    
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 

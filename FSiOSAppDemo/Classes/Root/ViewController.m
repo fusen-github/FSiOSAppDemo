@@ -29,7 +29,8 @@ static NSString * const kControllerTitleKey = @"kControllerTitleKey";
     self.title = @"导航控制器";
     
     self.dataArray =
-  @[@{kControllerNameKey:@"FSController01",kControllerTitleKey:@"NSOperation"},
+    @[@{kControllerNameKey:@"FSTestController",kControllerTitleKey:@"FSTestController"},
+    @{kControllerNameKey:@"FSController01",kControllerTitleKey:@"NSOperation"},
     @{kControllerNameKey:@"FSController02",kControllerTitleKey:@"UIButton"},
     @{kControllerNameKey:@"FSController03",kControllerTitleKey:@"UIAlertController"},
     @{kControllerNameKey:@"FSController04",kControllerTitleKey:@"UIPopoverPresentationController"},
@@ -49,7 +50,7 @@ static NSString * const kControllerTitleKey = @"kControllerTitleKey";
     @{kControllerNameKey:@"FSController18",kControllerTitleKey:@"UIGestureRecognizer"},
     @{kControllerNameKey:@"FSController19",kControllerTitleKey:@"CoreMotion"},
     @{kControllerNameKey:@"FSController20",kControllerTitleKey:@"转场动画"},
-    @{kControllerNameKey:@"FSController21",kControllerTitleKey:@"CoreAnimation"},
+    @{kControllerNameKey:@"FSController21",kControllerTitleKey:@"CoreAnimation"}, 
 ];
     
     

@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 
-
 @interface FSImageCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, weak, readonly) UIImageView *imageView;

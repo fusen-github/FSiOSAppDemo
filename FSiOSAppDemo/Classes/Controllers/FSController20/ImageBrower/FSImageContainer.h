@@ -12,7 +12,7 @@
 
 @interface FSImageContainer : UIViewController
 
-- (instancetype)initWithHDImage:(UIImage *)hdImage;
+- (instancetype)initWithPlaceholdImage:(UIImage *)phImage;
 
 @property (nonatomic, weak, readonly) FSImageScrollView *scrollView;
 

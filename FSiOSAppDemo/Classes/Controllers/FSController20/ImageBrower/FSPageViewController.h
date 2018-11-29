@@ -43,8 +43,6 @@
 
 - (instancetype)initWithNavigationOrientation:(UIPageViewControllerNavigationOrientation)navigationOrientation startIndex:(NSUInteger)index;
 
-//@property (nonatomic, assign, readonly) NSUInteger currentIndex;
-
 @property (nonatomic, weak) id<FSPageViewControllerDataSource> dataSource;
 
 @property (nonatomic, weak) id<FSPageViewControllerDelegate> delegate;

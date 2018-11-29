@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong, readonly) UIImageView *imageView;
 
+//- (void)updateImageViewFrame;
+
 @end
