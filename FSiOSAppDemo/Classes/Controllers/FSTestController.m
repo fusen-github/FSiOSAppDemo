@@ -62,6 +62,13 @@
     scrollView.contentSize = imageView.bounds.size;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSLog(@"");
+}
+
 - (void)doRightAction
 {
     [self.scrollView setZoomScale:1 animated:NO];

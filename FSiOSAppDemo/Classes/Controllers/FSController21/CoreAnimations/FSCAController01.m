@@ -54,6 +54,36 @@
 //    [self demo01];
 }
 
+/*
+ 导航控制器view只会管理并显示栈顶控制器的view
+ 1、UILayoutContainerView: 导航控制器的view
+    1.1、UINavigationTransitionView: 导航控制器view的第一个子view
+        1.1.1、UIViewControllerWrapperView:
+            1.1.1.1、UIView 栈顶控制器的view
+    1.2、UINavigationBar
+ 
+ */
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSLog(@"%@", self.view);
+    
+    NSLog(@"%@", self.view.superview);
+    
+    NSLog(@"xx");
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"position = %@", NSStringFromCGPoint(self.contentView.layer.position));
+    
+    NSLog(@"zPosition = %f", self.contentView.layer.zPosition);
+    
+    NSLog(@"anchorPoint = %@", NSStringFromCGPoint(self.contentView.layer.anchorPoint));
+}
+
 /**
  draw test
  */

@@ -36,7 +36,13 @@
     self.dataArray =
   @[@{@"title":@"认识图层CALayer", @"className":@"FSCAController01"},
     @{@"title":@"图层几何学", @"className":@"FSCAController02"},
-    @{@"title":@"视觉效果", @"className":@"FSCAController03"},];
+    @{@"title":@"视觉效果", @"className":@"FSCAController03"},
+    @{@"title":@"变换", @"className":@"FSCAController04"},
+    @{@"title":@"专用图层", @"className":@"FSCAController05"},
+    @{@"title":@"隐式动画", @"className":@"FSCAController06"},
+    @{@"title":@"显式动画", @"className":@"FSCAController07"},
+    @{@"title":@"keyFrame动画", @"className":@"FSCAController08"},
+    @{@"title":@"过渡动画", @"className":@"FSCAController09"},];
 }
 
 - (void)viewWillLayoutSubviews
@@ -81,11 +87,15 @@
 
     NSString *className = [dict objectForKey:@"className"];
     
+    NSString *title = [dict objectForKey:@"title"];
+    
     Class classObj = NSClassFromString(className);
     
     id obj = [[classObj alloc] init];
     
     [self.navigationController pushViewController:obj animated:YES];
+    
+    [obj setTitle:title];
 }
 
 

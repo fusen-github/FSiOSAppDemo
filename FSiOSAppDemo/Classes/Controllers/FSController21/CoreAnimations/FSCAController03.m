@@ -21,6 +21,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    
+    [self setupSubviews02];
+    
+    
+}
+
+- (void)setupSubviews01
+{
     UIView *redView = [[UIView alloc] init];
     
     self.redView = redView;
@@ -48,12 +56,55 @@
     blueView.frame = CGRectOffset(redView.bounds, 50, 50);
     
     [redView addSubview:blueView];
+}
+
+- (void)setupSubviews02
+{
+    UIImageView *imageView = [[UIImageView alloc] init];
     
+    CGFloat width = 250;
+    
+    CGFloat height = 250;
+    
+    CGFloat x = (self.view.bounds.size.width - width) * 0.5;
+    
+    CGFloat y = (self.view.bounds.size.height - height) * 0.5;
+    
+    imageView.frame = CGRectMake(x, y, width, height);
+    
+    UIImage *image = [UIImage imageNamed:@"005.jpg"];
+    
+    imageView.image = image;
+    
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    imageView.backgroundColor = [UIColor redColor];
+    
+    [self.view addSubview:imageView];
+    
+    CALayer *maskLayer = [CALayer layer];
+    
+    maskLayer.frame = imageView.bounds;
+    
+    UIImage *contents = [UIImage imageNamed:@"xx"];
+    
+    maskLayer.contents = (__bridge id _Nullable)(contents.CGImage);
+    
+//    NSLog(@"opacity = %f", maskLayer.opacity);
+    
+    maskLayer.opacity = 0.5;
+    
+    imageView.layer.mask = maskLayer;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [self demo06];
+    [self demo07];
+}
+
+- (void)demo07
+{
+    
 }
 
 /**
@@ -106,13 +157,15 @@
     {
         CALayer *maskLayer = [CALayer layer];
         
-        maskLayer.frame = CGRectInset(imageView.bounds, 0, 0);
+        maskLayer.frame = CGRectInset(imageView.bounds, 50, 50);
         
         UIImage *contents = [UIImage imageNamed:@"xx"];
         
         maskLayer.contents = (__bridge id _Nullable)(contents.CGImage);
         
         imageView.layer.mask = maskLayer;
+        
+        [imageView.layer addSublayer:maskLayer];
     }
     
 }

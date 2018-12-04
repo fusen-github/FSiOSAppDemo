@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040A0A2221B4BBE6007E420E /* FSTestController02.m in Sources */ = {isa = PBXBuildFile; fileRef = 040A0A2121B4BBE6007E420E /* FSTestController02.m */; };
+		041D504021B52A9600E81450 /* FSCAController07.m in Sources */ = {isa = PBXBuildFile; fileRef = 041D503F21B52A9600E81450 /* FSCAController07.m */; };
+		041D504321B61F6400E81450 /* FSLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 041D504221B61F6400E81450 /* FSLayer.m */; };
+		041D504621B66D5600E81450 /* FSCAController08.m in Sources */ = {isa = PBXBuildFile; fileRef = 041D504521B66D5600E81450 /* FSCAController08.m */; };
+		041D504921B6883100E81450 /* FSCAController09.m in Sources */ = {isa = PBXBuildFile; fileRef = 041D504821B6883100E81450 /* FSCAController09.m */; };
 		043B926A21AA562700E79635 /* NSData+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B919D21AA562700E79635 /* NSData+JSON.m */; };
 		043B926B21AA562700E79635 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B919E21AA562700E79635 /* UIView+Frame.m */; };
 		043B926C21AA562700E79635 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B919F21AA562700E79635 /* NSString+JSON.m */; };
@@ -112,6 +117,7 @@
 		0468543421AE40E500BBACC5 /* pan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0468543321AE40E500BBACC5 /* pan@2x.png */; };
 		0468543721AE568400BBACC5 /* FSCAController02.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468543621AE568400BBACC5 /* FSCAController02.m */; };
 		0468543A21AE660500BBACC5 /* FSCAView01.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468543921AE660500BBACC5 /* FSCAView01.m */; };
+		04749EF921B13E070022A368 /* FSCAController06.m in Sources */ = {isa = PBXBuildFile; fileRef = 04749EF821B13E070022A368 /* FSCAController06.m */; };
 		049E0C3321AEE4DF0097E599 /* FSCAController03.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E0C3221AEE4DF0097E599 /* FSCAController03.m */; };
 		049E0C3521AF88D10097E599 /* xx.png in Resources */ = {isa = PBXBuildFile; fileRef = 049E0C3421AF88D10097E599 /* xx.png */; };
 		049E0C7521AF8BDA0097E599 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E0C3821AF8BDA0097E599 /* UIImage+WebP.m */; };
@@ -148,6 +154,11 @@
 		049E0CA121AFCC0B0097E599 /* FSFSTransitionControler.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E0C9821AFCC0A0097E599 /* FSFSTransitionControler.m */; };
 		049E0CA221AFCC0B0097E599 /* FSImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E0C9921AFCC0A0097E599 /* FSImageScrollView.m */; };
 		049E0CA321AFCC0B0097E599 /* FSPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E0C9A21AFCC0A0097E599 /* FSPageViewController.m */; };
+		049E0CA621AFD9620097E599 /* FSCAController04.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E0CA521AFD9620097E599 /* FSCAController04.m */; };
+		049E0CA921B0D4B40097E599 /* FSCAView02.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E0CA821B0D4B40097E599 /* FSCAView02.m */; };
+		049E0CAC21B0EFBE0097E599 /* FSCAController05.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E0CAB21B0EFBE0097E599 /* FSCAController05.m */; };
+		049E0CB021B0F0CA0097E599 /* FSShapLayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E0CAF21B0F0CA0097E599 /* FSShapLayerVC.m */; };
+		049E0CB321B10F540097E599 /* FSCATextLayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E0CB221B10F540097E599 /* FSCATextLayerVC.m */; };
 		04BCF33121ABD28700C223FF /* 002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04BCF32621ABD28700C223FF /* 002.jpg */; };
 		04BCF33221ABD28700C223FF /* 003.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04BCF32721ABD28700C223FF /* 003.jpg */; };
 		04BCF33321ABD28700C223FF /* 001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04BCF32821ABD28700C223FF /* 001.jpg */; };
@@ -201,6 +212,16 @@
 		0405070B212A9609009A739C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04050714212A9609009A739C /* FSiOSAppDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSiOSAppDemoUITests.m; sourceTree = "<group>"; };
 		04050716212A9609009A739C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		040A0A2021B4BBE6007E420E /* FSTestController02.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSTestController02.h; sourceTree = "<group>"; };
+		040A0A2121B4BBE6007E420E /* FSTestController02.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSTestController02.m; sourceTree = "<group>"; };
+		041D503E21B52A9600E81450 /* FSCAController07.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCAController07.h; sourceTree = "<group>"; };
+		041D503F21B52A9600E81450 /* FSCAController07.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCAController07.m; sourceTree = "<group>"; };
+		041D504121B61F6400E81450 /* FSLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSLayer.h; sourceTree = "<group>"; };
+		041D504221B61F6400E81450 /* FSLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSLayer.m; sourceTree = "<group>"; };
+		041D504421B66D5600E81450 /* FSCAController08.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCAController08.h; sourceTree = "<group>"; };
+		041D504521B66D5600E81450 /* FSCAController08.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCAController08.m; sourceTree = "<group>"; };
+		041D504721B6883100E81450 /* FSCAController09.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCAController09.h; sourceTree = "<group>"; };
+		041D504821B6883100E81450 /* FSCAController09.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCAController09.m; sourceTree = "<group>"; };
 		043B919921AA562700E79635 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		043B919B21AA562700E79635 /* NSDictionary+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSON.h"; sourceTree = "<group>"; };
 		043B919C21AA562700E79635 /* NSArray+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+JSON.h"; sourceTree = "<group>"; };
@@ -398,6 +419,8 @@
 		0468543621AE568400BBACC5 /* FSCAController02.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCAController02.m; sourceTree = "<group>"; };
 		0468543821AE660400BBACC5 /* FSCAView01.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCAView01.h; sourceTree = "<group>"; };
 		0468543921AE660500BBACC5 /* FSCAView01.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCAView01.m; sourceTree = "<group>"; };
+		04749EF721B13E070022A368 /* FSCAController06.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCAController06.h; sourceTree = "<group>"; };
+		04749EF821B13E070022A368 /* FSCAController06.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCAController06.m; sourceTree = "<group>"; };
 		049E0C3121AEE4DF0097E599 /* FSCAController03.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCAController03.h; sourceTree = "<group>"; };
 		049E0C3221AEE4DF0097E599 /* FSCAController03.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCAController03.m; sourceTree = "<group>"; };
 		049E0C3421AF88D10097E599 /* xx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xx.png; sourceTree = "<group>"; };
@@ -471,6 +494,16 @@
 		049E0C9D21AFCC0A0097E599 /* FSFSTransitionControler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSFSTransitionControler.h; sourceTree = "<group>"; };
 		049E0C9E21AFCC0A0097E599 /* FSPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPageViewController.h; sourceTree = "<group>"; };
 		049E0C9F21AFCC0A0097E599 /* FSImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSImageScrollView.h; sourceTree = "<group>"; };
+		049E0CA421AFD9620097E599 /* FSCAController04.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCAController04.h; sourceTree = "<group>"; };
+		049E0CA521AFD9620097E599 /* FSCAController04.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCAController04.m; sourceTree = "<group>"; };
+		049E0CA721B0D4B40097E599 /* FSCAView02.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCAView02.h; sourceTree = "<group>"; };
+		049E0CA821B0D4B40097E599 /* FSCAView02.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCAView02.m; sourceTree = "<group>"; };
+		049E0CAA21B0EFBE0097E599 /* FSCAController05.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCAController05.h; sourceTree = "<group>"; };
+		049E0CAB21B0EFBE0097E599 /* FSCAController05.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCAController05.m; sourceTree = "<group>"; };
+		049E0CAE21B0F0CA0097E599 /* FSShapLayerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSShapLayerVC.h; sourceTree = "<group>"; };
+		049E0CAF21B0F0CA0097E599 /* FSShapLayerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSShapLayerVC.m; sourceTree = "<group>"; };
+		049E0CB121B10F540097E599 /* FSCATextLayerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCATextLayerVC.h; sourceTree = "<group>"; };
+		049E0CB221B10F540097E599 /* FSCATextLayerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCATextLayerVC.m; sourceTree = "<group>"; };
 		04B70511214E4AC300A77DA7 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		04BCF32621ABD28700C223FF /* 002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 002.jpg; sourceTree = "<group>"; };
 		04BCF32721ABD28700C223FF /* 003.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 003.jpg; sourceTree = "<group>"; };
@@ -825,6 +858,8 @@
 				0468542821AE399300BBACC5 /* FSController21 */,
 				049E0C9321AFAC570097E599 /* FSTestController.h */,
 				049E0C9421AFAC570097E599 /* FSTestController.m */,
+				040A0A2021B4BBE6007E420E /* FSTestController02.h */,
+				040A0A2121B4BBE6007E420E /* FSTestController02.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1044,8 +1079,23 @@
 				0468543621AE568400BBACC5 /* FSCAController02.m */,
 				049E0C3121AEE4DF0097E599 /* FSCAController03.h */,
 				049E0C3221AEE4DF0097E599 /* FSCAController03.m */,
+				049E0CA421AFD9620097E599 /* FSCAController04.h */,
+				049E0CA521AFD9620097E599 /* FSCAController04.m */,
+				049E0CAD21B0EFCC0097E599 /* FSCAController05 */,
+				04749EF721B13E070022A368 /* FSCAController06.h */,
+				04749EF821B13E070022A368 /* FSCAController06.m */,
+				041D503E21B52A9600E81450 /* FSCAController07.h */,
+				041D503F21B52A9600E81450 /* FSCAController07.m */,
+				041D504421B66D5600E81450 /* FSCAController08.h */,
+				041D504521B66D5600E81450 /* FSCAController08.m */,
+				041D504721B6883100E81450 /* FSCAController09.h */,
+				041D504821B6883100E81450 /* FSCAController09.m */,
+				041D504121B61F6400E81450 /* FSLayer.h */,
+				041D504221B61F6400E81450 /* FSLayer.m */,
 				0468543821AE660400BBACC5 /* FSCAView01.h */,
 				0468543921AE660500BBACC5 /* FSCAView01.m */,
+				049E0CA721B0D4B40097E599 /* FSCAView02.h */,
+				049E0CA821B0D4B40097E599 /* FSCAView02.m */,
 			);
 			path = CoreAnimations;
 			sourceTree = "<group>";
@@ -1139,6 +1189,19 @@
 				049E0C9B21AFCC0A0097E599 /* FSPageViewControllerPrivate.h */,
 			);
 			path = ImageBrower;
+			sourceTree = "<group>";
+		};
+		049E0CAD21B0EFCC0097E599 /* FSCAController05 */ = {
+			isa = PBXGroup;
+			children = (
+				049E0CAA21B0EFBE0097E599 /* FSCAController05.h */,
+				049E0CAB21B0EFBE0097E599 /* FSCAController05.m */,
+				049E0CAE21B0F0CA0097E599 /* FSShapLayerVC.h */,
+				049E0CAF21B0F0CA0097E599 /* FSShapLayerVC.m */,
+				049E0CB121B10F540097E599 /* FSCATextLayerVC.h */,
+				049E0CB221B10F540097E599 /* FSCATextLayerVC.m */,
+			);
+			path = FSCAController05;
 			sourceTree = "<group>";
 		};
 		04BCF32521ABD28700C223FF /* images */ = {
@@ -1387,10 +1450,14 @@
 				043B92B921AA562700E79635 /* FSSocket3.m in Sources */,
 				043B928321AA562700E79635 /* IQUIView+Hierarchy.m in Sources */,
 				043B928421AA562700E79635 /* IQUIViewController+Additions.m in Sources */,
+				049E0CB021B0F0CA0097E599 /* FSShapLayerVC.m in Sources */,
+				041D504621B66D5600E81450 /* FSCAController08.m in Sources */,
 				043B92B121AA562700E79635 /* FS10CollectionViewCell.m in Sources */,
 				043B929821AA562700E79635 /* FSBaseView+TableView.m in Sources */,
+				04749EF921B13E070022A368 /* FSCAController06.m in Sources */,
 				043B92C221AA562700E79635 /* FSPerson.m in Sources */,
 				049E0C7E21AF8BDA0097E599 /* UIImage+GIF.m in Sources */,
+				049E0CB321B10F540097E599 /* FSCATextLayerVC.m in Sources */,
 				043B929721AA562700E79635 /* FSView.m in Sources */,
 				043B92C721AA562700E79635 /* FSRoleDBManager.m in Sources */,
 				043B926A21AA562700E79635 /* NSData+JSON.m in Sources */,
@@ -1411,10 +1478,12 @@
 				043B928121AA562700E79635 /* IQUITextFieldView+Additions.m in Sources */,
 				043B929E21AA562700E79635 /* FSDetailController03.m in Sources */,
 				043B927921AA562700E79635 /* IQToolbar.m in Sources */,
+				041D504321B61F6400E81450 /* FSLayer.m in Sources */,
 				043B92B321AA562700E79635 /* FS10ColletionItem.m in Sources */,
 				0468543A21AE660500BBACC5 /* FSCAView01.m in Sources */,
 				049E0C3321AEE4DF0097E599 /* FSCAController03.m in Sources */,
 				043B92A321AA562700E79635 /* FSController01.m in Sources */,
+				049E0CA921B0D4B40097E599 /* FSCAView02.m in Sources */,
 				043B92A521AA562700E79635 /* FSController06.m in Sources */,
 				049E0CA321AFCC0B0097E599 /* FSPageViewController.m in Sources */,
 				04BCF33E21ABD62300C223FF /* FSImageCollectionViewCell.m in Sources */,
@@ -1441,11 +1510,14 @@
 				043B927821AA562700E79635 /* IQTextView.m in Sources */,
 				043B929A21AA562700E79635 /* FSDetailController01.m in Sources */,
 				0468542F21AE3BD700BBACC5 /* FSCAController01.m in Sources */,
+				040A0A2221B4BBE6007E420E /* FSTestController02.m in Sources */,
 				043B928D21AA562700E79635 /* SKPSMTPMessage.m in Sources */,
+				049E0CA621AFD9620097E599 /* FSCAController04.m in Sources */,
 				043B927A21AA562700E79635 /* IQTitleBarButtonItem.m in Sources */,
 				043B929421AA562700E79635 /* FSNavigationController.m in Sources */,
 				043B92AF21AA562700E79635 /* FSController03.m in Sources */,
 				049E0C8721AF8BDA0097E599 /* SDWebImageDownloaderOperation.m in Sources */,
+				041D504921B6883100E81450 /* FSCAController09.m in Sources */,
 				049E0C8C21AF8BDA0097E599 /* SDWebImageGIFCoder.m in Sources */,
 				043B929B21AA562700E79635 /* FSMasterController.m in Sources */,
 				049E0C8E21AF8BDA0097E599 /* UIView+WebCacheOperation.m in Sources */,
@@ -1473,7 +1545,9 @@
 				049E0C8621AF8BDA0097E599 /* SDImageCache.m in Sources */,
 				049E0C7B21AF8BDA0097E599 /* SDWebImageCodersManager.m in Sources */,
 				049E0C9521AFAC570097E599 /* FSTestController.m in Sources */,
+				049E0CAC21B0EFBE0097E599 /* FSCAController05.m in Sources */,
 				043B929621AA562700E79635 /* AppDelegate.m in Sources */,
+				041D504021B52A9600E81450 /* FSCAController07.m in Sources */,
 				043B92AD21AA562700E79635 /* FSPopoverContainer.m in Sources */,
 				043B92A221AA562700E79635 /* FSBaseViewController.m in Sources */,
 			);

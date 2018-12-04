@@ -84,11 +84,15 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [self demo08];
+    [self demo09];
     
 //    [self.view convertPoint:CGPointZero toView:nil];
 }
 
+- (void)demo09
+{
+    self.blueView.layer.anchorPoint = CGPointMake(1, 1);
+}
 
 /**
  layer.zPosition

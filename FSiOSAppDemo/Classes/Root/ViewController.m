@@ -77,6 +77,17 @@ static NSString * const kControllerTitleKey = @"kControllerTitleKey";
     self.tableView.frame = self.view.bounds;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSLog(@"%@",self.navigationController.childViewControllers);
+    
+    NSLog(@"%@",self.navigationController.view.subviews);
+    
+    NSLog(@"xx");
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.dataArray.count;
