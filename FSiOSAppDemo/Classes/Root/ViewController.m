@@ -50,7 +50,10 @@ static NSString * const kControllerTitleKey = @"kControllerTitleKey";
     @{kControllerNameKey:@"FSController18",kControllerTitleKey:@"UIGestureRecognizer"},
     @{kControllerNameKey:@"FSController19",kControllerTitleKey:@"CoreMotion"},
     @{kControllerNameKey:@"FSController20",kControllerTitleKey:@"转场动画"},
-    @{kControllerNameKey:@"FSController21",kControllerTitleKey:@"CoreAnimation"}, 
+    @{kControllerNameKey:@"FSController21",kControllerTitleKey:@"CoreAnimation"},
+    @{kControllerNameKey:@"FSController22",kControllerTitleKey:@"粘性控件"},
+    @{kControllerNameKey:@"FSController23",kControllerTitleKey:@"UITableViewCell"},
+    @{kControllerNameKey:@"FSController24",kControllerTitleKey:@"UILabel"},
 ];
     
     

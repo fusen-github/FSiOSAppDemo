@@ -73,6 +73,20 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"indexPath = %ld, %s",indexPath.row, __func__);
+    
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"indexPath = %ld, %s",indexPath.row, __func__);
+    
+    return 100;
+}
+
 /* for 编辑*/
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {

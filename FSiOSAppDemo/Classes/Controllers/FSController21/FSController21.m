@@ -42,7 +42,10 @@
     @{@"title":@"隐式动画", @"className":@"FSCAController06"},
     @{@"title":@"显式动画", @"className":@"FSCAController07"},
     @{@"title":@"keyFrame动画", @"className":@"FSCAController08"},
-    @{@"title":@"过渡动画", @"className":@"FSCAController09"},];
+    @{@"title":@"过渡动画-TabBar", @"className":@"FSCAController09"},
+    @{@"title":@"过渡动画-NavBar", @"className":@"FSCAController10"},
+    @{@"title":@"自定义动画", @"className":@"FSCAController11"},
+    @{@"title":@"缓冲动画", @"className":@"FSCAController12"},];
 }
 
 - (void)viewWillLayoutSubviews

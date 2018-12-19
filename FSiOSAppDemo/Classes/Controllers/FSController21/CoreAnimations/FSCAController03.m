@@ -22,10 +22,11 @@
     [super viewDidLoad];
 
     
-    [self setupSubviews02];
-    
+    [self setupSubviews03];
     
 }
+
+
 
 - (void)setupSubviews01
 {
@@ -95,6 +96,43 @@
     maskLayer.opacity = 0.5;
     
     imageView.layer.mask = maskLayer;
+}
+
+- (void)setupSubviews03
+{
+    UIView *view1 = [[UIView alloc] init];
+    
+    view1.frame = CGRectMake(0, 0, 200, 200);
+    
+    view1.center = self.view.center;
+    
+//    view1.backgroundColor = [UIColor redColor];
+    
+    view1.layer.shadowColor = [UIColor blackColor].CGColor;
+    
+    view1.layer.shadowRadius = 3;
+    
+    view1.layer.shadowOpacity = 0.75;
+    
+    view1.layer.shadowOffset = CGSizeMake(5, 5);
+    
+    [self.view addSubview:view1];
+    
+    UIView *view2 = [[UIView alloc] init];
+    
+    view2.layer.cornerRadius = 30;
+    
+    view2.layer.masksToBounds = YES;
+    
+    view2.layer.borderColor = [UIColor orangeColor].CGColor;
+    
+    view2.layer.borderWidth = 5;
+    
+    view2.backgroundColor = [UIColor greenColor];
+    
+    view2.frame = view1.bounds;
+    
+    [view1 addSubview:view2];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
