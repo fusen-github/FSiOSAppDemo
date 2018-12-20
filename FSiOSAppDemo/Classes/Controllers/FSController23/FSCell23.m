@@ -79,7 +79,11 @@
         
         [iconView.widthAnchor constraintEqualToConstant:40].active = YES;
         
-        [iconView.heightAnchor constraintEqualToConstant:40].active = YES;
+        NSLayoutConstraint *iconViewHeight = [iconView.heightAnchor constraintEqualToConstant:40];
+        
+        iconViewHeight.priority = 999;
+        
+        iconViewHeight.active = YES;
         
         [iconView.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor].active = YES;
         
@@ -101,10 +105,15 @@
         
         
         /// 约束cell.contentView的高度自适应
-        [newsLabel.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:0].active = YES;
+        [newsLabel.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-10].active = YES;
     }
     return self;
 }
+
+/*
+ 当控制台打印约束冲突的时候参考:
+ https://www.jianshu.com/p/737bf71c4dd9
+ */
 
 - (void)setItem:(FSNewsItem *)item
 {
@@ -117,6 +126,39 @@
     self.titleLabel.text = item.title;
     
     self.newsLabel.text = item.newsContent;
+    
+    NSLayoutConstraint *iconViewBottom = [self.iconView.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-10];
+    
+    NSLayoutConstraint *iconViewTop = [self.iconView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant:10];
+    
+    NSLayoutConstraint *iconViewCenterY = [self.iconView.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor];
+
+    if (!self.item.title.length && !self.item.newsContent.length)
+    {
+        if (!iconViewBottom.active)
+        {
+            iconViewCenterY.active = NO;
+            
+            iconViewBottom.active = YES;
+            
+            iconViewTop.active = YES;
+            
+            NSLog(@"来了1");
+        }
+    }
+    else
+    {
+        if (iconViewBottom.active)
+        {
+            iconViewBottom.active = NO;
+            
+            iconViewTop.active = NO;
+            
+            iconViewCenterY.active = YES;
+            
+            NSLog(@"来了2");
+        }
+    }
     
 }
 

@@ -196,6 +196,8 @@
 		04EE9FF921C8F41500C415B4 /* FSCell23.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EE9FF821C8F41500C415B4 /* FSCell23.m */; };
 		04EE9FFB21C8FAD900C415B4 /* news.json in Resources */ = {isa = PBXBuildFile; fileRef = 04EE9FFA21C8FAD900C415B4 /* news.json */; };
 		04EEAA4521C9EAE900C415B4 /* FSController24.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EEAA4421C9EAE900C415B4 /* FSController24.m */; };
+		04EEAA4921CA6B0E00C415B4 /* FSGrowingTextBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EEAA4821CA6B0E00C415B4 /* FSGrowingTextBar.m */; };
+		04EEAA4D21CA9BFA00C415B4 /* FSController25.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EEAA4C21CA9BFA00C415B4 /* FSController25.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -583,6 +585,10 @@
 		04EE9FFA21C8FAD900C415B4 /* news.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = news.json; sourceTree = "<group>"; };
 		04EEAA4321C9EAE900C415B4 /* FSController24.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController24.h; sourceTree = "<group>"; };
 		04EEAA4421C9EAE900C415B4 /* FSController24.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSController24.m; sourceTree = "<group>"; };
+		04EEAA4721CA6B0E00C415B4 /* FSGrowingTextBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSGrowingTextBar.h; sourceTree = "<group>"; };
+		04EEAA4821CA6B0E00C415B4 /* FSGrowingTextBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSGrowingTextBar.m; sourceTree = "<group>"; };
+		04EEAA4B21CA9BFA00C415B4 /* FSController25.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSController25.h; sourceTree = "<group>"; };
+		04EEAA4C21CA9BFA00C415B4 /* FSController25.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSController25.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -908,10 +914,10 @@
 				0468542821AE399300BBACC5 /* FSController21 */,
 				04C7F5AF21BFF9B000263ECF /* FSController22 */,
 				04EE9F1021C8E54C00C415B4 /* FSController23 */,
-				04EEAA4321C9EAE900C415B4 /* FSController24.h */,
-				04EEAA4421C9EAE900C415B4 /* FSController24.m */,
+				04EEAA4621CA6AD700C415B4 /* FSController24 */,
 				049E0C9321AFAC570097E599 /* FSTestController.h */,
 				049E0C9421AFAC570097E599 /* FSTestController.m */,
+				04EEAA4A21CA9BDF00C415B4 /* FSController25 */,
 				040A0A2021B4BBE6007E420E /* FSTestController02.h */,
 				040A0A2121B4BBE6007E420E /* FSTestController02.m */,
 			);
@@ -1354,6 +1360,26 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		04EEAA4621CA6AD700C415B4 /* FSController24 */ = {
+			isa = PBXGroup;
+			children = (
+				04EEAA4321C9EAE900C415B4 /* FSController24.h */,
+				04EEAA4421C9EAE900C415B4 /* FSController24.m */,
+				04EEAA4721CA6B0E00C415B4 /* FSGrowingTextBar.h */,
+				04EEAA4821CA6B0E00C415B4 /* FSGrowingTextBar.m */,
+			);
+			path = FSController24;
+			sourceTree = "<group>";
+		};
+		04EEAA4A21CA9BDF00C415B4 /* FSController25 */ = {
+			isa = PBXGroup;
+			children = (
+				04EEAA4B21CA9BFA00C415B4 /* FSController25.h */,
+				04EEAA4C21CA9BFA00C415B4 /* FSController25.m */,
+			);
+			path = FSController25;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1560,6 +1586,7 @@
 				043B928421AA562700E79635 /* IQUIViewController+Additions.m in Sources */,
 				049E0CB021B0F0CA0097E599 /* FSShapLayerVC.m in Sources */,
 				041D504621B66D5600E81450 /* FSCAController08.m in Sources */,
+				04EEAA4921CA6B0E00C415B4 /* FSGrowingTextBar.m in Sources */,
 				043B92B121AA562700E79635 /* FS10CollectionViewCell.m in Sources */,
 				043B929821AA562700E79635 /* FSBaseView+TableView.m in Sources */,
 				04749EF921B13E070022A368 /* FSCAController06.m in Sources */,
@@ -1644,6 +1671,7 @@
 				049E0C8421AF8BDA0097E599 /* NSButton+WebCache.m in Sources */,
 				04C7F57E21BA774300263ECF /* FSCAController12.m in Sources */,
 				0468543721AE568400BBACC5 /* FSCAController02.m in Sources */,
+				04EEAA4D21CA9BFA00C415B4 /* FSController25.m in Sources */,
 				043B929021AA562700E79635 /* HSK_CFUtilities.m in Sources */,
 				049E0C8921AF8BDA0097E599 /* NSData+ImageContentType.m in Sources */,
 				043B92A721AA562700E79635 /* FSController14.m in Sources */,
