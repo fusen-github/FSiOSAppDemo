@@ -60,13 +60,11 @@
     [self.view addSubview:bar];
     
     /// 布局
-    [bar.leftAnchor constraintEqualToAnchor:bar.superview.leftAnchor].active = YES;
-    
-    [bar.rightAnchor constraintEqualToAnchor:bar.superview.rightAnchor].active = YES;
-    
-    [bar.bottomAnchor constraintEqualToAnchor:bar.superview.bottomAnchor].active = YES;
-    
-    [bar.heightAnchor constraintGreaterThanOrEqualToConstant:52].active = YES;
+    bar.leftLayoutConstraint.active = YES;
+    bar.rightLayoutConstraint.active = YES;
+    bar.bottomLayoutConstraint.active = YES;
+    bar.minHeightLayoutConstraint.active = YES;
+    bar.maxHeightLayoutConstraint.active = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated

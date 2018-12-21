@@ -24,4 +24,14 @@
 
 @property (nonatomic, weak) id<FSGrowingTextBarDelegate> delegate;
 
+@property (nonatomic, strong, readonly) NSLayoutConstraint *leftLayoutConstraint;
+
+@property (nonatomic, strong, readonly) NSLayoutConstraint *rightLayoutConstraint;
+
+@property (nonatomic, strong, readonly) NSLayoutConstraint *bottomLayoutConstraint;
+
+@property (nonatomic, strong, readonly) NSLayoutConstraint *minHeightLayoutConstraint;
+
+@property (nonatomic, strong, readonly) NSLayoutConstraint *maxHeightLayoutConstraint;
+
 @end

@@ -8,13 +8,13 @@
 
 #import "FSGrowingTextBar.h"
 
-
-
 static NSString * const kTextViewBoundsKey = @"bounds";
 
 @interface FSGrowingTextBar ()<UITextViewDelegate>
 
 @property (nonatomic, weak) UITextView *textView;
+
+@property (nonatomic, strong) NSLayoutConstraint *textViewBottomConstraint;
 
 @property (nonatomic, strong) NSLayoutConstraint *textViewTopConstraint;
 
@@ -40,7 +40,6 @@ static NSString * const kTextViewBoundsKey = @"bounds";
     btn1.backgroundColor = UIColorRandom;
     
     [self addSubview:btn1];
-    
     
     
     UITextView *textView = [[UITextView alloc] init];
@@ -72,15 +71,14 @@ static NSString * const kTextViewBoundsKey = @"bounds";
     
     UIEdgeInsets edgeInset = textView.textContainerInset;
     
-    NSLog(@"%f, %f", edgeInset.top, edgeInset.bottom);
-    
-    edgeInset.top = 7;
+    edgeInset.top = 6.5;
 
-    edgeInset.bottom = 7;
+    edgeInset.bottom = 6.5;
 
     textView.textContainerInset = edgeInset;
     
     [self addSubview:textView];
+    
     
     UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
     
@@ -90,6 +88,7 @@ static NSString * const kTextViewBoundsKey = @"bounds";
     
     [self addSubview:btn2];
     
+    
     UIButton *btn3 = [UIButton buttonWithType:UIButtonTypeCustom];
     
     btn3.translatesAutoresizingMaskIntoConstraints = NO;
@@ -97,6 +96,9 @@ static NSString * const kTextViewBoundsKey = @"bounds";
     btn3.backgroundColor = UIColorRandom;
     
     [self addSubview:btn3];
+    
+    /// test
+    btn1.hidden = btn2.hidden = btn3.hidden = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     
@@ -112,13 +114,18 @@ static NSString * const kTextViewBoundsKey = @"bounds";
     [btn1.heightAnchor constraintEqualToConstant:itemWH].active = YES;
     [btn1.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-marginV].active = YES;
     
-    /// 布局textView
     
+    /// 布局textView
     CGFloat textViewRightMargin = -(itemWH * 2 + 3 * marginH);
     [textView.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:textViewRightMargin].active = YES;
-    [textView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-marginV - 0.5].active = YES;
+    NSLayoutConstraint *textViewBottomConstraint =
+    [textView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-marginV];
+    textViewBottomConstraint.active = YES;
+    self.textViewBottomConstraint = textViewBottomConstraint;
+    
     [textView.leftAnchor constraintEqualToAnchor:btn1.rightAnchor constant:marginH].active = YES;
-    NSLayoutConstraint *textViewTopConstraint = [textView.topAnchor constraintEqualToAnchor:self.topAnchor constant:marginV + 0.5];
+    NSLayoutConstraint *textViewTopConstraint =
+    [textView.topAnchor constraintEqualToAnchor:self.topAnchor constant:marginV];
     textViewTopConstraint.active = YES;
     self.textViewTopConstraint = textViewTopConstraint;
     
@@ -151,37 +158,84 @@ static NSString * const kTextViewBoundsKey = @"bounds";
 }
 
 
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
     if ([keyPath isEqualToString:kTextViewBoundsKey])
     {
         CGSize newSize = [[change objectForKey:NSKeyValueChangeNewKey] CGRectValue].size;
         
-        CGSize contentSize = self.textView.contentSize;
-
-        /*
-         可变输入框的高度是否可变的临界值
-         */
-        CGFloat value = 100;
+        CGSize oldSize = [[change objectForKey:NSKeyValueChangeOldKey] CGRectValue].size;
         
-        if (newSize.height > value && contentSize.height > value)
+        if (oldSize.height < newSize.height)
         {
-//            NSLog(@"来了 == YES");
+            CGFloat tvTopSpace = fabs(self.textViewTopConstraint.constant);
             
-            self.textView.scrollEnabled = YES;
+            CGFloat tvBottomSpace = fabs(self.textViewBottomConstraint.constant);
+            
+            CGFloat maxValue = self.maxHeightLayoutConstraint.constant - tvTopSpace - tvBottomSpace;
+
+            if (newSize.height == maxValue && !self.textView.scrollEnabled)
+            {
+                self.textView.scrollEnabled = YES;
+                
+                CGPoint point = CGPointMake(0, self.textView.contentSize.height - self.textView.bounds.size.height);
+                
+                [self.textView setContentOffset:point animated:YES];
+            }
+        }
+        else if (oldSize.height > newSize.height)
+        {
+            if (self.textView.scrollEnabled)
+            {
+                self.textView.scrollEnabled = NO;
+                
+                [self.textView setNeedsUpdateConstraints];
+            }
         }
         else
         {
-//            NSLog(@"来了 == NO");
+            CGSize contentSize = self.textView.contentSize;
             
-            self.textView.scrollEnabled = NO;
-
-            [self.textView setNeedsUpdateConstraints];
-
-            [self.textView.superview setNeedsUpdateConstraints];
+            if (contentSize.height < newSize.height)
+            {
+                if (self.textView.scrollEnabled)
+                {
+                    self.textView.scrollEnabled = NO;
+                    
+                    [self.textView setNeedsUpdateConstraints];
+                }
+            }
         }
     }
+}
+
+- (void)willMoveToSuperview:(UIView *)newSuperview
+{
+    if (newSuperview)
+    {
+        NSLayoutConstraint *leftLayoutConstraint = [self.leftAnchor constraintEqualToAnchor:newSuperview.leftAnchor];
+        _leftLayoutConstraint = leftLayoutConstraint;
+        
+        NSLayoutConstraint *rightLayoutConstraint = [self.rightAnchor constraintEqualToAnchor:newSuperview.rightAnchor];
+        _rightLayoutConstraint = rightLayoutConstraint;
+
+        NSLayoutConstraint *bottomLayoutConstraint = [self.bottomAnchor constraintEqualToAnchor:newSuperview.bottomAnchor];
+        _bottomLayoutConstraint = bottomLayoutConstraint;
+
+        
+        NSLayoutConstraint *minHeightLayoutConstraint = [self.heightAnchor constraintGreaterThanOrEqualToConstant:52];
+        _minHeightLayoutConstraint = minHeightLayoutConstraint;
+
+        NSLayoutConstraint *maxHeightLayoutConstraint = [self.heightAnchor constraintLessThanOrEqualToConstant:119];
+        _maxHeightLayoutConstraint = maxHeightLayoutConstraint;
+    }
+}
+
+- (void)updateConstraints
+{
+    [super updateConstraints];
+    
+    NSLog(@"%s",__func__);
 }
 
 - (void)dealloc

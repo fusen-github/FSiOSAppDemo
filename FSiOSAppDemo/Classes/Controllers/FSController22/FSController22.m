@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self demo04];
+    [self demo05];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -36,7 +36,15 @@
     {
         NSLog(@"view.frame = %@",NSStringFromCGRect(view.frame));
     }
+}
+
+- (void)demo05
+{
+    FSViscosityView *viscosityView = [[FSViscosityView alloc] initWithTitle:@"6"];
     
+    viscosityView.center = self.view.center;
+    
+    [self.view addSubview:viscosityView];
 }
 
 /**
