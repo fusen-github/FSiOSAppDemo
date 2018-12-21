@@ -160,6 +160,7 @@
 		049E0CAC21B0EFBE0097E599 /* FSCAController05.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E0CAB21B0EFBE0097E599 /* FSCAController05.m */; };
 		049E0CB021B0F0CA0097E599 /* FSShapLayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E0CAF21B0F0CA0097E599 /* FSShapLayerVC.m */; };
 		049E0CB321B10F540097E599 /* FSCATextLayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E0CB221B10F540097E599 /* FSCATextLayerVC.m */; };
+		04AAC8AA21CC7F7500BDC10C /* FSGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AAC8A921CC7F7500BDC10C /* FSGrowingTextView.m */; };
 		04BCF33121ABD28700C223FF /* 002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04BCF32621ABD28700C223FF /* 002.jpg */; };
 		04BCF33221ABD28700C223FF /* 003.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04BCF32721ABD28700C223FF /* 003.jpg */; };
 		04BCF33321ABD28700C223FF /* 001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04BCF32821ABD28700C223FF /* 001.jpg */; };
@@ -524,6 +525,8 @@
 		049E0CAF21B0F0CA0097E599 /* FSShapLayerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSShapLayerVC.m; sourceTree = "<group>"; };
 		049E0CB121B10F540097E599 /* FSCATextLayerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCATextLayerVC.h; sourceTree = "<group>"; };
 		049E0CB221B10F540097E599 /* FSCATextLayerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCATextLayerVC.m; sourceTree = "<group>"; };
+		04AAC8A821CC7F7500BDC10C /* FSGrowingTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSGrowingTextView.h; sourceTree = "<group>"; };
+		04AAC8A921CC7F7500BDC10C /* FSGrowingTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSGrowingTextView.m; sourceTree = "<group>"; };
 		04B70511214E4AC300A77DA7 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		04BCF32621ABD28700C223FF /* 002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 002.jpg; sourceTree = "<group>"; };
 		04BCF32721ABD28700C223FF /* 003.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 003.jpg; sourceTree = "<group>"; };
@@ -1367,6 +1370,8 @@
 				04EEAA4421C9EAE900C415B4 /* FSController24.m */,
 				04EEAA4721CA6B0E00C415B4 /* FSGrowingTextBar.h */,
 				04EEAA4821CA6B0E00C415B4 /* FSGrowingTextBar.m */,
+				04AAC8A821CC7F7500BDC10C /* FSGrowingTextView.h */,
+				04AAC8A921CC7F7500BDC10C /* FSGrowingTextView.m */,
 			);
 			path = FSController24;
 			sourceTree = "<group>";
@@ -1607,6 +1612,7 @@
 				043B92B621AA562700E79635 /* FSSocket1.m in Sources */,
 				049E0CA221AFCC0B0097E599 /* FSImageScrollView.m in Sources */,
 				043B92C421AA562700E79635 /* FSDog.m in Sources */,
+				04AAC8AA21CC7F7500BDC10C /* FSGrowingTextView.m in Sources */,
 				043B928C21AA562700E79635 /* NSStream+SKPSMTPExtensions.m in Sources */,
 				043B926F21AA562700E79635 /* FSBitImage.m in Sources */,
 				043B928921AA562700E79635 /* FMDatabasePool.m in Sources */,

@@ -8,13 +8,15 @@
 
 #import "FSGrowingTextBar.h"
 
+
+
 static NSString * const kTextViewBoundsKey = @"bounds";
 
 @interface FSGrowingTextBar ()<UITextViewDelegate>
 
 @property (nonatomic, weak) UITextView *textView;
 
-@property (nonatomic, strong) NSLayoutConstraint *textViewHeightConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *textViewTopConstraint;
 
 @end
 
@@ -38,6 +40,8 @@ static NSString * const kTextViewBoundsKey = @"bounds";
     btn1.backgroundColor = UIColorRandom;
     
     [self addSubview:btn1];
+    
+    
     
     UITextView *textView = [[UITextView alloc] init];
     
@@ -66,6 +70,16 @@ static NSString * const kTextViewBoundsKey = @"bounds";
     
     textView.translatesAutoresizingMaskIntoConstraints = NO;
     
+    UIEdgeInsets edgeInset = textView.textContainerInset;
+    
+    NSLog(@"%f, %f", edgeInset.top, edgeInset.bottom);
+    
+    edgeInset.top = 7;
+
+    edgeInset.bottom = 7;
+
+    textView.textContainerInset = edgeInset;
+    
     [self addSubview:textView];
     
     UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -88,7 +102,7 @@ static NSString * const kTextViewBoundsKey = @"bounds";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_keyboardWillHidden:) name:UIKeyboardWillHideNotification object:nil];
     
-    CGFloat itemWH = 32;
+    CGFloat itemWH = 35;
     CGFloat marginH = 7;
     CGFloat marginV = 8;
     
@@ -99,20 +113,15 @@ static NSString * const kTextViewBoundsKey = @"bounds";
     [btn1.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-marginV].active = YES;
     
     /// 布局textView
-    /*
-    // 方式1. 不能做到高度自动增长
-    CGFloat textViewRightMargin = -(itemWH * 2 + 3 * marginH);
-    [textView.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:textViewRightMargin].active = YES;
-    [textView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-marginV].active = YES;
-    [textView.leftAnchor constraintEqualToAnchor:btn1.rightAnchor constant:marginH].active = YES;
-    [textView.topAnchor constraintEqualToAnchor:self.topAnchor constant:marginV].active = YES;
-    */
     
     CGFloat textViewRightMargin = -(itemWH * 2 + 3 * marginH);
     [textView.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:textViewRightMargin].active = YES;
-    [textView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-marginV].active = YES;
+    [textView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-marginV - 0.5].active = YES;
     [textView.leftAnchor constraintEqualToAnchor:btn1.rightAnchor constant:marginH].active = YES;
-    [textView.topAnchor constraintEqualToAnchor:self.topAnchor constant:marginV].active = YES;
+    NSLayoutConstraint *textViewTopConstraint = [textView.topAnchor constraintEqualToAnchor:self.topAnchor constant:marginV + 0.5];
+    textViewTopConstraint.active = YES;
+    self.textViewTopConstraint = textViewTopConstraint;
+    
     
     /// 布局btn2
     [btn2.leftAnchor constraintEqualToAnchor:textView.rightAnchor constant:marginH].active = YES;
@@ -132,46 +141,16 @@ static NSString * const kTextViewBoundsKey = @"bounds";
 {
     if (textView.scrollEnabled)
     {
-        CGFloat contentH = textView.contentSize.height;
+        CGPoint point = CGPointMake(0, textView.contentSize.height - textView.bounds.size.height);
         
-        CGFloat frameH = textView.bounds.size.height;
-        
-        if (contentH <= frameH)
+        if (textView.contentOffset.y != point.y)
         {
-            NSLog(@"11111");
-            
-            NSLog(@"%f, %f", contentH, frameH);
-            
-            NSLayoutConstraint *textViewHeightConstraint = [textView.heightAnchor constraintEqualToConstant:contentH];
-            
-            self.textViewHeightConstraint = textViewHeightConstraint;
-            
-            textViewHeightConstraint.active = YES;
-            
-            textView.scrollEnabled = NO;
-            
-            [textView updateConstraintsIfNeeded];
-            
-            [textView.superview updateConstraintsIfNeeded];
-            
-            return;
-        }
-        
-        if (self.textViewHeightConstraint.active)
-        {
-            self.textViewHeightConstraint.active = NO;
-        }
-    }
-    else
-    {
-        NSLog(@"scrollEnabled = NO");
-        
-        if (self.textViewHeightConstraint.active)
-        {
-            self.textViewHeightConstraint.active = NO;
+            [self.textView setContentOffset:point animated:YES];
         }
     }
 }
+
+
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
@@ -179,7 +158,29 @@ static NSString * const kTextViewBoundsKey = @"bounds";
     {
         CGSize newSize = [[change objectForKey:NSKeyValueChangeNewKey] CGRectValue].size;
         
-        self.textView.scrollEnabled = newSize.height > 60;
+        CGSize contentSize = self.textView.contentSize;
+
+        /*
+         可变输入框的高度是否可变的临界值
+         */
+        CGFloat value = 100;
+        
+        if (newSize.height > value && contentSize.height > value)
+        {
+//            NSLog(@"来了 == YES");
+            
+            self.textView.scrollEnabled = YES;
+        }
+        else
+        {
+//            NSLog(@"来了 == NO");
+            
+            self.textView.scrollEnabled = NO;
+
+            [self.textView setNeedsUpdateConstraints];
+
+            [self.textView.superview setNeedsUpdateConstraints];
+        }
     }
 }
 

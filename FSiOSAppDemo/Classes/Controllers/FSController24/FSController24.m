@@ -51,14 +51,6 @@
     
     bar.delegate = (id<FSGrowingTextBarDelegate>)self;
     
-//    CGFloat barH = 49;
-//
-//    CGFloat barW = self.view.width;
-//
-//    CGFloat barY = self.view.height - barH;
-//
-//    bar.frame = CGRectMake(0, barY, barW, barH);
-    
     bar.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     bar.translatesAutoresizingMaskIntoConstraints = NO;
@@ -74,8 +66,7 @@
     
     [bar.bottomAnchor constraintEqualToAnchor:bar.superview.bottomAnchor].active = YES;
     
-    [bar.heightAnchor constraintGreaterThanOrEqualToConstant:49].active = YES;
-//    [bar.heightAnchor constraintLessThanOrEqualToConstant:49].active = YES;
+    [bar.heightAnchor constraintGreaterThanOrEqualToConstant:52].active = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated
