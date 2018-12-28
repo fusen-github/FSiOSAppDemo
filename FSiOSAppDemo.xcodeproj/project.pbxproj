@@ -131,7 +131,9 @@
 		048B724021D4D06400F3BB65 /* FSRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 048B723F21D4D06400F3BB65 /* FSRefreshHeader.m */; };
 		048B724321D4D07700F3BB65 /* FSRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 048B724221D4D07700F3BB65 /* FSRefreshFooter.m */; };
 		048B724621D4D59100F3BB65 /* FSQQRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 048B724521D4D59100F3BB65 /* FSQQRefreshHeader.m */; };
-		048B724921D4D5C300F3BB65 /* UIScrollView+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 048B724821D4D5C300F3BB65 /* UIScrollView+Extention.m */; };
+		0498E28221D65CAB005D3B72 /* FSSimpleRefreshExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 0498E28121D65CAB005D3B72 /* FSSimpleRefreshExample.m */; };
+		0498E28621D65CD2005D3B72 /* FSQQRefreshExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 0498E28521D65CD2005D3B72 /* FSQQRefreshExample.m */; };
+		0498E28921D661C9005D3B72 /* UIRefreshControlExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 0498E28821D661C9005D3B72 /* UIRefreshControlExample.m */; };
 		049E0C3321AEE4DF0097E599 /* FSCAController03.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E0C3221AEE4DF0097E599 /* FSCAController03.m */; };
 		049E0C3521AF88D10097E599 /* xx.png in Resources */ = {isa = PBXBuildFile; fileRef = 049E0C3421AF88D10097E599 /* xx.png */; };
 		049E0C7521AF8BDA0097E599 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E0C3821AF8BDA0097E599 /* UIImage+WebP.m */; };
@@ -475,8 +477,12 @@
 		048B724221D4D07700F3BB65 /* FSRefreshFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSRefreshFooter.m; sourceTree = "<group>"; };
 		048B724421D4D59100F3BB65 /* FSQQRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSQQRefreshHeader.h; sourceTree = "<group>"; };
 		048B724521D4D59100F3BB65 /* FSQQRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSQQRefreshHeader.m; sourceTree = "<group>"; };
-		048B724721D4D5C300F3BB65 /* UIScrollView+Extention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Extention.h"; sourceTree = "<group>"; };
-		048B724821D4D5C300F3BB65 /* UIScrollView+Extention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extention.m"; sourceTree = "<group>"; };
+		0498E28021D65CAB005D3B72 /* FSSimpleRefreshExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSSimpleRefreshExample.h; sourceTree = "<group>"; };
+		0498E28121D65CAB005D3B72 /* FSSimpleRefreshExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSSimpleRefreshExample.m; sourceTree = "<group>"; };
+		0498E28421D65CD2005D3B72 /* FSQQRefreshExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSQQRefreshExample.h; sourceTree = "<group>"; };
+		0498E28521D65CD2005D3B72 /* FSQQRefreshExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSQQRefreshExample.m; sourceTree = "<group>"; };
+		0498E28721D661C9005D3B72 /* UIRefreshControlExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIRefreshControlExample.h; sourceTree = "<group>"; };
+		0498E28821D661C9005D3B72 /* UIRefreshControlExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIRefreshControlExample.m; sourceTree = "<group>"; };
 		049E0C3121AEE4DF0097E599 /* FSCAController03.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCAController03.h; sourceTree = "<group>"; };
 		049E0C3221AEE4DF0097E599 /* FSCAController03.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCAController03.m; sourceTree = "<group>"; };
 		049E0C3421AF88D10097E599 /* xx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xx.png; sourceTree = "<group>"; };
@@ -1252,10 +1258,7 @@
 			children = (
 				048B723721D4C9B200F3BB65 /* FSController26.h */,
 				048B723821D4C9B200F3BB65 /* FSController26.m */,
-				048B724421D4D59100F3BB65 /* FSQQRefreshHeader.h */,
-				048B724521D4D59100F3BB65 /* FSQQRefreshHeader.m */,
-				048B724721D4D5C300F3BB65 /* UIScrollView+Extention.h */,
-				048B724821D4D5C300F3BB65 /* UIScrollView+Extention.m */,
+				0498E28321D65CB4005D3B72 /* Example */,
 				048B723A21D4CF7800F3BB65 /* FSRefreshing */,
 			);
 			path = FSController26;
@@ -1264,14 +1267,53 @@
 		048B723A21D4CF7800F3BB65 /* FSRefreshing */ = {
 			isa = PBXGroup;
 			children = (
+				0498E27E21D65299005D3B72 /* Base */,
+				0498E27D21D6526B005D3B72 /* QQ */,
+				0498E27F21D655CE005D3B72 /* Simple */,
+			);
+			path = FSRefreshing;
+			sourceTree = "<group>";
+		};
+		0498E27D21D6526B005D3B72 /* QQ */ = {
+			isa = PBXGroup;
+			children = (
+				048B724421D4D59100F3BB65 /* FSQQRefreshHeader.h */,
+				048B724521D4D59100F3BB65 /* FSQQRefreshHeader.m */,
+			);
+			path = QQ;
+			sourceTree = "<group>";
+		};
+		0498E27E21D65299005D3B72 /* Base */ = {
+			isa = PBXGroup;
+			children = (
 				048B723B21D4D04000F3BB65 /* FSRefreshComponent.h */,
 				048B723C21D4D04000F3BB65 /* FSRefreshComponent.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		0498E27F21D655CE005D3B72 /* Simple */ = {
+			isa = PBXGroup;
+			children = (
 				048B723E21D4D06400F3BB65 /* FSRefreshHeader.h */,
 				048B723F21D4D06400F3BB65 /* FSRefreshHeader.m */,
 				048B724121D4D07700F3BB65 /* FSRefreshFooter.h */,
 				048B724221D4D07700F3BB65 /* FSRefreshFooter.m */,
 			);
-			path = FSRefreshing;
+			path = Simple;
+			sourceTree = "<group>";
+		};
+		0498E28321D65CB4005D3B72 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				0498E28021D65CAB005D3B72 /* FSSimpleRefreshExample.h */,
+				0498E28121D65CAB005D3B72 /* FSSimpleRefreshExample.m */,
+				0498E28421D65CD2005D3B72 /* FSQQRefreshExample.h */,
+				0498E28521D65CD2005D3B72 /* FSQQRefreshExample.m */,
+				0498E28721D661C9005D3B72 /* UIRefreshControlExample.h */,
+				0498E28821D661C9005D3B72 /* UIRefreshControlExample.m */,
+			);
+			path = Example;
 			sourceTree = "<group>";
 		};
 		049E0C3621AF8BDA0097E599 /* SDWebImage */ = {
@@ -1651,8 +1693,10 @@
 				043B92BF21AA562700E79635 /* FSQuartzView.m in Sources */,
 				043B929521AA562700E79635 /* ViewController.m in Sources */,
 				043B92BB21AA562700E79635 /* FSController18.m in Sources */,
+				0498E28221D65CAB005D3B72 /* FSSimpleRefreshExample.m in Sources */,
 				048B724321D4D07700F3BB65 /* FSRefreshFooter.m in Sources */,
 				0468542B21AE39B700BBACC5 /* FSController21.m in Sources */,
+				0498E28921D661C9005D3B72 /* UIRefreshControlExample.m in Sources */,
 				048B5B6121CF50F500F3BB65 /* FSCollectionViewLayout.m in Sources */,
 				049E0C8521AF8BDA0097E599 /* SDAnimatedImageRep.m in Sources */,
 				04C7F5B221BFF9CA00263ECF /* FSController22.m in Sources */,
@@ -1714,7 +1758,6 @@
 				043B92B621AA562700E79635 /* FSSocket1.m in Sources */,
 				049E0CA221AFCC0B0097E599 /* FSImageScrollView.m in Sources */,
 				043B92C421AA562700E79635 /* FSDog.m in Sources */,
-				048B724921D4D5C300F3BB65 /* UIScrollView+Extention.m in Sources */,
 				048B724021D4D06400F3BB65 /* FSRefreshHeader.m in Sources */,
 				043B928C21AA562700E79635 /* NSStream+SKPSMTPExtensions.m in Sources */,
 				043B926F21AA562700E79635 /* FSBitImage.m in Sources */,
@@ -1794,6 +1837,7 @@
 				04BCF34121ABD7FA00C223FF /* FSImageItem.m in Sources */,
 				043B92AB21AA562700E79635 /* FSController19.m in Sources */,
 				043B92B721AA562700E79635 /* FSSocket4.m in Sources */,
+				0498E28621D65CD2005D3B72 /* FSQQRefreshExample.m in Sources */,
 				049E0C8121AF8BDA0097E599 /* SDWebImageCompat.m in Sources */,
 				043B928621AA562700E79635 /* FMDatabaseQueue.m in Sources */,
 				043B92B421AA562700E79635 /* FSSocket2.m in Sources */,

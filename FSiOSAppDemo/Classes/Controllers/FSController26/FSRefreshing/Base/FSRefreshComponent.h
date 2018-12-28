@@ -18,9 +18,19 @@ typedef NS_ENUM(NSInteger, FSRefreshStatus){
     FSRefreshStatusRefreshing,
     /* 没有更多数据的状态 */
     FSRefreshStatusNoMoreData,
-    
 };
 
 @interface FSRefreshComponent : UIControl
+
+- (UIEdgeInsets)scrollViewEdgeInsets:(UIScrollView *)scrollView;
+
+/** 当scrollView的contentOffset发生改变的时候调用 */
+- (void)scrollViewContentOffsetDidChange:(NSDictionary<NSKeyValueChangeKey,id> *)change;
+
+@end
+
+@interface UIScrollView (FSRefresh)
+
+@property (nonatomic, weak) FSRefreshComponent *fs_refreshHeader;
 
 @end

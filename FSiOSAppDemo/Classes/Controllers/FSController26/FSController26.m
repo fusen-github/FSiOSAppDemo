@@ -7,37 +7,29 @@
 //
 
 #import "FSController26.h"
-#import "FSRefreshHeader.h"
-#import "UIScrollView+Extention.h"
+#import "FSSimpleRefreshExample.h"
+#import "FSQQRefreshExample.h"
+#import "UIRefreshControlExample.h"
 
 
 @interface FSController26 ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic, weak) FSRefreshHeader *header;
-
 @property (nonatomic, weak) UITableView *tableView;
+
+@property (nonatomic, strong) NSArray *dataArray;
 
 @end
 
 @implementation FSController26
-
-/*
- A Boolean value that indicates whether the view controller should automatically adjust its scroll view insets.
- The default value of this property is YES, which lets container view controllers know that they should adjust the scroll view insets of this view controller’s view to account for screen areas consumed by a status bar, search bar, navigation bar, toolbar, or tab bar. Set this property to NO if your view controller implementation manages its own scroll view inset adjustments.
- */
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     UITableView *tableView = [[UITableView alloc] init];
     
-    FSRefreshHeader *header = [FSRefreshHeader new];
-
-    [header addTarget:self action:@selector(beginRefreshAction:) forControlEvents:UIControlEventValueChanged];
-    
-    tableView.fs_refreshHeader = header;
-    
     tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    tableView.frame = self.view.bounds;
     
     self.tableView = tableView;
     
@@ -45,56 +37,17 @@
     
     tableView.dataSource = self;
     
-//    tableView.contentInset = UIEdgeInsetsMake(80, 0, 0, 0);
-    
     [self.view addSubview:tableView];
-
-    [header beginRefreshing];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"right" style:UIBarButtonItemStylePlain target:self action:@selector(doRightAction)];
-}
-
-- (void)beginRefreshAction:(FSRefreshHeader *)header
-{
-    NSLog(@"正在进行刷新......");
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [header endRefreshing];
-    });
-}
-
-
-- (void)doRightAction
-{
-    self.tableView.frame = CGRectMake(30, 100, self.view.width - 60, self.view.height - 100);
-}
-
-- (void)viewWillLayoutSubviews
-{
-    [super viewWillLayoutSubviews];
-    
-    self.tableView.frame = self.view.bounds;
-    
-//    _tableView.contentOffset = CGPointMake(0, -100);
-    
-//    _tableView.contentInset = UIEdgeInsetsMake(54, 0, 0, 0);
-
-
-    
-//    self.tableView.center = self.view.center;
-//    self.tableView.bounds = self.view.bounds;
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
+    self.dataArray =
+  @[@{@"class":[FSSimpleRefreshExample class],@"title":@"简单的刷新控件"},
+    @{@"class":[FSQQRefreshExample class],@"title":@"仿QQ刷新控件"},
+    @{@"class":[UIRefreshControlExample class],@"title":@"系统自带(UIRefreshControl)"},];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 30;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -112,9 +65,26 @@
         cell.textLabel.textColor = [UIColor darkTextColor];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"fs-%ld", (indexPath.row + 1)];
+    NSDictionary *dict = [self.dataArray objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = [dict objectForKey:@"title"];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *dict = [self.dataArray objectAtIndex:indexPath.row];
+
+    Class classObj = [dict objectForKey:@"class"];
+    
+    if (classObj == nil) {
+        return;
+    }
+    
+    UIViewController *controller = [classObj new];
+    
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 

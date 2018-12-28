@@ -88,55 +88,14 @@ static NSString * const kUIScrollViewContentOffsetKey = @"contentOffset";
     CGRect newFrame = CGRectMake(0, -kHeaderHeight, width, kHeaderHeight);
     
     [super setFrame:newFrame];
-    
 }
 
-- (void)willMoveToSuperview:(UIView *)newSuperview
-{
-    [super willMoveToSuperview:newSuperview];
-    
-    if (newSuperview)
-    {
-        if ([newSuperview isKindOfClass:[UIScrollView class]])
-        {
-            [self addObserverWithSuperView:newSuperview];
-        }
-    }
-    else
-    {
-        [self removeObserver];
-    }
-}
 
-- (void)addObserverWithSuperView:(UIView *)superView
-{
-    NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
-    
-    [superView addObserver:self forKeyPath:kUIScrollViewContentOffsetKey options:options context:nil];
-}
-
-- (UIEdgeInsets)scrollViewEdgeInsets:(UIScrollView *)scrollView
-{
-    UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-    
-    if (@available(iOS 11.0, *))
-    {
-        edgeInsets = scrollView.adjustedContentInset;
-    }
-    else
-    {
-        edgeInsets = scrollView.contentInset;
-    }
-    
-    return edgeInsets;
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+- (void)scrollViewContentOffsetDidChange:(NSDictionary<NSKeyValueChangeKey,id> *)change
 {
     UIScrollView *scrollView = (id)self.superview;
     
-    if (![scrollView isKindOfClass:[UIScrollView class]])
-    {
+    if (![scrollView isKindOfClass:[UIScrollView class]]) {
         return;
     }
     
@@ -155,11 +114,6 @@ static NSString * const kUIScrollViewContentOffsetKey = @"contentOffset";
 //        NSLog(@"向上滑动");
         
         return;
-    }
-    
-    if (self.status == FSRefreshStatusRefreshing)
-    {
-        
     }
     
     if (scrollView.isDragging)
@@ -257,7 +211,7 @@ static NSString * const kUIScrollViewContentOffsetKey = @"contentOffset";
     
     __block UIEdgeInsets oldInsets = scrollView.contentInset;
     
-    [UIView animateWithDuration:.75 animations:^{
+    [UIView animateWithDuration:.5 animations:^{
         
         oldInsets.top -= kHeaderHeight;
         
@@ -267,13 +221,7 @@ static NSString * const kUIScrollViewContentOffsetKey = @"contentOffset";
     self.status = FSRefreshStatusIdle;
 }
 
-- (void)removeObserver
-{
-    if ([self.superview isKindOfClass:[UIScrollView class]])
-    {
-        [self.superview removeObserver:self forKeyPath:kUIScrollViewContentOffsetKey];
-    }
-}
+
 
 - (void)drawRect:(CGRect)rect
 {

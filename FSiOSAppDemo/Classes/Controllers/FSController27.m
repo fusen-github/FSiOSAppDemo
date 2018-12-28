@@ -7,8 +7,8 @@
 //
 
 #import "FSController27.h"
-#import "FSQQRefreshHeader.h"
-#import "UIScrollView+Extention.h"
+
+
 
 
 @interface FSController27 ()<UITableViewDelegate,UITableViewDataSource>
@@ -25,10 +25,6 @@
     
     UITableView *tableView = [[UITableView alloc] init];
     
-    FSQQRefreshHeader *header = [FSQQRefreshHeader new];
-    
-    tableView.fs_refreshHeader = header;
-    
     self.tableView = tableView;
     
     tableView.delegate = self;
@@ -36,8 +32,6 @@
     tableView.dataSource = self;
     
     tableView.contentInset = UIEdgeInsetsMake(54, 0, 0, 0);
-    
-//    tableView.alwaysBounceHorizontal = NO;
     
     [self.view addSubview:tableView];
 }
