@@ -7,13 +7,13 @@
 //
 
 #import "FSController26.h"
-#import "FSQQRefreshHeader.h"
+#import "FSRefreshHeader.h"
 #import "UIScrollView+Extention.h"
 
 
 @interface FSController26 ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic, weak) FSQQRefreshHeader *header;
+@property (nonatomic, weak) FSRefreshHeader *header;
 
 @property (nonatomic, weak) UITableView *tableView;
 
@@ -31,7 +31,7 @@
     
     UITableView *tableView = [[UITableView alloc] init];
     
-    FSQQRefreshHeader *header = [FSQQRefreshHeader new];
+    FSRefreshHeader *header = [FSRefreshHeader new];
 
     [header addTarget:self action:@selector(beginRefreshAction:) forControlEvents:UIControlEventValueChanged];
     
@@ -49,10 +49,12 @@
     
     [self.view addSubview:tableView];
 
+    [header beginRefreshing];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"right" style:UIBarButtonItemStylePlain target:self action:@selector(doRightAction)];
 }
 
-- (void)beginRefreshAction:(FSQQRefreshHeader *)header
+- (void)beginRefreshAction:(FSRefreshHeader *)header
 {
     NSLog(@"正在进行刷新......");
     
@@ -61,6 +63,7 @@
         [header endRefreshing];
     });
 }
+
 
 - (void)doRightAction
 {

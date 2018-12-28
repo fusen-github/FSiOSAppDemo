@@ -12,16 +12,6 @@
 
 @implementation UIScrollView (Extention)
 
-//+ (void)load
-//{
-//    Method m1 = class_getInstanceMethod([self class], @selector(layoutSubviews));
-//
-//    Method m2 = class_getInstanceMethod([self class], @selector(extention_layoutSubviews));
-//
-//    method_exchangeImplementations(m1, m2);
-//}
-
-
 - (void)setFs_refreshHeader:(UIView *)fs_refreshHeader
 {
     UIView *oldHeader = self.fs_refreshHeader;
@@ -44,21 +34,5 @@
     return header;
 }
 
-
-//- (void)extention_layoutSubviews
-//{
-//    [self extention_layoutSubviews];
-//
-//    CGFloat width = self.fs_refreshHeader.bounds.size.width;
-//
-//    CGFloat selfWidth = self.bounds.size.width;
-//
-//    if (selfWidth != width)
-//    {
-//        NSLog(@"来了");
-//
-//        self.fs_refreshHeader.bounds = CGRectMake(0, 0, selfWidth, 54);
-//    }
-//}
 
 @end

@@ -10,4 +10,11 @@
 
 @interface FSRefreshHeader : FSRefreshComponent
 
+/**
+ 立即进入刷新状态
+ */
+- (void)beginRefreshing;
+
+- (void)endRefreshing;
+
 @end

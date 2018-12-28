@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FSRefreshComponent : UIView
+typedef NS_ENUM(NSInteger, FSRefreshStatus){
+    
+    /* 闲置状态 */
+    FSRefreshStatusIdle,
+    /* 即将刷新的状态(松手立即刷新) */
+    FSRefreshStatusWillRefresh,
+    /* 正在刷新状态 */
+    FSRefreshStatusRefreshing,
+    /* 没有更多数据的状态 */
+    FSRefreshStatusNoMoreData,
+    
+};
+
+@interface FSRefreshComponent : UIControl
 
 @end
