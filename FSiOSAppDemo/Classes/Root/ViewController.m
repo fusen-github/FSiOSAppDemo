@@ -54,7 +54,10 @@ static NSString * const kControllerTitleKey = @"kControllerTitleKey";
     @{kControllerNameKey:@"FSController22",kControllerTitleKey:@"粘性控件"},
     @{kControllerNameKey:@"FSController23",kControllerTitleKey:@"UITableViewCell"},
     @{kControllerNameKey:@"FSController24",kControllerTitleKey:@"UILabel"},
-    @{kControllerNameKey:@"FSController25",kControllerTitleKey:@"xxx"},
+    @{kControllerNameKey:@"FSController25",kControllerTitleKey:@"测试自动布局"},
+    @{kControllerNameKey:@"FSController26",kControllerTitleKey:@"仿QQ刷新控件"},
+    @{kControllerNameKey:@"FSController27",kControllerTitleKey:@"测试刷新"},
+    @{kControllerNameKey:@"FSController28",kControllerTitleKey:@"UIRefreshControl"},
 ];
     
     
